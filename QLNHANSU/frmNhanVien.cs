@@ -212,13 +212,6 @@ namespace QLNHANSU
             {
                 tb_NHANVIEN nv = new tb_NHANVIEN();
                 nv.HOTEN = txtHoTen.Text;
-
-
-
-                
-
-
-
                 nv.GIOITINH = chkGioiTinh.Checked;                                    ////////////
                 nv.NGAYSINH = dtNgaySinh.Value;
                 nv.DIENTHOAI = txtDienThoai.Text;
