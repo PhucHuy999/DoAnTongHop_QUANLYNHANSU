@@ -17,8 +17,10 @@ namespace QLNHANSU
     {
 
         HOPDONGLAODONG _hdld;
+        NHANVIEN _nhanvien;
         bool _them;
-        string _soHD;
+        string _soHD; //để sửa
+        string _MaxSoHD;
         public frmHopDongLaoDong()
         {
             InitializeComponent();
@@ -26,9 +28,11 @@ namespace QLNHANSU
         private void frmHopDongLaoDong_Load(object sender, EventArgs e)
         {
             _hdld = new HOPDONGLAODONG();
+            _nhanvien = new NHANVIEN();
             _them = false;
             _showHide(true);
             loadData();
+            loadNhanVien();
             splitContainer1.Panel1Collapsed = true;
         }
         private void _reset()// reset lai trang text khi sử dụng chức năng thêm
@@ -61,9 +65,15 @@ namespace QLNHANSU
             slkNhanVien.Enabled = !kt;
 
         }
+        void loadNhanVien()
+        {
+            slkNhanVien.Properties.DataSource = _nhanvien.getList();
+            slkNhanVien.Properties.ValueMember = "MANV";
+            slkNhanVien.Properties.DisplayMember = "HOTEN";
+        }
         private void loadData()
         {
-            gcDanhSach.DataSource = _hdld.getList();
+            gcDanhSach.DataSource = _hdld.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
            
         }
@@ -128,15 +138,43 @@ namespace QLNHANSU
         private void SaveData()
         {
 
-
             if (_them)
             {
-                
+                //số hđ có dạng: 00001/2023/HĐLĐ
+                var maxSoHD = _hdld.MaxSoHopDong();
+                int so = int.Parse(maxSoHD.Substring(0, 5)) + 1;
 
+                tb_HOPDONG hd = new tb_HOPDONG();
+                hd.SOHD = so.ToString("00000") + @"/2023/HĐLĐ";
+                hd.NGAYBATDAU = dtNgayBatDau.Value;
+                hd.NGAYKETTHUC = dtNgayKetThuc.Value;
+                hd.NGAYKY = dtNgayKy.Value;
+                hd.THOIHAN = cboThoiHan.Text;
+                hd.HESOLUONG = double.Parse(spHeSoLuong.EditValue.ToString());
+                hd.LANKY = int.Parse(spLanKy.EditValue.ToString());
+                hd.MANV = int.Parse(slkNhanVien.EditValue.ToString());
+                hd.NOIDUNG = txtNoiDung.RtfText;
+                hd.MACTY = 1;
+                hd.CREATED_BY = 1;
+                hd.CREATED_DATE = DateTime.Now;
+                _hdld.Add(hd);  
             }
             else
             {
-               
+                var hd = _hdld.getItem(_soHD);
+                //hd.SOHD = so.ToString("00000") + @"/2023/HĐLĐ"; //số hợp đồng k cho sửa 
+                hd.NGAYBATDAU = dtNgayBatDau.Value;
+                hd.NGAYKETTHUC = dtNgayKetThuc.Value;
+                hd.NGAYKY = dtNgayKy.Value;
+                hd.THOIHAN = cboThoiHan.Text;
+                hd.HESOLUONG = double.Parse(spHeSoLuong.EditValue.ToString());
+                hd.LANKY = int.Parse(spLanKy.EditValue.ToString());
+                hd.MANV = int.Parse(slkNhanVien.EditValue.ToString());
+                hd.NOIDUNG = txtNoiDung.RtfText;
+                hd.MACTY = 1;
+                hd.CREATED_BY = 1;
+                hd.CREATED_DATE = DateTime.Now;
+                _hdld.Update(hd);
             }
         }
 
@@ -145,7 +183,19 @@ namespace QLNHANSU
             if (gvDanhSach.RowCount > 0)
             {
                 _soHD = gvDanhSach.GetFocusedRowCellValue("SOHD").ToString();
-              
+
+                var hd = _hdld.getItem(_soHD);
+                txtSoHD.Text = _soHD;
+                dtNgayBatDau.Value = hd.NGAYBATDAU.Value;
+                dtNgayKetThuc.Value = hd.NGAYKETTHUC.Value;
+                dtNgayKy.Value = hd.NGAYKY.Value;
+                cboThoiHan.Text = hd.THOIHAN;
+                spHeSoLuong.Text = hd.HESOLUONG.ToString();
+                spLanKy.Text = hd.LANKY.ToString();
+                slkNhanVien.EditValue = hd.MANV;
+                txtNoiDung.RtfText = hd.NOIDUNG;
+
+
                 //splitContainer1.Panel1Collapsed = false;
             }
         }
