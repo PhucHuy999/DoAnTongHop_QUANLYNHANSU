@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using QLNHANSU.Reports;
+using DevExpress.XtraReports.UI;
+using BusinessLayer.DTO;
 
 namespace QLNHANSU
 {
@@ -20,7 +23,8 @@ namespace QLNHANSU
         NHANVIEN _nhanvien;
         bool _them;
         string _soHD; //để sửa
-        string _MaxSoHD;
+        //string _MaxSoHD;
+        List<HOPDONG_DTO> _lstHD;
         public frmHopDongLaoDong()
         {
             InitializeComponent();
@@ -128,7 +132,9 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            _lstHD = _hdld.getItemFull(_soHD);
+            rptHopDongLaoDong rpt = new rptHopDongLaoDong(_lstHD);
+            rpt.ShowPreviewDialog();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -194,6 +200,7 @@ namespace QLNHANSU
                 spLanKy.Text = hd.LANKY.ToString();
                 slkNhanVien.EditValue = hd.MANV;
                 txtNoiDung.RtfText = hd.NOIDUNG;
+                _lstHD = _hdld.getItemFull(_soHD);
 
 
                 //splitContainer1.Panel1Collapsed = false;

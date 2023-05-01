@@ -15,6 +15,43 @@ namespace BusinessLayer
         {
             return db.tb_HOPDONG.FirstOrDefault(x => x.SOHD == sohd);
         }
+        public List<HOPDONG_DTO> getItemFull(string sohd) // đưa về list 1 phần tử mới rpt mới nhận đậu xanh :v
+        {
+            List<tb_HOPDONG> lstHD = db.tb_HOPDONG.Where(x=>x.SOHD==sohd).ToList();
+            List<HOPDONG_DTO> lstDTO = new List<HOPDONG_DTO>();
+            HOPDONG_DTO hd;
+            foreach (var item in lstHD)
+            {
+                hd = new HOPDONG_DTO();
+                hd.SOHD = item.SOHD;
+                //hd.NGAYBATDAU = "Từ ngày " + item.NGAYBATDAU.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYBATDAU.Value.ToString("dd/MM/yyyy").Substring(3, 2) + " năm " + item.NGAYBATDAU.Value.ToString("dd/MM/yyyy").Substring(6);
+                hd.NGAYBATDAU = item.NGAYBATDAU.Value.ToString("dd/MM/yyyy");
+                hd.NGAYKETTHUC = item.NGAYKETTHUC.Value.ToString("dd/MM/yyyy"); ;
+                //hd.NGAYKY = item.NGAYKY.Value.ToString("dd/MM/yyyy");
+                hd.NGAYKY = "ngày " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(3, 2) + " năm " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(6);
+                hd.LANKY = item.LANKY;
+                hd.HESOLUONG = item.HESOLUONG;
+                hd.NOIDUNG = item.NOIDUNG;
+                hd.MANV = item.MANV;
+                hd.THOIHAN = item.THOIHAN;
+                var nv = db.tb_NHANVIEN.FirstOrDefault(n => n.MANV == item.MANV);
+                hd.HOTEN = nv.HOTEN;
+                hd.DIENTHOAI = nv.DIENTHOAI;
+                hd.NGAYSINH = nv.NGAYSINH.Value.ToString("dd/MM/yyyy");
+                hd.CCCD = nv.CCCD;
+                hd.DIACHI = nv.DIACHI;
+                hd.CREATED_BY = item.CREATED_BY;
+                hd.CREATED_DATE = item.CREATED_DATE;
+                hd.UPDATED_BY = item.UPDATED_BY;
+                hd.UPDATED_DATE = item.UPDATED_DATE;
+                hd.DELETED_BY = item.DELETED_BY;
+                hd.DELETED_DATE = item.DELETED_DATE;
+                hd.MACTY = item.MACTY;
+                lstDTO.Add(hd);
+
+            }
+            return lstDTO;
+        }
         public List<tb_HOPDONG> getList()
         {
             return db.tb_HOPDONG.ToList();
@@ -28,10 +65,12 @@ namespace BusinessLayer
             foreach(var item in lstHD)
             {
                 hd = new HOPDONG_DTO();
-                hd.SOHD = item.SOHD;  
-                hd.NGAYBATDAU = item.NGAYBATDAU;
-                hd.NGAYKETTHUC = item.NGAYKETTHUC;
-                hd.NGAYKY = item.NGAYKY;
+                hd.SOHD = item.SOHD;
+                //hd.NGAYBATDAU = "Từ ngày " + item.NGAYBATDAU.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYBATDAU.Value.ToString("dd/MM/yyyy").Substring(3, 2)+ " năm " + item.NGAYBATDAU.Value.ToString("dd/MM/yyyy").Substring(6);
+                hd.NGAYBATDAU = item.NGAYBATDAU.Value.ToString("dd/MM/yyyy");
+                hd.NGAYKETTHUC = item.NGAYKETTHUC.Value.ToString("dd/MM/yyyy");
+                //hd.NGAYKY = item.NGAYKY.Value.ToString("dd/MM/yyyy");
+                hd.NGAYKY = "ngày " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(3, 2) + " năm " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(6);
                 hd.LANKY = item.LANKY;
                 hd.HESOLUONG = item.HESOLUONG;
                 hd.NOIDUNG = item.NOIDUNG;
@@ -39,6 +78,10 @@ namespace BusinessLayer
                 hd.THOIHAN = item.THOIHAN;
                 var nv = db.tb_NHANVIEN.FirstOrDefault(n=>n.MANV==item.MANV);
                 hd.HOTEN = nv.HOTEN;
+                hd.NGAYSINH = nv.NGAYSINH.Value.ToString("dd/MM/yyyy");
+                hd.DIENTHOAI = nv.DIENTHOAI;
+                hd.CCCD =   nv.CCCD;
+                hd.DIACHI = nv.DIACHI;                
                 hd.CREATED_BY = item.CREATED_BY;
                 hd.CREATED_DATE = item.CREATED_DATE;    
                 hd.UPDATED_BY = item.UPDATED_BY;    

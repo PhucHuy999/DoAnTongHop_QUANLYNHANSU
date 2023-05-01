@@ -46,6 +46,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cboThoiHan = new System.Windows.Forms.ComboBox();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.txtNoiDung = new DevExpress.XtraRichEdit.RichEditControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.slkNhanVien = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -73,10 +75,8 @@
             this.THOIHAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.HESOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LANKY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.HOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.cboThoiHan = new System.Windows.Forms.ComboBox();
+            this.MANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYKY = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -278,6 +278,29 @@
             this.splitContainer1.SplitterDistance = 455;
             this.splitContainer1.TabIndex = 7;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // cboThoiHan
+            // 
+            this.cboThoiHan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboThoiHan.FormattingEnabled = true;
+            this.cboThoiHan.Items.AddRange(new object[] {
+            "3 tháng",
+            "6 tháng",
+            "12 tháng"});
+            this.cboThoiHan.Location = new System.Drawing.Point(595, 30);
+            this.cboThoiHan.Name = "cboThoiHan";
+            this.cboThoiHan.Size = new System.Drawing.Size(127, 21);
+            this.cboThoiHan.TabIndex = 17;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(531, 31);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(58, 17);
+            this.labelControl9.TabIndex = 16;
+            this.labelControl9.Text = "Thời hạn:";
             // 
             // txtNoiDung
             // 
@@ -515,9 +538,9 @@
             this.THOIHAN,
             this.HESOLUONG,
             this.LANKY,
-            this.NGAYKY,
+            this.HOTEN,
             this.MANV,
-            this.HOTEN});
+            this.NGAYKY});
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
@@ -601,6 +624,19 @@
             this.LANKY.VisibleIndex = 5;
             this.LANKY.Width = 120;
             // 
+            // HOTEN
+            // 
+            this.HOTEN.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.HOTEN.AppearanceHeader.Options.UseFont = true;
+            this.HOTEN.Caption = "NHANVIEN";
+            this.HOTEN.FieldName = "HOTEN";
+            this.HOTEN.MaxWidth = 100;
+            this.HOTEN.MinWidth = 100;
+            this.HOTEN.Name = "HOTEN";
+            this.HOTEN.Visible = true;
+            this.HOTEN.VisibleIndex = 7;
+            this.HOTEN.Width = 100;
+            // 
             // MANV
             // 
             this.MANV.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -612,54 +648,18 @@
             this.MANV.Name = "MANV";
             this.MANV.Width = 300;
             // 
-            // HOTEN
-            // 
-            this.HOTEN.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.HOTEN.AppearanceHeader.Options.UseFont = true;
-            this.HOTEN.Caption = "NHÂN VIÊN";
-            this.HOTEN.FieldName = "HOTEN";
-            this.HOTEN.MaxWidth = 200;
-            this.HOTEN.MinWidth = 200;
-            this.HOTEN.Name = "HOTEN";
-            this.HOTEN.Visible = true;
-            this.HOTEN.VisibleIndex = 6;
-            this.HOTEN.Width = 200;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(531, 31);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(58, 17);
-            this.labelControl9.TabIndex = 16;
-            this.labelControl9.Text = "Thời hạn:";
-            // 
-            // cboThoiHan
-            // 
-            this.cboThoiHan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboThoiHan.FormattingEnabled = true;
-            this.cboThoiHan.Items.AddRange(new object[] {
-            "3 tháng",
-            "6 tháng",
-            "12 tháng"});
-            this.cboThoiHan.Location = new System.Drawing.Point(595, 30);
-            this.cboThoiHan.Name = "cboThoiHan";
-            this.cboThoiHan.Size = new System.Drawing.Size(127, 21);
-            this.cboThoiHan.TabIndex = 17;
-            // 
             // NGAYKY
             // 
             this.NGAYKY.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.NGAYKY.AppearanceHeader.Options.UseFont = true;
             this.NGAYKY.Caption = "NGÀY KÝ";
             this.NGAYKY.FieldName = "NGAYKY";
-            this.NGAYKY.MaxWidth = 100;
-            this.NGAYKY.MinWidth = 100;
+            this.NGAYKY.MaxWidth = 200;
+            this.NGAYKY.MinWidth = 200;
             this.NGAYKY.Name = "NGAYKY";
             this.NGAYKY.Visible = true;
-            this.NGAYKY.VisibleIndex = 7;
-            this.NGAYKY.Width = 100;
+            this.NGAYKY.VisibleIndex = 6;
+            this.NGAYKY.Width = 200;
             // 
             // frmHopDongLaoDong
             // 
@@ -719,7 +719,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn HESOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn LANKY;
         private DevExpress.XtraGrid.Columns.GridColumn MANV;
-        private DevExpress.XtraGrid.Columns.GridColumn HOTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn NGAYKY;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.DateTimePicker dtNgayKy;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -741,6 +741,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHoTen;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private System.Windows.Forms.ComboBox cboThoiHan;
-        private DevExpress.XtraGrid.Columns.GridColumn NGAYKY;
+        private DevExpress.XtraGrid.Columns.GridColumn HOTEN;
     }
 }
