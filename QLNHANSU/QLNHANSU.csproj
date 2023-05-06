@@ -244,6 +244,10 @@
   <ItemGroup>
     <None Include="Resources\no-image.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\DauX %281%29 %281%29.jpg" />
+    <None Include="Resources\del_Icon.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

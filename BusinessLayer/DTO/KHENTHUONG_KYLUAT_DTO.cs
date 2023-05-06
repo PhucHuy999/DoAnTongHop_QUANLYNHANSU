@@ -24,6 +24,7 @@ namespace BusinessLayer.DTO
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
         public Nullable<int> DELETED_BY { get; set; }
         public Nullable<System.DateTime> DELETED_DATE { get; set; }
+        public Nullable<bool> DISABLED { get; set; }
 
         public virtual tb_NHANVIEN tb_NHANVIEN { get; set; }
     }

@@ -38,6 +38,8 @@ namespace BusinessLayer
                 kt.LOAI = item.LOAI;
                 kt.NOIDUNG = item.NOIDUNG;
                 kt.MANV = item.MANV;
+                kt.DISABLED = item.DISABLED;
+                
                 
                 var nv = db.tb_NHANVIEN.FirstOrDefault(n => n.MANV == item.MANV);
                 kt.HOTEN = nv.HOTEN;
@@ -48,7 +50,7 @@ namespace BusinessLayer
                 kt.UPDATED_DATE = item.UPDATED_DATE;
                 kt.DELETED_BY = item.DELETED_BY;
                 kt.DELETED_DATE = item.DELETED_DATE;
-              
+             
                 lstDTO.Add(kt);
 
             }
@@ -83,6 +85,7 @@ namespace BusinessLayer
                 _kt.UPDATED_BY = kt.UPDATED_BY;
                 _kt.UPDATED_DATE = kt.UPDATED_DATE; 
                 _kt.MANV = kt.MANV;
+                _kt.DISABLED = kt.DISABLED;
                 db.SaveChanges();
                 return kt;
             }
@@ -99,7 +102,8 @@ namespace BusinessLayer
             {
                 tb_KHENTHUONG_KYLUAT _kt = db.tb_KHENTHUONG_KYLUAT.FirstOrDefault(x => x.SOQUYETDINH == soQD);
                 _kt.DELETED_BY = maNV;    
-                _kt.DELETED_DATE = DateTime.Now; 
+                _kt.DELETED_DATE = DateTime.Now;
+                _kt.DISABLED = true;
                 db.SaveChanges();
                
             }

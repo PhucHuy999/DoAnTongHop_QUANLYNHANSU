@@ -46,6 +46,13 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.chkDisabled = new System.Windows.Forms.CheckBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.dtNgay = new System.Windows.Forms.DateTimePicker();
+            this.txtNoiDung = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtLyDo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.slkNhanVien = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaNV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,6 +62,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.DISABLED = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SOQUYETDINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYKETTHUC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,24 +72,18 @@
             this.HOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYKY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtLyDo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtNoiDung = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.dtNgay = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLyDo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.slkNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoQD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLyDo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -243,6 +245,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.chkDisabled);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl4);
             this.splitContainer1.Panel1.Controls.Add(this.dtNgay);
             this.splitContainer1.Panel1.Controls.Add(this.txtNoiDung);
@@ -261,6 +264,76 @@
             this.splitContainer1.Size = new System.Drawing.Size(1258, 607);
             this.splitContainer1.SplitterDistance = 146;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // chkDisabled
+            // 
+            this.chkDisabled.AutoSize = true;
+            this.chkDisabled.Location = new System.Drawing.Point(858, 29);
+            this.chkDisabled.Name = "chkDisabled";
+            this.chkDisabled.Size = new System.Drawing.Size(66, 17);
+            this.chkDisabled.TabIndex = 20;
+            this.chkDisabled.Text = "Disabled";
+            this.chkDisabled.UseVisualStyleBackColor = true;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(298, 29);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(28, 16);
+            this.labelControl4.TabIndex = 19;
+            this.labelControl4.Text = "Ngày";
+            // 
+            // dtNgay
+            // 
+            this.dtNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtNgay.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dtNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNgay.Location = new System.Drawing.Point(332, 25);
+            this.dtNgay.Name = "dtNgay";
+            this.dtNgay.Size = new System.Drawing.Size(153, 24);
+            this.dtNgay.TabIndex = 18;
+            // 
+            // txtNoiDung
+            // 
+            this.txtNoiDung.Location = new System.Drawing.Point(127, 93);
+            this.txtNoiDung.MenuManager = this.barManager1;
+            this.txtNoiDung.Name = "txtNoiDung";
+            this.txtNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtNoiDung.Properties.Appearance.Options.UseFont = true;
+            this.txtNoiDung.Size = new System.Drawing.Size(693, 22);
+            this.txtNoiDung.TabIndex = 17;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(55, 96);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(64, 17);
+            this.labelControl3.TabIndex = 16;
+            this.labelControl3.Text = "NỘI DUNG";
+            // 
+            // txtLyDo
+            // 
+            this.txtLyDo.Location = new System.Drawing.Point(127, 59);
+            this.txtLyDo.MenuManager = this.barManager1;
+            this.txtLyDo.Name = "txtLyDo";
+            this.txtLyDo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtLyDo.Properties.Appearance.Options.UseFont = true;
+            this.txtLyDo.Size = new System.Drawing.Size(693, 22);
+            this.txtLyDo.TabIndex = 15;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(85, 62);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(34, 16);
+            this.labelControl2.TabIndex = 14;
+            this.labelControl2.Text = "LÝ DO";
             // 
             // slkNhanVien
             // 
@@ -357,6 +430,7 @@
             // gvDanhSach
             // 
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.DISABLED,
             this.SOQUYETDINH,
             this.NGAY,
             this.NGAYKETTHUC,
@@ -369,7 +443,22 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
+            this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
+            // 
+            // DISABLED
+            // 
+            this.DISABLED.AccessibleName = "";
+            this.DISABLED.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.DISABLED.AppearanceHeader.Options.UseFont = true;
+            this.DISABLED.Caption = "DEL";
+            this.DISABLED.FieldName = "DISABLED";
+            this.DISABLED.MaxWidth = 30;
+            this.DISABLED.MinWidth = 30;
+            this.DISABLED.Name = "DISABLED";
+            this.DISABLED.Visible = true;
+            this.DISABLED.VisibleIndex = 0;
+            this.DISABLED.Width = 30;
             // 
             // SOQUYETDINH
             // 
@@ -381,7 +470,7 @@
             this.SOQUYETDINH.MinWidth = 150;
             this.SOQUYETDINH.Name = "SOQUYETDINH";
             this.SOQUYETDINH.Visible = true;
-            this.SOQUYETDINH.VisibleIndex = 0;
+            this.SOQUYETDINH.VisibleIndex = 1;
             this.SOQUYETDINH.Width = 150;
             // 
             // NGAY
@@ -394,7 +483,7 @@
             this.NGAY.MinWidth = 150;
             this.NGAY.Name = "NGAY";
             this.NGAY.Visible = true;
-            this.NGAY.VisibleIndex = 1;
+            this.NGAY.VisibleIndex = 2;
             this.NGAY.Width = 150;
             // 
             // NGAYKETTHUC
@@ -429,7 +518,7 @@
             this.LYDO.MinWidth = 200;
             this.LYDO.Name = "LYDO";
             this.LYDO.Visible = true;
-            this.LYDO.VisibleIndex = 2;
+            this.LYDO.VisibleIndex = 3;
             this.LYDO.Width = 200;
             // 
             // NOIDUNG
@@ -442,7 +531,7 @@
             this.NOIDUNG.MinWidth = 250;
             this.NOIDUNG.Name = "NOIDUNG";
             this.NOIDUNG.Visible = true;
-            this.NOIDUNG.VisibleIndex = 3;
+            this.NOIDUNG.VisibleIndex = 4;
             this.NOIDUNG.Width = 250;
             // 
             // HOTEN
@@ -480,66 +569,6 @@
             this.NGAYKY.Name = "NGAYKY";
             this.NGAYKY.Width = 200;
             // 
-            // txtLyDo
-            // 
-            this.txtLyDo.Location = new System.Drawing.Point(127, 59);
-            this.txtLyDo.MenuManager = this.barManager1;
-            this.txtLyDo.Name = "txtLyDo";
-            this.txtLyDo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtLyDo.Properties.Appearance.Options.UseFont = true;
-            this.txtLyDo.Size = new System.Drawing.Size(693, 22);
-            this.txtLyDo.TabIndex = 15;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(85, 62);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(34, 16);
-            this.labelControl2.TabIndex = 14;
-            this.labelControl2.Text = "LÝ DO";
-            // 
-            // txtNoiDung
-            // 
-            this.txtNoiDung.Location = new System.Drawing.Point(127, 93);
-            this.txtNoiDung.MenuManager = this.barManager1;
-            this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNoiDung.Properties.Appearance.Options.UseFont = true;
-            this.txtNoiDung.Size = new System.Drawing.Size(693, 22);
-            this.txtNoiDung.TabIndex = 17;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(55, 96);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(64, 17);
-            this.labelControl3.TabIndex = 16;
-            this.labelControl3.Text = "NỘI DUNG";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(298, 29);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(28, 16);
-            this.labelControl4.TabIndex = 19;
-            this.labelControl4.Text = "Ngày";
-            // 
-            // dtNgay
-            // 
-            this.dtNgay.CustomFormat = "dd/MM/yyyy";
-            this.dtNgay.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dtNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgay.Location = new System.Drawing.Point(332, 25);
-            this.dtNgay.Name = "dtNgay";
-            this.dtNgay.Size = new System.Drawing.Size(153, 24);
-            this.dtNgay.TabIndex = 18;
-            // 
             // frmKhenThuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,13 +588,13 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLyDo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.slkNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoQD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLyDo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,5 +642,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.DateTimePicker dtNgay;
+        private System.Windows.Forms.CheckBox chkDisabled;
+        private DevExpress.XtraGrid.Columns.GridColumn DISABLED;
     }
 }

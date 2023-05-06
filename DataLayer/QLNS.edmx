@@ -101,6 +101,7 @@
           <Property Name="UPDATED_DATE" Type="datetime" />
           <Property Name="DELETED_BY" Type="int" />
           <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DISABLED" Type="bit" />
         </EntityType>
         <EntityType Name="tb_LOAICA">
           <Key>
@@ -1007,6 +1008,7 @@
           <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DELETED_BY" Type="Int32" />
           <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DISABLED" Type="Boolean" />
           <NavigationProperty Name="tb_NHANVIEN" Relationship="QLNHANSUModel.FK_tb_KHENTHUONG_KYLUAT_tb_NHANVIEN" FromRole="tb_KHENTHUONG_KYLUAT" ToRole="tb_NHANVIEN" />
         </EntityType>
         <Association Name="FK_tb_KHENTHUONG_KYLUAT_tb_NHANVIEN">
@@ -1225,6 +1227,7 @@
           <EntitySetMapping Name="tb_KHENTHUONG_KYLUAT">
             <EntityTypeMapping TypeName="QLNHANSUModel.tb_KHENTHUONG_KYLUAT">
               <MappingFragment StoreEntitySet="tb_KHENTHUONG_KYLUAT">
+                <ScalarProperty Name="DISABLED" ColumnName="DISABLED" />
                 <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
                 <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
                 <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />

@@ -45,6 +45,7 @@ namespace QLNHANSU
             txtSoQD.Text = string.Empty;
             txtLyDo.Text = string.Empty;
             txtNoiDung.Text = string.Empty;
+            
             //dtNgayBatDau.Value = DateTime.Now;
             //dtNgayKetThuc.Value = dtNgayBatDau.Value.AddMonths(6);
             
@@ -70,6 +71,8 @@ namespace QLNHANSU
             txtSoQD.Enabled = !kt;
             txtLyDo.Enabled = !kt;
             txtNoiDung.Enabled = !kt;
+            dtNgay.Enabled = !kt;
+            //chkDisabled.Enabled = kt;
             //dtNgayBatDau.Enabled = !kt;
             //dtNgayKetThuc.Enabled = !kt;
            
@@ -84,6 +87,8 @@ namespace QLNHANSU
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
+            
             _showHide(false);
             _them = true;
             _reset();
@@ -153,6 +158,7 @@ namespace QLNHANSU
                 kt.LOAI = 1; // loại 1 là KHEN THƯỞNG
                 kt.CREATED_BY = 1;
                 kt.CREATED_DATE = DateTime.Now;
+                kt.DISABLED = chkDisabled.Checked;
                 _ktkl.Add(kt);
             }
             else
@@ -167,6 +173,7 @@ namespace QLNHANSU
                 kt.NOIDUNG = txtNoiDung.Text;
                 kt.UPDATED_BY = 1;
                 kt.UPDATED_DATE = DateTime.Now;
+                kt.DISABLED = chkDisabled.Checked;
                 _ktkl.Update(kt);
             }
         }
@@ -186,10 +193,22 @@ namespace QLNHANSU
                 txtNoiDung.Text = kt.NOIDUNG;
                 txtLyDo.Text = kt.LYDO;
                 //_lstHD = _hdld.getItemFull(_soHD);
-
+                chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
 
                 //splitContainer1.Panel1Collapsed = false;
             }
         }
+
+        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
+           {
+                Image img = Properties.Resources.del_Icon;
+                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
+                e.Handled = true;
+            }
+        }
+
+        
     }
 }
