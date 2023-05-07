@@ -408,6 +408,22 @@ namespace QLNHANSU
             return true;
   
         }
-        
+
+        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.Name == "GIOITINH" && bool.Parse(e.CellValue.ToString()) == true)
+            {
+                Image img = Properties.Resources.GIOITINH_NAM__4_;
+                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
+                e.Handled = true;
+                
+            }
+            if (e.Column.Name == "GIOITINH" && bool.Parse(e.CellValue.ToString()) == false)
+            {
+                Image img = Properties.Resources.GIOITINH_NU__2_;
+                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
+                e.Handled = true;
+            }
+        }
     }
 }

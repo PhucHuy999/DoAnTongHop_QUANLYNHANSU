@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using DataLayer;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -9,19 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataLayer;
-
 
 namespace QLNHANSU
 {
-    public partial class frmKhenThuong : DevExpress.XtraEditors.XtraForm
+    public partial class frmKyLuat : DevExpress.XtraEditors.XtraForm
     {
-        public frmKhenThuong()
+        public frmKyLuat()
         {
             InitializeComponent();
         }
         bool _them;
-        string _soQD; //để sửa
+        string _soQD; 
         KHENTHUONG_KYLUAT _ktkl;
         NHANVIEN _nhanvien;
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -29,7 +28,7 @@ namespace QLNHANSU
 
         }
 
-        private void frmKhenThuong_Load(object sender, EventArgs e)
+        private void frmKyLuat_Load(object sender, EventArgs e)
         {
             _ktkl = new KHENTHUONG_KYLUAT();
             _nhanvien = new NHANVIEN();
@@ -37,7 +36,7 @@ namespace QLNHANSU
             _showHide(true);
             loadNhanVien();
             loadData();
-            
+
             splitContainer1.Panel1Collapsed = true;
         }
         private void _reset()// reset lai trang text khi sử dụng chức năng thêm
@@ -45,10 +44,10 @@ namespace QLNHANSU
             txtSoQD.Text = string.Empty;
             txtLyDo.Text = string.Empty;
             txtNoiDung.Text = string.Empty;
-            
+
             //dtNgayBatDau.Value = DateTime.Now;
             //dtNgayKetThuc.Value = dtNgayBatDau.Value.AddMonths(6);
-            
+
 
             // picHinhAnh.Image = null;
         }
@@ -72,23 +71,23 @@ namespace QLNHANSU
             txtLyDo.Enabled = !kt;
             txtNoiDung.Enabled = !kt;
             dtNgay.Enabled = !kt;
+            dtTuNgay.Enabled = !kt;
+            dtDenNgay.Enabled = !kt;
             //chkDisabled.Enabled = kt;
             //dtNgayBatDau.Enabled = !kt;
             //dtNgayKetThuc.Enabled = !kt;
-           
+
             slkNhanVien.Enabled = !kt;
 
         }
         private void loadData()
         {
-            gcDanhSach.DataSource = _ktkl.getListFull(1);
+            gcDanhSach.DataSource = _ktkl.getListFull(2);
             gvDanhSach.OptionsBehavior.Editable = false;
 
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-            
             _showHide(false);
             _them = true;
             _reset();
@@ -106,7 +105,7 @@ namespace QLNHANSU
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 _ktkl.Delete(_soQD, 1);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
                 loadData();
@@ -143,38 +142,42 @@ namespace QLNHANSU
 
             if (_them)
             {
-                //số hđ có dạng: 00001/2023/HĐLĐ
-                var maxSoQD = _ktkl.MaxSoQuyetDinh(1); //loại "1" là khen thưởng
+                //số hđ có dạng: 00001/2023/QĐKL
+                var maxSoQD = _ktkl.MaxSoQuyetDinh(2); //loại "1" là khen thưởng
                 int so = int.Parse(maxSoQD.Substring(0, 5)) + 1;
 
-                tb_KHENTHUONG_KYLUAT kt = new tb_KHENTHUONG_KYLUAT();
-                kt.SOQUYETDINH = so.ToString("00000") + @"/2023/QĐKT";
+                tb_KHENTHUONG_KYLUAT kl = new tb_KHENTHUONG_KYLUAT();
+                kl.SOQUYETDINH = so.ToString("00000") + @"/2023/QĐKL";
                 //hd.NGAYBATDAU = dtNgayBatDau.Value;
                 //hd.NGAYKETTHUC = dtNgayKetThuc.Value;
-                kt.NGAY = dtNgay.Value;
-                kt.LYDO = txtLyDo.Text;
-                kt.NOIDUNG = txtNoiDung.Text;
-                kt.MANV = int.Parse(slkNhanVien.EditValue.ToString());
-                kt.LOAI = 1; // loại 1 là KHEN THƯỞNG
-                kt.CREATED_BY = 1;
-                kt.CREATED_DATE = DateTime.Now;
-                kt.DISABLED = chkDisabled.Checked;
-                _ktkl.Add(kt);
+                kl.TUNGAY = dtTuNgay.Value;
+                kl.DENNGAY = dtDenNgay.Value;
+                kl.NGAY = dtNgay.Value;
+                kl.LYDO = txtLyDo.Text;
+                kl.NOIDUNG = txtNoiDung.Text;
+                kl.MANV = int.Parse(slkNhanVien.EditValue.ToString());
+                kl.LOAI = 2; // loại 2 là KỶ LUẬT
+                kl.CREATED_BY = 1;
+                kl.CREATED_DATE = DateTime.Now;
+                kl.DISABLED = chkDisabled.Checked;
+                _ktkl.Add(kl);
             }
             else
             {
-                var kt = _ktkl.getItem(_soQD);
+                var kl = _ktkl.getItem(_soQD);
                 //hd.SOHD = so.ToString("00000") + @"/2023/HĐLĐ"; //số hợp đồng k cho sửa 
                 //hd.NGAYBATDAU = dtNgayBatDau.Value;
                 //hd.NGAYKETTHUC = dtNgayKetThuc.Value;
-                kt.NGAY = dtNgay.Value;
-                kt.MANV = int.Parse(slkNhanVien.EditValue.ToString());
-                kt.LYDO = txtLyDo.Text;
-                kt.NOIDUNG = txtNoiDung.Text;
-                kt.UPDATED_BY = 1;
-                kt.UPDATED_DATE = DateTime.Now;
-                kt.DISABLED = chkDisabled.Checked;
-                _ktkl.Update(kt);
+                kl.NGAY = dtNgay.Value;
+                kl.TUNGAY = dtTuNgay.Value;
+                kl.DENNGAY = dtDenNgay.Value;
+                kl.MANV = int.Parse(slkNhanVien.EditValue.ToString());
+                kl.LYDO = txtLyDo.Text;
+                kl.NOIDUNG = txtNoiDung.Text;
+                kl.UPDATED_BY = 1;
+                kl.UPDATED_DATE = DateTime.Now;
+                kl.DISABLED = chkDisabled.Checked;
+                _ktkl.Update(kl);
             }
         }
 
@@ -184,22 +187,25 @@ namespace QLNHANSU
             {
                 _soQD = gvDanhSach.GetFocusedRowCellValue("SOQUYETDINH").ToString();
 
-                var kt = _ktkl.getItem(_soQD);
+                var kl = _ktkl.getItem(_soQD);
                 txtSoQD.Text = _soQD;
                 //dtNgayBatDau.Value = hd.NGAYBATDAU.Value;
                 //dtNgayKetThuc.Value = hd.NGAYKETTHUC.Value;
-                dtNgay.Value = kt.NGAY.Value;
-                slkNhanVien.EditValue = kt.MANV;
-                txtNoiDung.Text = kt.NOIDUNG;
-                txtLyDo.Text = kt.LYDO;
+                dtNgay.Value = kl.NGAY.Value;
+                dtTuNgay.Value = kl.TUNGAY.Value;
+                dtDenNgay.Value = kl.DENNGAY.Value;
+                slkNhanVien.EditValue = kl.MANV;
+                txtNoiDung.Text = kl.NOIDUNG;
+                txtLyDo.Text = kl.LYDO;
                 //_lstHD = _hdld.getItemFull(_soHD);
                 chkDisabled.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("DISABLED").ToString());
 
                 //splitContainer1.Panel1Collapsed = false;
             }
         }
+        
 
-        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        private void gvDanhSach_CustomDrawCell_1(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             if (e.Column.Name == "DISABLED" && bool.Parse(e.CellValue.ToString()) == true)
             {

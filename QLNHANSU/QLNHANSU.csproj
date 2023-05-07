@@ -122,6 +122,12 @@
     <Compile Include="frmKhenThuong.Designer.cs">
       <DependentUpon>frmKhenThuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKyLuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKyLuat.Designer.cs">
+      <DependentUpon>frmKyLuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     <EmbeddedResource Include="frmKhenThuong.resx">
       <DependentUpon>frmKhenThuong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmKyLuat.resx">
+      <DependentUpon>frmKyLuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DauX %281%29 %281%29.jpg" />
+    <None Include="Resources\GIOITINH_NAM %284%29.png" />
+    <None Include="Resources\GIOITINH_NU %282%29.png" />
+    <None Include="Resources\GIOITINH_NU.png" />
     <None Include="Resources\del_Icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

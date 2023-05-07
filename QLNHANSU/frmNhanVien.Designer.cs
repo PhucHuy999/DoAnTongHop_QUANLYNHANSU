@@ -294,7 +294,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gcDanhSach);
             this.splitContainer1.Size = new System.Drawing.Size(1236, 573);
-            this.splitContainer1.SplitterDistance = 208;
+            this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 6;
             // 
             // btnChonHinh
@@ -547,7 +547,7 @@
             this.gcDanhSach.MainView = this.gvDanhSach;
             this.gcDanhSach.MenuManager = this.barManager1;
             this.gcDanhSach.Name = "gcDanhSach";
-            this.gcDanhSach.Size = new System.Drawing.Size(1236, 361);
+            this.gcDanhSach.Size = new System.Drawing.Size(1236, 364);
             this.gcDanhSach.TabIndex = 0;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDanhSach});
@@ -578,6 +578,7 @@
             this.gvDanhSach.GridControl = this.gcDanhSach;
             this.gvDanhSach.Name = "gvDanhSach";
             this.gvDanhSach.OptionsView.ShowGroupPanel = false;
+            this.gvDanhSach.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvDanhSach_CustomDrawCell);
             this.gvDanhSach.Click += new System.EventHandler(this.gvDanhSach_Click);
             // 
             // MANV
@@ -612,12 +613,12 @@
             this.GIOITINH.AppearanceHeader.Options.UseFont = true;
             this.GIOITINH.Caption = "Giới Tính";
             this.GIOITINH.FieldName = "GIOITINH";
-            this.GIOITINH.MaxWidth = 120;
-            this.GIOITINH.MinWidth = 120;
+            this.GIOITINH.MaxWidth = 58;
+            this.GIOITINH.MinWidth = 58;
             this.GIOITINH.Name = "GIOITINH";
             this.GIOITINH.Visible = true;
             this.GIOITINH.VisibleIndex = 2;
-            this.GIOITINH.Width = 120;
+            this.GIOITINH.Width = 58;
             // 
             // NGAYSINH
             // 
