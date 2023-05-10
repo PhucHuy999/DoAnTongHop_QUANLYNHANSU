@@ -140,6 +140,12 @@
     <Compile Include="frmNhanVien_DieuChuyen.Designer.cs">
       <DependentUpon>frmNhanVien_DieuChuyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNhanVien_ThoiViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhanVien_ThoiViec.Designer.cs">
+      <DependentUpon>frmNhanVien_ThoiViec.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPhongBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien_DieuChuyen.resx">
       <DependentUpon>frmNhanVien_DieuChuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhanVien_ThoiViec.resx">
+      <DependentUpon>frmNhanVien_ThoiViec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhongBan.resx">
       <DependentUpon>frmPhongBan.cs</DependentUpon>

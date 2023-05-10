@@ -39,7 +39,7 @@ namespace BusinessLayer
                 nvDTO.DIENTHOAI = item.DIENTHOAI;   
                 nvDTO.DIACHI = item.DIACHI;
                 nvDTO.HINHANH = item.HINHANH;
-
+                nvDTO.DATHOIVIEC = item.DATHOIVIEC;
                 nvDTO.IDPB = item.IDPB;
                 var pb = db.tb_PHONGBAN.FirstOrDefault(b => b.IDPB == item.IDPB);
                 nvDTO.TENPB = pb.TENPB;
@@ -94,6 +94,7 @@ namespace BusinessLayer
                 _nv.CCCD = nv.CCCD;
                 _nv.DIACHI = nv.DIACHI; 
                 _nv.HINHANH = nv.HINHANH;
+                _nv.DATHOIVIEC = nv.DATHOIVIEC;
                 _nv.IDPB = nv.IDPB; 
                 _nv.IDBP = nv.IDBP; 
                 _nv.IDCV = nv.IDCV; 
