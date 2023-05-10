@@ -72,6 +72,7 @@ namespace QLNHANSU
             txtLyDo.Enabled = !kt;
             txtNoiDung.Enabled = !kt;
             dtNgay.Enabled = !kt;
+            
             //chkDisabled.Enabled = kt;
             //dtNgayBatDau.Enabled = !kt;
             //dtNgayKetThuc.Enabled = !kt;

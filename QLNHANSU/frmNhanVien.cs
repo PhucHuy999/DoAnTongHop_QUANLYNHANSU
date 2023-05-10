@@ -416,7 +416,7 @@ namespace QLNHANSU
                 Image img = Properties.Resources.GIOITINH_NAM__4_;
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
-                
+
             }
             if (e.Column.Name == "GIOITINH" && bool.Parse(e.CellValue.ToString()) == false)
             {
@@ -424,6 +424,7 @@ namespace QLNHANSU
                 e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
                 e.Handled = true;
             }
+
         }
     }
 }

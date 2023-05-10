@@ -182,6 +182,7 @@
             this.btnDieuchuyen.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDieuchuyen.ImageOptions.SvgImage")));
             this.btnDieuchuyen.Name = "btnDieuchuyen";
             this.btnDieuchuyen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDieuchuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDieuchuyen_ItemClick);
             // 
             // btnThoiViec
             // 

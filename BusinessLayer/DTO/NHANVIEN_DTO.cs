@@ -18,7 +18,7 @@ namespace BusinessLayer.DTO
         public string DIACHI { get; set; }
         public byte[] HINHANH { get; set; }
         public Nullable<int> IDPB { get; set; }
-        public string TENPB { get; set; }   
+        public string TENPB { get; set; }
         public Nullable<int> IDBP { get; set; }
         public string TENBP { get; set; }
 
