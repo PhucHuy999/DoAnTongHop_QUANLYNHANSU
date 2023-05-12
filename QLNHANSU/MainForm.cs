@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,12 +32,28 @@ namespace QLNHANSU
             f.Show();   
 
         }
-
+        NHANVIEN _nhanvien;
+        HOPDONGLAODONG _hopdong;
         private void MainForm_Load(object sender, EventArgs e)
         {
+            _nhanvien = new NHANVIEN();
+            _hopdong = new HOPDONGLAODONG();
             ribbonControl1.SelectedPage = ribbonPage2; //set khi load hiển thị lên ribbonPage2(Nhân sự) trước.
+            loadSinhNhat();
+            loadLenLuong();
         }
-
+        void loadSinhNhat()
+        {
+            lstSinhNhat.DataSource = _nhanvien.getSinhNhat();
+            lstSinhNhat.DisplayMember = "HOTEN";
+            lstSinhNhat.ValueMember = "MANV";
+        }
+        void loadLenLuong()
+        {
+            lstLenLuong.DataSource = _hopdong.getLenLuong();
+            lstLenLuong.DisplayMember = "HOTEN";
+            lstLenLuong.ValueMember = "MANV";
+        }
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
@@ -137,6 +154,22 @@ namespace QLNHANSU
         {
             openForm(typeof(frmQuanLyLuong));
 
+        }
+
+        private void lstSinhNhat_CustomizeItem(object sender, DevExpress.XtraEditors.CustomizeTemplatedItemEventArgs e)
+        {
+            if (e.TemplatedItem.Elements[1].Text.Substring(0,2)==DateTime.Now.Day.ToString())
+            {
+                e.TemplatedItem.AppearanceItem.Normal.ForeColor = Color.Red;
+            }
+        }
+
+        private void lstLenLuong_CustomizeItem(object sender, DevExpress.XtraEditors.CustomizeTemplatedItemEventArgs e)
+        {
+            if (e.TemplatedItem.Elements[1].Text.Substring(0, 2) == DateTime.Now.Day.ToString())
+            {
+                e.TemplatedItem.AppearanceItem.Normal.ForeColor = Color.Red;
+            }
         }
     }
 }

@@ -44,7 +44,8 @@
         <AssociationConnector Association="QLNHANSUModel.FK_tb_TANGCA_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_UNGLUONG_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_PHUCAP_tb_PHUCAP" />
-        <EntityTypeShape EntityType="QLNHANSUModel.tb_NHANVIEN_NANGLUONG" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLNHANSUModel.tb_NHANVIEN_NANGLUONG" Width="1.5" PointX="5.25" PointY="2.5" />
+        <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_NANGLUONG_tb_NHANVIEN" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

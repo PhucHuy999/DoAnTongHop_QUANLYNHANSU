@@ -126,6 +126,10 @@ namespace BusinessLayer
                 throw new Exception("lỗi: " + ex.Message);
             }
         }
+        public List<tb_NHANVIEN>getSinhNhat()
+        {
+            return db.tb_NHANVIEN.Where(x=>x.NGAYSINH.Value.Month == DateTime.Now.Month).ToList();
 
+        }
     }
 }
