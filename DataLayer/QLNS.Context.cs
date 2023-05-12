@@ -45,5 +45,6 @@ namespace DataLayer
         public virtual DbSet<tb_TONGIAO> tb_TONGIAO { get; set; }
         public virtual DbSet<tb_TRINHDO> tb_TRINHDO { get; set; }
         public virtual DbSet<tb_UNGLUONG> tb_UNGLUONG { get; set; }
+        public virtual DbSet<tb_NHANVIEN_NANGLUONG> tb_NHANVIEN_NANGLUONG { get; set; }
     }
 }

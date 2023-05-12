@@ -132,5 +132,11 @@ namespace QLNHANSU
             if (h == DialogResult.OK)
                 Application.Exit();
         }
+
+        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmQuanLyLuong));
+
+        }
     }
 }

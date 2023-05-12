@@ -160,6 +160,25 @@
           <Property Name="UPDATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="int" />
         </EntityType>
+        <EntityType Name="tb_NHANVIEN_NANGLUONG">
+          <Key>
+            <PropertyRef Name="SOQD" />
+          </Key>
+          <Property Name="SOQD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MANV" Type="int" />
+          <Property Name="SOHD" Type="nvarchar" MaxLength="50" />
+          <Property Name="HESOLUONGHIENTAI" Type="float" />
+          <Property Name="HESOLUONGMOI" Type="float" />
+          <Property Name="NGAYLENLUONG" Type="datetime" />
+          <Property Name="NGAYKY" Type="datetime" />
+          <Property Name="GHICHU" Type="nvarchar" MaxLength="500" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+        </EntityType>
         <EntityType Name="tb_NHANVIEN_PHUCAP">
           <Key>
             <PropertyRef Name="ID" />
@@ -482,6 +501,7 @@
           <EntitySet Name="tb_LOAICONG" EntityType="Self.tb_LOAICONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_NHANVIEN" EntityType="Self.tb_NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_NHANVIEN_DIEUCHUYEN" EntityType="Self.tb_NHANVIEN_DIEUCHUYEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_NHANVIEN_NANGLUONG" EntityType="Self.tb_NHANVIEN_NANGLUONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_NHANVIEN_PHUCAP" EntityType="Self.tb_NHANVIEN_PHUCAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_NHANVIEN_THOIVIEC" EntityType="Self.tb_NHANVIEN_THOIVIEC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_PHONGBAN" EntityType="Self.tb_PHONGBAN" Schema="dbo" store:Type="Tables" />
@@ -668,6 +688,7 @@
             <End Role="tb_PHUCAP" EntitySet="tb_PHUCAP" />
             <End Role="tb_NHANVIEN_PHUCAP" EntitySet="tb_NHANVIEN_PHUCAP" />
           </AssociationSet>
+          <EntitySet Name="tb_NHANVIEN_NANGLUONG" EntityType="QLNHANSUModel.tb_NHANVIEN_NANGLUONG" />
         </EntityContainer>
         <EntityType Name="tb_BANGCONG">
           <Key>
@@ -1171,6 +1192,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tb_NHANVIEN_NANGLUONG">
+          <Key>
+            <PropertyRef Name="SOQD" />
+          </Key>
+          <Property Name="SOQD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MANV" Type="Int32" />
+          <Property Name="SOHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HESOLUONGHIENTAI" Type="Double" />
+          <Property Name="HESOLUONGMOI" Type="Double" />
+          <Property Name="NGAYLENLUONG" Type="DateTime" Precision="3" />
+          <Property Name="NGAYKY" Type="DateTime" Precision="3" />
+          <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1430,6 +1470,26 @@
                 <ScalarProperty Name="THANG" ColumnName="THANG" />
                 <ScalarProperty Name="NAM" ColumnName="NAM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_NHANVIEN_NANGLUONG">
+            <EntityTypeMapping TypeName="QLNHANSUModel.tb_NHANVIEN_NANGLUONG">
+              <MappingFragment StoreEntitySet="tb_NHANVIEN_NANGLUONG">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="NGAYKY" ColumnName="NGAYKY" />
+                <ScalarProperty Name="NGAYLENLUONG" ColumnName="NGAYLENLUONG" />
+                <ScalarProperty Name="HESOLUONGMOI" ColumnName="HESOLUONGMOI" />
+                <ScalarProperty Name="HESOLUONGHIENTAI" ColumnName="HESOLUONGHIENTAI" />
+                <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="SOQD" ColumnName="SOQD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
