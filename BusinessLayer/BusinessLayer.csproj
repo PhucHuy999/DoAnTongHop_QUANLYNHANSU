@@ -72,6 +72,7 @@
     <Compile Include="HOPDONGLAODONG.cs" />
     <Compile Include="KHENTHUONG_KYLUAT.cs" />
     <Compile Include="LOAICA.cs" />
+    <Compile Include="LOAICONG.cs" />
     <Compile Include="NHANVIEN.cs" />
     <Compile Include="NHANVIEN_DIEUCHUYEN.cs" />
     <Compile Include="NHANVIEN_NANGLUONG.cs" />

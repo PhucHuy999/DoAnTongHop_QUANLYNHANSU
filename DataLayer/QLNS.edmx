@@ -124,6 +124,12 @@
           <Property Name="IDLC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENLC" Type="nvarchar" MaxLength="50" />
           <Property Name="HESO" Type="float" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
         </EntityType>
         <EntityType Name="tb_NHANVIEN">
           <Key>
@@ -622,7 +628,6 @@
           <EntitySet Name="tb_DANTOC" EntityType="QLNHANSUModel.tb_DANTOC" />
           <EntitySet Name="tb_HOPDONG" EntityType="QLNHANSUModel.tb_HOPDONG" />
           <EntitySet Name="tb_KHENTHUONG_KYLUAT" EntityType="QLNHANSUModel.tb_KHENTHUONG_KYLUAT" />
-          <EntitySet Name="tb_LOAICONG" EntityType="QLNHANSUModel.tb_LOAICONG" />
           <EntitySet Name="tb_NHANVIEN" EntityType="QLNHANSUModel.tb_NHANVIEN" />
           <EntitySet Name="tb_NHANVIEN_DIEUCHUYEN" EntityType="QLNHANSUModel.tb_NHANVIEN_DIEUCHUYEN" />
           <EntitySet Name="tb_NHANVIEN_PHUCAP" EntityType="QLNHANSUModel.tb_NHANVIEN_PHUCAP" />
@@ -633,10 +638,6 @@
           <EntitySet Name="tb_TONGIAO" EntityType="QLNHANSUModel.tb_TONGIAO" />
           <EntitySet Name="tb_TRINHDO" EntityType="QLNHANSUModel.tb_TRINHDO" />
           <EntitySet Name="tb_UNGLUONG" EntityType="QLNHANSUModel.tb_UNGLUONG" />
-          <AssociationSet Name="FK_tb_BANGCONG_tb_LOAICONG1" Association="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1">
-            <End Role="tb_LOAICONG" EntitySet="tb_LOAICONG" />
-            <End Role="tb_BANGCONG" EntitySet="tb_BANGCONG" />
-          </AssociationSet>
           <AssociationSet Name="FK_tb_BANGCONG_tb_NHANVIEN" Association="QLNHANSUModel.FK_tb_BANGCONG_tb_NHANVIEN">
             <End Role="tb_NHANVIEN" EntitySet="tb_NHANVIEN" />
             <End Role="tb_BANGCONG" EntitySet="tb_BANGCONG" />
@@ -715,6 +716,11 @@
             <End Role="tb_LOAICA" EntitySet="tb_LOAICA" />
             <End Role="tb_TANGCA" EntitySet="tb_TANGCA" />
           </AssociationSet>
+          <EntitySet Name="tb_LOAICONG" EntityType="QLNHANSUModel.tb_LOAICONG" />
+          <AssociationSet Name="FK_tb_BANGCONG_tb_LOAICONG1" Association="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1">
+            <End Role="tb_LOAICONG" EntitySet="tb_LOAICONG" />
+            <End Role="tb_BANGCONG" EntitySet="tb_BANGCONG" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tb_BANGCONG">
           <Key>
@@ -730,8 +736,8 @@
           <Property Name="PHUTRA" Type="Int32" />
           <Property Name="MANV" Type="Int32" />
           <Property Name="IDLC" Type="Int32" />
-          <NavigationProperty Name="tb_LOAICONG" Relationship="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1" FromRole="tb_BANGCONG" ToRole="tb_LOAICONG" />
           <NavigationProperty Name="tb_NHANVIEN" Relationship="QLNHANSUModel.FK_tb_BANGCONG_tb_NHANVIEN" FromRole="tb_BANGCONG" ToRole="tb_NHANVIEN" />
+          <NavigationProperty Name="tb_LOAICONG" Relationship="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1" FromRole="tb_BANGCONG" ToRole="tb_LOAICONG" />
         </EntityType>
         <EntityType Name="tb_BAOHIEM">
           <Key>
@@ -822,15 +828,6 @@
           <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
           <Property Name="DISABLED" Type="Boolean" />
           <NavigationProperty Name="tb_NHANVIEN" Relationship="QLNHANSUModel.FK_tb_KHENTHUONG_KYLUAT_tb_NHANVIEN" FromRole="tb_KHENTHUONG_KYLUAT" ToRole="tb_NHANVIEN" />
-        </EntityType>
-        <EntityType Name="tb_LOAICONG">
-          <Key>
-            <PropertyRef Name="IDLC" />
-          </Key>
-          <Property Name="IDLC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TENLC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HESO" Type="Double" />
-          <NavigationProperty Name="tb_BANGCONG" Relationship="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1" FromRole="tb_LOAICONG" ToRole="tb_BANGCONG" />
         </EntityType>
         <EntityType Name="tb_NHANVIEN">
           <Key>
@@ -982,18 +979,6 @@
           <Property Name="MANV" Type="Int32" />
           <NavigationProperty Name="tb_NHANVIEN" Relationship="QLNHANSUModel.FK_tb_UNGLUONG_tb_NHANVIEN" FromRole="tb_UNGLUONG" ToRole="tb_NHANVIEN" />
         </EntityType>
-        <Association Name="FK_tb_BANGCONG_tb_LOAICONG1">
-          <End Type="QLNHANSUModel.tb_LOAICONG" Role="tb_LOAICONG" Multiplicity="0..1" />
-          <End Type="QLNHANSUModel.tb_BANGCONG" Role="tb_BANGCONG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_LOAICONG">
-              <PropertyRef Name="IDLC" />
-            </Principal>
-            <Dependent Role="tb_BANGCONG">
-              <PropertyRef Name="IDLC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tb_BANGCONG_tb_NHANVIEN">
           <End Type="QLNHANSUModel.tb_NHANVIEN" Role="tb_NHANVIEN" Multiplicity="0..1" />
           <End Type="QLNHANSUModel.tb_BANGCONG" Role="tb_BANGCONG" Multiplicity="*" />
@@ -1257,6 +1242,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tb_LOAICONG">
+          <Key>
+            <PropertyRef Name="IDLC" />
+          </Key>
+          <Property Name="IDLC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENLC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HESO" Type="Double" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_BANGCONG" Relationship="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1" FromRole="tb_LOAICONG" ToRole="tb_BANGCONG" />
+        </EntityType>
+        <Association Name="FK_tb_BANGCONG_tb_LOAICONG1">
+          <End Type="QLNHANSUModel.tb_LOAICONG" Role="tb_LOAICONG" Multiplicity="0..1" />
+          <End Type="QLNHANSUModel.tb_BANGCONG" Role="tb_BANGCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_LOAICONG">
+              <PropertyRef Name="IDLC" />
+            </Principal>
+            <Dependent Role="tb_BANGCONG">
+              <PropertyRef Name="IDLC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1366,15 +1378,6 @@
                 <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
                 <ScalarProperty Name="LYDO" ColumnName="LYDO" />
                 <ScalarProperty Name="SOQUYETDINH" ColumnName="SOQUYETDINH" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_LOAICONG">
-            <EntityTypeMapping TypeName="QLNHANSUModel.tb_LOAICONG">
-              <MappingFragment StoreEntitySet="tb_LOAICONG">
-                <ScalarProperty Name="HESO" ColumnName="HESO" />
-                <ScalarProperty Name="TENLC" ColumnName="TENLC" />
-                <ScalarProperty Name="IDLC" ColumnName="IDLC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1542,6 +1545,21 @@
                 <ScalarProperty Name="HESO" ColumnName="HESO" />
                 <ScalarProperty Name="TENLOAICA" ColumnName="TENLOAICA" />
                 <ScalarProperty Name="IDLOAICA" ColumnName="IDLOAICA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_LOAICONG">
+            <EntityTypeMapping TypeName="QLNHANSUModel.tb_LOAICONG">
+              <MappingFragment StoreEntitySet="tb_LOAICONG">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="HESO" ColumnName="HESO" />
+                <ScalarProperty Name="TENLC" ColumnName="TENLC" />
+                <ScalarProperty Name="IDLC" ColumnName="IDLC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
