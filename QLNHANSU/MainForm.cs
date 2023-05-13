@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using QLNHANSU.CHAMCONG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -170,6 +171,12 @@ namespace QLNHANSU
             {
                 e.TemplatedItem.AppearanceItem.Normal.ForeColor = Color.Red;
             }
+        }
+
+        private void btnLoaiCa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmLoaiCa));
+
         }
     }
 }

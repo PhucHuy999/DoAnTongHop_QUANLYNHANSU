@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="QLNHANSUModel.tb_DANTOC" Width="1.5" PointX="0.75" PointY="24.5" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_HOPDONG" Width="1.5" PointX="5.25" PointY="35" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_KHENTHUONG_KYLUAT" Width="1.5" PointX="5.25" PointY="26.75" />
-        <EntityTypeShape EntityType="QLNHANSUModel.tb_LOAICA" Width="1.5" PointX="6" PointY="23.5" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_LOAICONG" Width="1.5" PointX="6" PointY="32.5" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_NHANVIEN" Width="1.5" PointX="3" PointY="16.75" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_NHANVIEN_DIEUCHUYEN" Width="2.875" PointX="5.25" PointY="8" />
@@ -34,7 +33,6 @@
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_DANTOC" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_HOPDONG_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_KHENTHUONG_KYLUAT_tb_NHANVIEN" />
-        <AssociationConnector Association="QLNHANSUModel.FK_tb_TANGCA_tb_LOAICA" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_DIEUCHUYEN_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_PHUCAP_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_PHONGBAN" />
@@ -46,6 +44,8 @@
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_PHUCAP_tb_PHUCAP" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_NHANVIEN_NANGLUONG" Width="1.5" PointX="5.25" PointY="2.5" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_NANGLUONG_tb_NHANVIEN" />
+        <EntityTypeShape EntityType="QLNHANSUModel.tb_LOAICA" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="QLNHANSUModel.FK_tb_TANGCA_tb_LOAICA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

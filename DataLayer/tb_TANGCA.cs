@@ -22,7 +22,7 @@ namespace DataLayer
         public Nullable<int> MANV { get; set; }
         public Nullable<int> IDLOAICA { get; set; }
     
-        public virtual tb_LOAICA tb_LOAICA { get; set; }
         public virtual tb_NHANVIEN tb_NHANVIEN { get; set; }
+        public virtual tb_LOAICA tb_LOAICA { get; set; }
     }
 }
