@@ -46,6 +46,9 @@
         <AssociationConnector Association="QLNHANSUModel.FK_tb_TANGCA_tb_LOAICA" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_LOAICONG" Width="1.5" PointX="0.75" PointY="5" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1" />
+        <EntityTypeShape EntityType="QLNHANSUModel.tb_BANGCONG_NHANVIEN_CHITIET" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QLNHANSUModel.tb_KYCONG" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QLNHANSUModel.tb_KYCONGCHITIET" Width="1.5" PointX="10.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
