@@ -47,7 +47,7 @@ namespace DataLayer
         public virtual DbSet<tb_LOAICA> tb_LOAICA { get; set; }
         public virtual DbSet<tb_LOAICONG> tb_LOAICONG { get; set; }
         public virtual DbSet<tb_BANGCONG_NHANVIEN_CHITIET> tb_BANGCONG_NHANVIEN_CHITIET { get; set; }
-        public virtual DbSet<tb_KYCONG> tb_KYCONG { get; set; }
         public virtual DbSet<tb_KYCONGCHITIET> tb_KYCONGCHITIET { get; set; }
+        public virtual DbSet<tb_KYCONG> tb_KYCONG { get; set; }
     }
 }

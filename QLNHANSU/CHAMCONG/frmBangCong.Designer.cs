@@ -37,6 +37,7 @@
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXemBangCong = new DevExpress.XtraBars.BarButtonItem();
             this.btnIn = new DevExpress.XtraBars.BarButtonItem();
             this.btnDong = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -46,6 +47,7 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.chkTrangThai = new System.Windows.Forms.CheckBox();
             this.chkKhoa = new System.Windows.Forms.CheckBox();
             this.cboThang = new System.Windows.Forms.ComboBox();
             this.cboNam = new System.Windows.Forms.ComboBox();
@@ -54,7 +56,6 @@
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.gvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.DELETED_BY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MAKYCONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NAM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.THANG = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,8 +64,6 @@
             this.NGAYCONGTRONGTHANG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MACTY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chkTrangThai = new System.Windows.Forms.CheckBox();
-            this.btnXemBangCong = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -159,6 +158,14 @@
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
             // 
+            // btnXemBangCong
+            // 
+            this.btnXemBangCong.Caption = "Xem bảng công";
+            this.btnXemBangCong.Id = 8;
+            this.btnXemBangCong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXemBangCong.ImageOptions.SvgImage")));
+            this.btnXemBangCong.Name = "btnXemBangCong";
+            this.btnXemBangCong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXemBangCong_ItemClick);
+            // 
             // btnIn
             // 
             this.btnIn.Caption = "In";
@@ -250,6 +257,17 @@
             this.splitContainer1.SplitterDistance = 81;
             this.splitContainer1.TabIndex = 10;
             // 
+            // chkTrangThai
+            // 
+            this.chkTrangThai.AutoSize = true;
+            this.chkTrangThai.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.chkTrangThai.Location = new System.Drawing.Point(544, 33);
+            this.chkTrangThai.Name = "chkTrangThai";
+            this.chkTrangThai.Size = new System.Drawing.Size(89, 21);
+            this.chkTrangThai.TabIndex = 7;
+            this.chkTrangThai.Text = "Trạng thái";
+            this.chkTrangThai.UseVisualStyleBackColor = true;
+            // 
             // chkKhoa
             // 
             this.chkKhoa.AutoSize = true;
@@ -336,7 +354,6 @@
             // 
             this.gvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.DELETED_BY,
-            this.ID,
             this.MAKYCONG,
             this.NAM,
             this.THANG,
@@ -361,19 +378,6 @@
             this.DELETED_BY.VisibleIndex = 0;
             this.DELETED_BY.Width = 20;
             // 
-            // ID
-            // 
-            this.ID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.ID.AppearanceHeader.Options.UseFont = true;
-            this.ID.Caption = "ID";
-            this.ID.FieldName = "ID";
-            this.ID.MaxWidth = 30;
-            this.ID.MinWidth = 30;
-            this.ID.Name = "ID";
-            this.ID.Visible = true;
-            this.ID.VisibleIndex = 1;
-            this.ID.Width = 30;
-            // 
             // MAKYCONG
             // 
             this.MAKYCONG.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -384,7 +388,7 @@
             this.MAKYCONG.MinWidth = 200;
             this.MAKYCONG.Name = "MAKYCONG";
             this.MAKYCONG.Visible = true;
-            this.MAKYCONG.VisibleIndex = 2;
+            this.MAKYCONG.VisibleIndex = 1;
             this.MAKYCONG.Width = 200;
             // 
             // NAM
@@ -397,7 +401,7 @@
             this.NAM.MinWidth = 80;
             this.NAM.Name = "NAM";
             this.NAM.Visible = true;
-            this.NAM.VisibleIndex = 3;
+            this.NAM.VisibleIndex = 2;
             this.NAM.Width = 80;
             // 
             // THANG
@@ -410,7 +414,7 @@
             this.THANG.MinWidth = 80;
             this.THANG.Name = "THANG";
             this.THANG.Visible = true;
-            this.THANG.VisibleIndex = 4;
+            this.THANG.VisibleIndex = 3;
             this.THANG.Width = 80;
             // 
             // KHOA
@@ -423,7 +427,7 @@
             this.KHOA.MinWidth = 90;
             this.KHOA.Name = "KHOA";
             this.KHOA.Visible = true;
-            this.KHOA.VisibleIndex = 5;
+            this.KHOA.VisibleIndex = 4;
             this.KHOA.Width = 90;
             // 
             // NGAYTINHCONG
@@ -436,7 +440,7 @@
             this.NGAYTINHCONG.MinWidth = 80;
             this.NGAYTINHCONG.Name = "NGAYTINHCONG";
             this.NGAYTINHCONG.Visible = true;
-            this.NGAYTINHCONG.VisibleIndex = 6;
+            this.NGAYTINHCONG.VisibleIndex = 5;
             this.NGAYTINHCONG.Width = 80;
             // 
             // NGAYCONGTRONGTHANG
@@ -449,7 +453,7 @@
             this.NGAYCONGTRONGTHANG.MinWidth = 80;
             this.NGAYCONGTRONGTHANG.Name = "NGAYCONGTRONGTHANG";
             this.NGAYCONGTRONGTHANG.Visible = true;
-            this.NGAYCONGTRONGTHANG.VisibleIndex = 7;
+            this.NGAYCONGTRONGTHANG.VisibleIndex = 6;
             this.NGAYCONGTRONGTHANG.Width = 80;
             // 
             // MACTY
@@ -473,26 +477,8 @@
             this.TRANGTHAI.MinWidth = 80;
             this.TRANGTHAI.Name = "TRANGTHAI";
             this.TRANGTHAI.Visible = true;
-            this.TRANGTHAI.VisibleIndex = 8;
+            this.TRANGTHAI.VisibleIndex = 7;
             this.TRANGTHAI.Width = 80;
-            // 
-            // chkTrangThai
-            // 
-            this.chkTrangThai.AutoSize = true;
-            this.chkTrangThai.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.chkTrangThai.Location = new System.Drawing.Point(544, 33);
-            this.chkTrangThai.Name = "chkTrangThai";
-            this.chkTrangThai.Size = new System.Drawing.Size(89, 21);
-            this.chkTrangThai.TabIndex = 7;
-            this.chkTrangThai.Text = "Trạng thái";
-            this.chkTrangThai.UseVisualStyleBackColor = true;
-            // 
-            // btnXemBangCong
-            // 
-            this.btnXemBangCong.Caption = "Xem bảng công";
-            this.btnXemBangCong.Id = 8;
-            this.btnXemBangCong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
-            this.btnXemBangCong.Name = "btnXemBangCong";
             // 
             // frmBangCong
             // 
@@ -543,7 +529,6 @@
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn DELETED_BY;
-        private DevExpress.XtraGrid.Columns.GridColumn ID;
         private DevExpress.XtraGrid.Columns.GridColumn MAKYCONG;
         private DevExpress.XtraGrid.Columns.GridColumn NAM;
         private System.Windows.Forms.CheckBox chkKhoa;

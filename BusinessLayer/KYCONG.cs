@@ -10,9 +10,9 @@ namespace BusinessLayer
     public class KYCONG
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
-        public tb_KYCONG getItem(int id)
+        public tb_KYCONG getItem(int makycong)
         {
-            return db.tb_KYCONG.FirstOrDefault(x => x.ID == id);
+            return db.tb_KYCONG.FirstOrDefault(x => x.MAKYCONG == makycong);
         }
         public List<tb_KYCONG> getList()
         {
@@ -35,7 +35,7 @@ namespace BusinessLayer
         {
             try
             {
-                var _kc = db.tb_KYCONG.FirstOrDefault(x => x.ID == kc.ID);
+                var _kc = db.tb_KYCONG.FirstOrDefault(x => x.MAKYCONG == kc.MAKYCONG);
                 _kc.MAKYCONG = kc.MAKYCONG;
                 _kc.NAM = kc.NAM;
                 _kc.THANG = kc.THANG;
@@ -53,11 +53,11 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int id, int iduser)
+        public void Delete(int makycong, int iduser)
         {
             try
             {
-                var _kc = db.tb_KYCONG.FirstOrDefault(x => x.ID ==id);
+                var _kc = db.tb_KYCONG.FirstOrDefault(x => x.MAKYCONG == makycong);
                
                 _kc.DELETED_BY = iduser;
                 _kc.DELETED_DATE = DateTime.Now;

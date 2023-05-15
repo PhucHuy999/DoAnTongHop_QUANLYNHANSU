@@ -14,14 +14,13 @@ namespace DataLayer
     
     public partial class tb_KYCONG
     {
-        public int ID { get; set; }
-        public Nullable<int> MAKYCONG { get; set; }
+        public int MAKYCONG { get; set; }
         public Nullable<int> THANG { get; set; }
         public Nullable<int> NAM { get; set; }
         public Nullable<bool> KHOA { get; set; }
         public Nullable<System.DateTime> NGAYTINHCONG { get; set; }
         public Nullable<double> NGAYCONGTRONGTHANG { get; set; }
-        public string MACTY { get; set; }
+        public Nullable<int> MACTY { get; set; }
         public Nullable<bool> TRANGTHAI { get; set; }
         public Nullable<int> CREATED_BY { get; set; }
         public Nullable<System.DateTime> CREATED_DATE { get; set; }

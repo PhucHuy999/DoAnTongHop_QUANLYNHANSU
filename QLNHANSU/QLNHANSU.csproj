@@ -86,6 +86,12 @@
     <Compile Include="CHAMCONG\frmBangCong.Designer.cs">
       <DependentUpon>frmBangCong.cs</DependentUpon>
     </Compile>
+    <Compile Include="CHAMCONG\frmBangCongChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CHAMCONG\frmBangCongChiTiet.Designer.cs">
+      <DependentUpon>frmBangCongChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="CHAMCONG\frmLoaiCa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </Compile>
     <EmbeddedResource Include="CHAMCONG\frmBangCong.resx">
       <DependentUpon>frmBangCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CHAMCONG\frmBangCongChiTiet.resx">
+      <DependentUpon>frmBangCongChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CHAMCONG\frmLoaiCa.resx">
       <DependentUpon>frmLoaiCa.cs</DependentUpon>
