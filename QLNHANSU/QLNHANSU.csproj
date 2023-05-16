@@ -188,6 +188,12 @@
     <Compile Include="frmTonGiao.Designer.cs">
       <DependentUpon>frmTonGiao.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaiting.Designer.cs">
+      <DependentUpon>frmWaiting.cs</DependentUpon>
+    </Compile>
     <Compile Include="HyHy_Functions.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTonGiao.resx">
       <DependentUpon>frmTonGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaiting.resx">
+      <DependentUpon>frmWaiting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

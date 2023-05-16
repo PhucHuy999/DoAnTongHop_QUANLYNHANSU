@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace QLNHANSU.CHAMCONG
         {
             InitializeComponent();
         }
+        KYCONG _kycong;
         KYCONGCHITIET _kcct;
         public int _makycong;
         public int _macty;
@@ -34,6 +36,7 @@ namespace QLNHANSU.CHAMCONG
 
         private void frmBangCongChiTiet_Load(object sender, EventArgs e)
         {
+            _kycong = new KYCONG();
             _kcct = new KYCONGCHITIET();
             gcBangCongChiTiet.DataSource = _kcct.getList(_makycong);
             CustomView(_thang, _nam);
@@ -48,7 +51,18 @@ namespace QLNHANSU.CHAMCONG
         }
         private void btnPhatSinhKyCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            SplashScreenManager.ShowForm(typeof(frmWaiting), true, true); // Câu lệnh mở form load
+            if(_kycong.KiemTraPhatSinhKyCong(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text))) //kiểm tra đã phát sinh kỳ công hay chưa
+            {
+                MessageBox.Show("Kỳ công đã được phát sinh.", "Thông báo");
+                SplashScreenManager.CloseForm();
+                return;
+            }
             _kcct.phatSinhKyCongChiTiet(_macty, int.Parse(cboThang.Text), int.Parse(cboNam.Text));
+            var kc = _kycong.getItem(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
+            kc.TRANGTHAI = true;
+            _kycong.Update(kc);
+            SplashScreenManager.CloseForm();
             loadBangCong();
 
         }
@@ -237,6 +251,6 @@ namespace QLNHANSU.CHAMCONG
             }
             return dayNumber;
         }
-
+        
     }
 }

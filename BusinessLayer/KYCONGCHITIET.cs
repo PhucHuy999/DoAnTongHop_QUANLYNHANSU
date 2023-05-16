@@ -31,9 +31,9 @@ namespace BusinessLayer
                         case "Sunday":
                             listDay.Add("CN");
                             break;
-                        case "Saturday":
-                            listDay.Add("T7");
-                            break;
+                        //case "Saturday":
+                        //    listDay.Add("T7");
+                        //    break;
                         default:
                             listDay.Add("X"); // ngày thường thì add X vào lưới
                             break;
@@ -92,7 +92,8 @@ namespace BusinessLayer
                 kycongchitiet.D29 = listDay[28];
                 kycongchitiet.D30 = listDay[29];
                 kycongchitiet.D31 = listDay[30];
-
+                kycongchitiet.NGAYCONG = Functions_HyHy2.demSoNgayLamViecTrongThang(thang, nam);
+                kycongchitiet.TONGNGAYCONG = Functions_HyHy2.demSoNgayLamViecTrongThang(thang, nam);
                 db.tb_KYCONGCHITIET.Add(kycongchitiet);
                 db.SaveChanges();
 

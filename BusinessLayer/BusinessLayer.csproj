@@ -69,6 +69,7 @@
     <Compile Include="DTO\NHANVIEN_DTO.cs" />
     <Compile Include="DTO\NHANVIEN_NANGLUONG_DTO.cs" />
     <Compile Include="DTO\NHANVIEN_THOIVIEC_DTO.cs" />
+    <Compile Include="Functions_HyHy2.cs" />
     <Compile Include="HOPDONGLAODONG.cs" />
     <Compile Include="KHENTHUONG_KYLUAT.cs" />
     <Compile Include="KYCONG.cs" />
