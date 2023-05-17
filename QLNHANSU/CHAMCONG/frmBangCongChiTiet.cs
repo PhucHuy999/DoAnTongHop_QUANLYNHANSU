@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using DevExpress.Utils.Serializing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask;
 using DevExpress.XtraEditors.Repository;
@@ -42,29 +41,30 @@ namespace QLNHANSU.CHAMCONG
             CustomView(_thang, _nam);
             cboThang.Text = _thang.ToString();
             cboNam.Text = _nam.ToString();
-
         }
         void loadBangCong()
         {
             gcBangCongChiTiet.DataSource = _kcct.getList(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
-            CustomView(int.Parse(cboThang.Text),int.Parse(cboNam.Text));
+            CustomView(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
+            //gvBangCongChiTiet.OptionsBehavior.Editable = false; // khóa click bảng công lại
         }
         private void btnPhatSinhKyCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SplashScreenManager.ShowForm(typeof(frmWaiting), true, true); // Câu lệnh mở form load
-            if(_kycong.KiemTraPhatSinhKyCong(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text))) //kiểm tra đã phát sinh kỳ công hay chưa
+
+            if (_kycong.KiemTraPhatSinhKyCong(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text))) //kiểm tra đã phát sinh kỳ công hay chưa
             {
                 MessageBox.Show("Kỳ công đã được phát sinh.", "Thông báo");
                 SplashScreenManager.CloseForm();
                 return;
             }
+
             _kcct.phatSinhKyCongChiTiet(_macty, int.Parse(cboThang.Text), int.Parse(cboNam.Text));
             var kc = _kycong.getItem(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
             kc.TRANGTHAI = true;
             _kycong.Update(kc);
             SplashScreenManager.CloseForm();
             loadBangCong();
-
         }
 
         private void btnXemBangCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -75,7 +75,6 @@ namespace QLNHANSU.CHAMCONG
         private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             loadBangCong();
-
         }
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -86,9 +85,8 @@ namespace QLNHANSU.CHAMCONG
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+
         }
-
-
         //custom gridview
         private void CustomView(int thang, int nam)
         {
@@ -107,7 +105,7 @@ namespace QLNHANSU.CHAMCONG
                 gridColumn.ColumnEdit = textEdit;
             }
 
-            for(i = 1; i<= GetDayNumber(thang, nam); i++)
+            for (i = 1; i <= GetDayNumber(thang, nam); i++)
             {
                 DateTime newDate = new DateTime(_nam, _thang, i);
 
@@ -126,29 +124,29 @@ namespace QLNHANSU.CHAMCONG
                         column.AppearanceCell.ForeColor = Color.Black;
                         column.AppearanceCell.BackColor = Color.Transparent;
                         column.OptionsColumn.AllowFocus = true;
-                       // column.Width = 30;
+                        // column.Width = 30;
                         //column.AppearanceHeader.Font = new Font("Tahoma", 8, FontStyle.Regular);
                         break;
 
                     case "Tuesday":
                         column = gvBangCongChiTiet.Columns[fieldName];
-                        column.Caption = "T.Ba " + Environment.NewLine + i;    
+                        column.Caption = "T.Ba " + Environment.NewLine + i;
                         column.OptionsColumn.AllowEdit = true;
-                        column.AppearanceHeader.ForeColor = Color.Blue;                        
+                        column.AppearanceHeader.ForeColor = Color.Blue;
                         column.AppearanceHeader.BackColor = Color.Transparent;
                         column.AppearanceHeader.BackColor2 = Color.Transparent;
                         column.AppearanceCell.ForeColor = Color.Black;
                         column.AppearanceCell.BackColor = Color.Transparent;
                         column.OptionsColumn.AllowFocus = true;
-                       //column.AppearanceHeader.Font = new Font("Tahoma", 8, FontStyle.Regular);
-                       // column.width = 30;
+                        //column.AppearanceHeader.Font = new Font("Tahoma", 8, FontStyle.Regular);
+                        // column.width = 30;
                         break;
 
                     case "Wednesday":
                         column = gvBangCongChiTiet.Columns[fieldName];
                         column.Caption = "T.Tư " + Environment.NewLine + i;
                         column.OptionsColumn.AllowEdit = true;
-                        column.AppearanceHeader.ForeColor = Color.Blue; 
+                        column.AppearanceHeader.ForeColor = Color.Blue;
                         column.AppearanceHeader.BackColor = Color.Transparent;
                         column.AppearanceHeader.BackColor2 = Color.Transparent;
                         column.AppearanceCell.ForeColor = Color.Black;
@@ -168,7 +166,7 @@ namespace QLNHANSU.CHAMCONG
                         column.AppearanceCell.BackColor = Color.Transparent;
                         column.OptionsColumn.AllowFocus = true;
                         //column.AppearanceHeader.Font = new Font("Tahoma", 8, FontStyle.Regular);
-                       // column.width = 30;
+                        // column.width = 30;
                         break;
                     case "Friday":
                         column = gvBangCongChiTiet.Columns[fieldName];
@@ -251,6 +249,5 @@ namespace QLNHANSU.CHAMCONG
             }
             return dayNumber;
         }
-        
     }
 }

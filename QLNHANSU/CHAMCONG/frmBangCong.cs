@@ -113,7 +113,7 @@ namespace QLNHANSU.CHAMCONG
                 kc.KHOA = chkKhoa.Checked;
                 kc.TRANGTHAI = chkTrangThai.Checked;
                 kc.MACTY = 1;
-                kc.NGAYCONGTRONGTHANG = HyHy_Functions.demSoNgayLamViecTrongThang(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
+                kc.NGAYCONGTRONGTHANG = Functions_HyHy2.demSoNgayLamViecTrongThang(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
                 kc.NGAYTINHCONG = DateTime.Now;
                 kc.CREATED_BY = 1;
                 kc.CREATED_DATE = DateTime.Now;
@@ -123,12 +123,12 @@ namespace QLNHANSU.CHAMCONG
             else
             {
                 var kc = _kycong.getItem(_makycong);
-                kc.MAKYCONG = int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text);// để ra cấu trúc 2023+01 là năm với tháng = mã kỳ công
+                //kc.MAKYCONG = int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text);// để ra cấu trúc 2023+01 là năm với tháng = mã kỳ công
                 kc.NAM = int.Parse(cboNam.Text);
                 kc.THANG = int.Parse(cboThang.Text);
                 kc.KHOA = chkKhoa.Checked;
                 kc.TRANGTHAI = chkTrangThai.Checked;
-                kc.NGAYCONGTRONGTHANG = HyHy_Functions.demSoNgayLamViecTrongThang(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
+                kc.NGAYCONGTRONGTHANG = Functions_HyHy2.demSoNgayLamViecTrongThang(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
                 kc.NGAYTINHCONG = DateTime.Now;
                 kc.UPDATED_BY = 1;
                 kc.UPDATED_DATE = DateTime.Now;
@@ -139,7 +139,7 @@ namespace QLNHANSU.CHAMCONG
         {
             if (gvDanhSach.RowCount > 0)  // nếu có giá trị trong lưới thì mới chạy để không báo lỗi không có giá trị mà click á
             {
-                _makycong = int.Parse(gvDanhSach.GetFocusedRowCellValue("MAKYCONG").ToString());
+                _makycong = int.Parse(gvDanhSach.GetFocusedRowCellValue("MAKYCONG").ToString());// MAKYCONG / ID
                 cboNam.Text = gvDanhSach.GetFocusedRowCellValue("NAM").ToString();//cho even click trên list tên gán lên text để sửa
                 cboThang.Text = gvDanhSach.GetFocusedRowCellValue("THANG").ToString();
                 chkKhoa.Checked = bool.Parse(gvDanhSach.GetFocusedRowCellValue("KHOA").ToString());

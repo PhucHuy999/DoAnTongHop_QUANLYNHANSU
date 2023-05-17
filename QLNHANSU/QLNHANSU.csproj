@@ -92,6 +92,12 @@
     <Compile Include="CHAMCONG\frmBangCongChiTiet.Designer.cs">
       <DependentUpon>frmBangCongChiTiet.cs</DependentUpon>
     </Compile>
+    <Compile Include="CHAMCONG\frmCapNhatNgayCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CHAMCONG\frmCapNhatNgayCong.Designer.cs">
+      <DependentUpon>frmCapNhatNgayCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="CHAMCONG\frmLoaiCa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,7 +200,6 @@
     <Compile Include="frmWaiting.Designer.cs">
       <DependentUpon>frmWaiting.cs</DependentUpon>
     </Compile>
-    <Compile Include="HyHy_Functions.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CHAMCONG\frmBangCongChiTiet.resx">
       <DependentUpon>frmBangCongChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CHAMCONG\frmCapNhatNgayCong.resx">
+      <DependentUpon>frmCapNhatNgayCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CHAMCONG\frmLoaiCa.resx">
       <DependentUpon>frmLoaiCa.cs</DependentUpon>

@@ -22,11 +22,11 @@ namespace DataLayer
             this.tb_HOPDONG = new HashSet<tb_HOPDONG>();
             this.tb_KHENTHUONG_KYLUAT = new HashSet<tb_KHENTHUONG_KYLUAT>();
             this.tb_NHANVIEN_DIEUCHUYEN = new HashSet<tb_NHANVIEN_DIEUCHUYEN>();
+            this.tb_NHANVIEN_NANGLUONG = new HashSet<tb_NHANVIEN_NANGLUONG>();
             this.tb_NHANVIEN_PHUCAP = new HashSet<tb_NHANVIEN_PHUCAP>();
             this.tb_NHANVIEN_THOIVIEC = new HashSet<tb_NHANVIEN_THOIVIEC>();
             this.tb_TANGCA = new HashSet<tb_TANGCA>();
             this.tb_UNGLUONG = new HashSet<tb_UNGLUONG>();
-            this.tb_NHANVIEN_NANGLUONG = new HashSet<tb_NHANVIEN_NANGLUONG>();
         }
     
         public int MANV { get; set; }
@@ -61,6 +61,8 @@ namespace DataLayer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_NHANVIEN_DIEUCHUYEN> tb_NHANVIEN_DIEUCHUYEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_NHANVIEN_NANGLUONG> tb_NHANVIEN_NANGLUONG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_NHANVIEN_PHUCAP> tb_NHANVIEN_PHUCAP { get; set; }
         public virtual tb_PHONGBAN tb_PHONGBAN { get; set; }
         public virtual tb_TONGIAO tb_TONGIAO { get; set; }
@@ -71,7 +73,5 @@ namespace DataLayer
         public virtual ICollection<tb_TANGCA> tb_TANGCA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_UNGLUONG> tb_UNGLUONG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_NHANVIEN_NANGLUONG> tb_NHANVIEN_NANGLUONG { get; set; }
     }
 }

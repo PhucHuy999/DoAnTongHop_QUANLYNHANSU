@@ -74,7 +74,7 @@ namespace BusinessLayer
             var kc = db.tb_KYCONG.FirstOrDefault(x => x.MAKYCONG == makycong);
             if (kc == null)
             {
-                    return false;
+                return false;
 
             }
             else

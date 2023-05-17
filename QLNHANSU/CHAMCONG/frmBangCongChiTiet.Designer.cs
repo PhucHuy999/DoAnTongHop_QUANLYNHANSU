@@ -207,15 +207,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1170, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1026, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 580);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 589);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1170, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1026, 20);
             // 
             // barDockControlLeft
             // 
@@ -223,15 +223,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 556);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 565);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1170, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1026, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 556);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 565);
             // 
             // barButtonItem1
             // 
@@ -288,7 +288,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gcBangCongChiTiet);
-            this.splitContainer1.Size = new System.Drawing.Size(1170, 556);
+            this.splitContainer1.Size = new System.Drawing.Size(1026, 565);
             this.splitContainer1.SplitterDistance = 81;
             this.splitContainer1.TabIndex = 11;
             // 
@@ -296,10 +296,10 @@
             // 
             this.chkTrangThai.AutoSize = true;
             this.chkTrangThai.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.chkTrangThai.Location = new System.Drawing.Point(544, 33);
+            this.chkTrangThai.Location = new System.Drawing.Point(564, 30);
             this.chkTrangThai.Name = "chkTrangThai";
             this.chkTrangThai.Size = new System.Drawing.Size(89, 21);
-            this.chkTrangThai.TabIndex = 7;
+            this.chkTrangThai.TabIndex = 9;
             this.chkTrangThai.Text = "Trạng thái";
             this.chkTrangThai.UseVisualStyleBackColor = true;
             // 
@@ -307,10 +307,10 @@
             // 
             this.chkKhoa.AutoSize = true;
             this.chkKhoa.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.chkKhoa.Location = new System.Drawing.Point(679, 33);
+            this.chkKhoa.Location = new System.Drawing.Point(699, 30);
             this.chkKhoa.Name = "chkKhoa";
             this.chkKhoa.Size = new System.Drawing.Size(58, 21);
-            this.chkKhoa.TabIndex = 6;
+            this.chkKhoa.TabIndex = 8;
             this.chkKhoa.Text = "Khóa";
             this.chkKhoa.UseVisualStyleBackColor = true;
             // 
@@ -380,7 +380,7 @@
             this.gcBangCongChiTiet.MainView = this.gvBangCongChiTiet;
             this.gcBangCongChiTiet.MenuManager = this.barManager1;
             this.gcBangCongChiTiet.Name = "gcBangCongChiTiet";
-            this.gcBangCongChiTiet.Size = new System.Drawing.Size(1170, 471);
+            this.gcBangCongChiTiet.Size = new System.Drawing.Size(1026, 480);
             this.gcBangCongChiTiet.TabIndex = 0;
             this.gcBangCongChiTiet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBangCongChiTiet});
@@ -475,7 +475,7 @@
             this.colMaNV.OptionsColumn.AllowEdit = false;
             this.colMaNV.OptionsColumn.AllowFocus = false;
             this.colMaNV.Visible = true;
-            this.colMaNV.Width = 63;
+            this.colMaNV.Width = 50;
             // 
             // colHoTen
             // 
@@ -1037,7 +1037,7 @@
             this.THONGTIN.Name = "THONGTIN";
             this.THONGTIN.RowCount = 2;
             this.THONGTIN.VisibleIndex = 0;
-            this.THONGTIN.Width = 234;
+            this.THONGTIN.Width = 221;
             // 
             // CHITIET
             // 
@@ -1096,13 +1096,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 600);
+            this.ClientSize = new System.Drawing.Size(1026, 609);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmBangCongChiTiet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bảng công chi tiết";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmBangCongChiTiet_Load);
@@ -1138,14 +1139,14 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.CheckBox chkTrangThai;
-        private System.Windows.Forms.CheckBox chkKhoa;
         private System.Windows.Forms.ComboBox cboThang;
         private System.Windows.Forms.ComboBox cboNam;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.GridControl gcBangCongChiTiet;
         private DevExpress.XtraBars.BarButtonItem btnRefresh;
+        private System.Windows.Forms.CheckBox chkTrangThai;
+        private System.Windows.Forms.CheckBox chkKhoa;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvBangCongChiTiet;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colMaNV;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colHoTen;

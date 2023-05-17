@@ -25,7 +25,7 @@ namespace DataLayer
         public Nullable<int> MANV { get; set; }
         public Nullable<int> IDLC { get; set; }
     
-        public virtual tb_NHANVIEN tb_NHANVIEN { get; set; }
         public virtual tb_LOAICONG tb_LOAICONG { get; set; }
+        public virtual tb_NHANVIEN tb_NHANVIEN { get; set; }
     }
 }
