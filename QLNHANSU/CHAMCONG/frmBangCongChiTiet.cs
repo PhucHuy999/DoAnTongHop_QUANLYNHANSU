@@ -283,9 +283,6 @@ namespace QLNHANSU.CHAMCONG
             return dayNumber;
         }
 
-
-        
-
         private void mnCapNhatNgayCong_Click(object sender, EventArgs e)
         {
             frmCapNhatNgayCong frm = new frmCapNhatNgayCong();
@@ -295,7 +292,6 @@ namespace QLNHANSU.CHAMCONG
             frm._ngay = gvBangCongChiTiet.FocusedColumn.FieldName.ToString();
             frm.ShowDialog();
         }
-
-       
+  
     }
 }

@@ -55,8 +55,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gcBangCongChiTiet = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnCapNhatNgayCong = new System.Windows.Forms.ToolStripMenuItem();
             this.gvBangCongChiTiet = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.THONGTIN = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colMaNV = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -99,14 +97,16 @@
             this.CONGNGAYLE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.CONGCHUNHAT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.TONGNGAYCONG = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnCapNhatNgayCong = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBangCongChiTiet)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvBangCongChiTiet)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager1
@@ -387,21 +387,6 @@
             this.gcBangCongChiTiet.TabIndex = 0;
             this.gcBangCongChiTiet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBangCongChiTiet});
-            this.gcBangCongChiTiet.Click += new System.EventHandler(this.mnCapNhatNgayCong_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnCapNhatNgayCong});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 26);
-            // 
-            // mnCapNhatNgayCong
-            // 
-            this.mnCapNhatNgayCong.Name = "mnCapNhatNgayCong";
-            this.mnCapNhatNgayCong.Size = new System.Drawing.Size(181, 22);
-            this.mnCapNhatNgayCong.Text = "Cập nhật ngày công";
-            this.mnCapNhatNgayCong.Click += new System.EventHandler(this.mnCapNhatNgayCong_Click);
             // 
             // gvBangCongChiTiet
             // 
@@ -1110,11 +1095,26 @@
             this.TONGNGAYCONG.Visible = true;
             this.TONGNGAYCONG.Width = 120;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnCapNhatNgayCong});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 26);
+            // 
+            // mnCapNhatNgayCong
+            // 
+            this.mnCapNhatNgayCong.Name = "mnCapNhatNgayCong";
+            this.mnCapNhatNgayCong.Size = new System.Drawing.Size(181, 22);
+            this.mnCapNhatNgayCong.Text = "Cập nhật ngày công";
+            this.mnCapNhatNgayCong.Click += new System.EventHandler(this.mnCapNhatNgayCong_Click);
+            // 
             // frmBangCongChiTiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 609);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -1132,8 +1132,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBangCongChiTiet)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvBangCongChiTiet)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
