@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,5 +61,55 @@ namespace BusinessLayer
             }
             return thu;
         }
+        //Khai báo 1 biến Sqlconnection
+        static SqlConnection con = new SqlConnection();
+        //Hàm tạo kết nối 
+        public static void taoKetNoi()
+        {
+            //Cấu trúc chuỗi kết nối đến CSDL SQLSERVER
+            con.ConnectionString = "Data Source = HY\\PHUCHUY; Initial Catalog = QLNHANSU; User ID= sa; Password=123321;";
+            try
+            {
+                con.Open();// mở kết nối đến CSDL
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        //hàm đóng kết nối 
+        public static void dongKetNoi()
+        {
+            con.Close();
+        }
+        //hàm đổ dữ liệu vào datable
+        public static DataTable getData(string query)
+        {
+            taoKetNoi();
+            DataTable tb = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            da.Fill(tb);
+            dongKetNoi();
+            return tb;
+        }
+        //hàm lấy dữ liệu bằng Dataset
+        public static DataSet GetDataSet(string query)
+        {
+            taoKetNoi();
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+        //hàm insert/update dữ liệu
+        public static void execQuery(string qr)
+        {
+            taoKetNoi();
+            SqlCommand cmd = new SqlCommand(qr, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            dongKetNoi();
+        }    
     }
 }

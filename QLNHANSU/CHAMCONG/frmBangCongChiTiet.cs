@@ -48,8 +48,9 @@ namespace QLNHANSU.CHAMCONG
             cboThang.Text = _thang.ToString();
             cboNam.Text = _nam.ToString();
         }
-        void loadBangCong()
+        public void loadBangCong()
         {
+            _kcct = new KYCONGCHITIET();
             gcBangCongChiTiet.DataSource = _kcct.getList(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
             CustomView(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
             gvBangCongChiTiet.OptionsBehavior.Editable = false; // khóa click bảng công lại

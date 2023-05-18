@@ -23,5 +23,27 @@ namespace BusinessLayer
                 throw new Exception("lỗi: " + ex.Message);
             }
         }
+        public tb_BANGCONG_NHANVIEN_CHITIET Update(tb_BANGCONG_NHANVIEN_CHITIET bcct)
+        {
+            try
+            {
+                tb_BANGCONG_NHANVIEN_CHITIET bcnv = db.tb_BANGCONG_NHANVIEN_CHITIET.FirstOrDefault(x => x.MAKYCONG == bcct.MAKYCONG && x.MANV == bcct.MANV && x.NGAY == bcct.NGAY);
+                bcnv.KYHIEU = bcnv.KYHIEU;
+                bcnv.GIOVAO = bcct.GIOVAO;
+                bcnv.GIORA = bcct.GIORA;
+                bcnv.NGAYPHEP = bcct.NGAYPHEP;
+                bcnv.GHICHU = bcct.GHICHU;
+                bcnv.CONGCHUNHAT = bcct.CONGCHUNHAT;
+                bcnv.CONGNGAYLE = bcct.CONGNGAYLE;
+                bcnv.UPDATED_BY = bcct.UPDATED_BY;
+                bcnv.UPDATED_DATE = bcct.UPDATED_DATE;
+                db.SaveChanges();
+                return bcct;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: "+ex.Message);
+            }
+        }
     }
 }
