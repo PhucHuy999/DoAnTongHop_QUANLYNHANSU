@@ -26,8 +26,8 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MAKYCONG" Type="int" />
-          <Property Name="MACTY" Type="nvarchar" MaxLength="50" />
-          <Property Name="MANV" Type="nvarchar" MaxLength="50" />
+          <Property Name="MACTY" Type="int" />
+          <Property Name="MANV" Type="int" />
           <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAY" Type="datetime" />
           <Property Name="THU" Type="nvarchar" MaxLength="50" />
@@ -844,8 +844,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MAKYCONG" Type="Int32" />
-          <Property Name="MACTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="Int32" />
+          <Property Name="MANV" Type="Int32" />
           <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAY" Type="DateTime" Precision="3" />
           <Property Name="THU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

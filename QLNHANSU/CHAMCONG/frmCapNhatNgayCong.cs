@@ -17,5 +17,23 @@ namespace QLNHANSU.CHAMCONG
         {
             InitializeComponent();
         }
+        public int _manv;
+        public string _hoten;
+        public int _makycong;
+        public string _ngay;
+        private void frmCapNhatNgayCong_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(_manv.ToString() + " " + _makycong.ToString()+" - "+_ngay);
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

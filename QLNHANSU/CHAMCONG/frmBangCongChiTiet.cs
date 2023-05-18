@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using DataLayer;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask;
 using DevExpress.XtraEditors.Repository;
@@ -22,8 +23,10 @@ namespace QLNHANSU.CHAMCONG
         {
             InitializeComponent();
         }
+        NHANVIEN _nhanvien;
         KYCONG _kycong;
         KYCONGCHITIET _kcct;
+        BANGCONG_NHANVIEN_CHITIET _bangcongNVCT;
         public int _makycong;
         public int _macty;
         public int _thang;
@@ -37,7 +40,10 @@ namespace QLNHANSU.CHAMCONG
         {
             _kycong = new KYCONG();
             _kcct = new KYCONGCHITIET();
+            _nhanvien = new NHANVIEN();
+            _bangcongNVCT = new BANGCONG_NHANVIEN_CHITIET();
             gcBangCongChiTiet.DataSource = _kcct.getList(_makycong);
+            gvBangCongChiTiet.OptionsBehavior.Editable = false;
             CustomView(_thang, _nam);
             cboThang.Text = _thang.ToString();
             cboNam.Text = _nam.ToString();
@@ -46,7 +52,7 @@ namespace QLNHANSU.CHAMCONG
         {
             gcBangCongChiTiet.DataSource = _kcct.getList(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
             CustomView(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
-            //gvBangCongChiTiet.OptionsBehavior.Editable = false; // khóa click bảng công lại
+            gvBangCongChiTiet.OptionsBehavior.Editable = false; // khóa click bảng công lại
         }
         private void btnPhatSinhKyCong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -58,8 +64,34 @@ namespace QLNHANSU.CHAMCONG
                 SplashScreenManager.CloseForm();
                 return;
             }
-
+            List<tb_NHANVIEN> lstNhanVien = _nhanvien.getList();
             _kcct.phatSinhKyCongChiTiet(_macty, int.Parse(cboThang.Text), int.Parse(cboNam.Text));
+            foreach(var item in lstNhanVien)
+            {
+                for (int i = 1; i <= GetDayNumber(int.Parse(cboThang.Text), int.Parse(cboNam.Text)); i++)//
+                {
+                    tb_BANGCONG_NHANVIEN_CHITIET bcct = new tb_BANGCONG_NHANVIEN_CHITIET();
+                    bcct.MANV = item.MANV;
+                    bcct.MACTY = item.MACTY;
+                    bcct.HOTEN = item.HOTEN;
+                    bcct.GIOVAO = "08:00";
+                    bcct.GIORA = "17:00";
+                    bcct.NGAY = DateTime.Parse( cboNam.Text + "-" + cboThang.Text + "-" + i.ToString());
+                    bcct.THU = Functions_HyHy2.layThuTrongTuan(int.Parse(cboNam.Text), int.Parse(cboThang.Text), i);
+                    bcct.NGAYPHEP = 0;
+                    bcct.CONGNGAYLE = 0;
+                    bcct.CONGCHUNHAT = 0;
+                    if (bcct.THU == "Chủ nhật")
+                        bcct.KYHIEU = "CN";
+                    else
+                        bcct.KYHIEU = "X";
+                    bcct.MAKYCONG = _makycong;
+                    bcct.CREATED_DATE = DateTime.Now;
+                    bcct.CREATED_BY = 1;
+                    _bangcongNVCT.Add(bcct);
+                }
+            }
+            
             var kc = _kycong.getItem(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
             kc.TRANGTHAI = true;
             _kycong.Update(kc);
@@ -249,5 +281,20 @@ namespace QLNHANSU.CHAMCONG
             }
             return dayNumber;
         }
+
+
+        
+
+        private void mnCapNhatNgayCong_Click(object sender, EventArgs e)
+        {
+            frmCapNhatNgayCong frm = new frmCapNhatNgayCong();
+            frm._makycong = _makycong;
+            frm._manv = int.Parse(gvBangCongChiTiet.GetFocusedRowCellValue("MANV").ToString());
+            frm._hoten = gvBangCongChiTiet.GetFocusedRowCellValue("HOTEN").ToString();
+            frm._ngay = gvBangCongChiTiet.FocusedColumn.FieldName.ToString();
+            frm.ShowDialog();
+        }
+
+       
     }
 }
