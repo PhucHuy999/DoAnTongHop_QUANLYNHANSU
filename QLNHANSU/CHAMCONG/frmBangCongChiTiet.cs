@@ -80,12 +80,19 @@ namespace QLNHANSU.CHAMCONG
                     bcct.NGAY = DateTime.Parse( cboNam.Text + "-" + cboThang.Text + "-" + i.ToString());
                     bcct.THU = Functions_HyHy2.layThuTrongTuan(int.Parse(cboNam.Text), int.Parse(cboThang.Text), i);
                     bcct.NGAYPHEP = 0;
+                    bcct.NGHIKHONGPHEP = 0;
                     bcct.CONGNGAYLE = 0;
                     bcct.CONGCHUNHAT = 0;
                     if (bcct.THU == "Chủ nhật")
+                    {
                         bcct.KYHIEU = "CN";
+                        bcct.NGAYCONG = 0;
+                    }
                     else
+                    {
                         bcct.KYHIEU = "X";
+                        bcct.NGAYCONG = 1;
+                    }
                     bcct.MAKYCONG = _makycong;
                     bcct.CREATED_DATE = DateTime.Now;
                     bcct.CREATED_BY = 1;
@@ -292,6 +299,79 @@ namespace QLNHANSU.CHAMCONG
             frm._ngay = gvBangCongChiTiet.FocusedColumn.FieldName.ToString();
             frm.ShowDialog();
         }
-  
+
+        private void gvBangCongChiTiet_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+           if(e.CellValue==null)
+            {
+
+            }
+           else
+            {
+                if(e.CellValue.ToString()== "CT-NN")
+                {
+                    e.Appearance.BackColor = Color.DeepSkyBlue;           
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "CT-S")
+                {
+                    e.Appearance.BackColor = Color.DeepSkyBlue;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "CT-C")
+                {
+                    e.Appearance.BackColor = Color.DeepSkyBlue;
+                    e.Appearance.ForeColor = Color.White;
+                }
+
+
+                if (e.CellValue.ToString() == "VR-NN")
+                {
+                    e.Appearance.BackColor = Color.DarkGreen;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "VR-S")
+                {
+                    e.Appearance.BackColor = Color.DarkGreen;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "VR-C")
+                {
+                    e.Appearance.BackColor = Color.DarkGreen;
+                    e.Appearance.ForeColor = Color.White;
+                }
+
+
+                if (e.CellValue.ToString() == "P-NN")
+                {
+                    e.Appearance.BackColor = Color.LightBlue;
+                }
+                if (e.CellValue.ToString() == "P-S")
+                {
+                    e.Appearance.BackColor = Color.LightBlue;
+                }
+                if (e.CellValue.ToString() == "P-C")
+                {
+                    e.Appearance.BackColor = Color.LightBlue;
+                }
+
+
+                if (e.CellValue.ToString() == "V-NN")
+                {
+                    e.Appearance.BackColor = Color.IndianRed;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "V-S")
+                {
+                    e.Appearance.BackColor = Color.IndianRed;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "V-C")
+                {
+                    e.Appearance.BackColor = Color.IndianRed;
+                    e.Appearance.ForeColor = Color.White;
+                }
+            }
+        }
     }
 }

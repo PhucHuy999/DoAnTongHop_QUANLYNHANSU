@@ -10,6 +10,10 @@ namespace BusinessLayer
     public class BANGCONG_NHANVIEN_CHITIET
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        public tb_BANGCONG_NHANVIEN_CHITIET getItem(int makycong, int manv, int ngay)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGAY.Value.Day == ngay);
+        }
         public tb_BANGCONG_NHANVIEN_CHITIET Add(tb_BANGCONG_NHANVIEN_CHITIET bcct)
         {
             try
@@ -35,6 +39,8 @@ namespace BusinessLayer
                 bcnv.GHICHU = bcct.GHICHU;
                 bcnv.CONGCHUNHAT = bcct.CONGCHUNHAT;
                 bcnv.CONGNGAYLE = bcct.CONGNGAYLE;
+                bcnv.NGAYCONG = bcct.NGAYCONG;
+                bcnv.NGHIKHONGPHEP = bcct.NGHIKHONGPHEP;
                 bcnv.UPDATED_BY = bcct.UPDATED_BY;
                 bcnv.UPDATED_DATE = bcct.UPDATED_DATE;
                 db.SaveChanges();
@@ -44,6 +50,18 @@ namespace BusinessLayer
             {
                 throw new Exception("Lỗi: "+ex.Message);
             }
+        }
+        public double tongNgayPhep(int makycong, int manv)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x=>x.MAKYCONG == makycong && x.MANV==manv && x.NGAYPHEP!=null).ToList().Sum(p=>p.NGAYPHEP.Value);
+        }
+        public double tongNgayCong(int makycong, int manv)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGAYCONG != null).ToList().Sum(p => p.NGAYCONG.Value);
+        }
+        public double tongNghiKhongPhep(int makycong, int manv)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGHIKHONGPHEP != null).ToList().Sum(p => p.NGHIKHONGPHEP.Value);
         }
     }
 }

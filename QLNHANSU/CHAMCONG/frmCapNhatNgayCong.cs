@@ -26,10 +26,12 @@ namespace QLNHANSU.CHAMCONG
         public string _ngay;
         public int _cNgay;// ngày của cái cld
         KYCONGCHITIET _kcct;
+        BANGCONG_NHANVIEN_CHITIET _bcnvct;
         frmBangCongChiTiet frmBCCT = (frmBangCongChiTiet) Application.OpenForms["frmBangCongChiTiet"];
         private void frmCapNhatNgayCong_Load(object sender, EventArgs e)
         {
             _kcct = new KYCONGCHITIET();
+            _bcnvct = new BANGCONG_NHANVIEN_CHITIET();
             lblID.Text = _manv.ToString();
             lblHoTen.Text = _hoten;
             //bắt được ngày tháng năm khi click trên lưới
@@ -48,10 +50,12 @@ namespace QLNHANSU.CHAMCONG
             string fieldName = "D" + _cNgay.ToString();
             var kcct = _kcct.getItem(_makycong, _manv);
 
-            double? tongngaycong = kcct.TONGNGAYCONG;
-            double? tongngayphep = kcct.NGAYPHEP;
-            double? tongngaykhongphep = kcct.NGHIKHONGPHEP;
-            double? tongcongle = kcct.CONGNGAYLE;
+            //double? tongngaycong = kcct.TONGNGAYCONG;
+            //double? tongngayphep = kcct.NGAYPHEP;
+            //double? tongngaykhongphep = kcct.NGHIKHONGPHEP;
+            //double? tongcongle = kcct.CONGNGAYLE;
+
+
             //ràng buộc đang xem tháng nào chỉ chấm được tháng đó thôi
             if (cldNgayCong.SelectionRange.Start.Year * 100 + cldNgayCong.SelectionRange.Start.Month!=+_makycong) 
             {
@@ -59,8 +63,103 @@ namespace QLNHANSU.CHAMCONG
                 return;
             }
 
-            //cập nhật kỳ công chi tiết => cập nhật nhật bảng công nhân viên chi tiết
-            Functions_HyHy2.execQuery("UPDATE tb_KYCONGCHITIET SET "+fieldName+"='"+_valueChamCong+"'WHERE MAKYCONG="+_makycong+" AND MANV="+_manv );
+            //cập nhật kỳ công chi tiết => cập nhật nhật bảng công NHÂN VIÊN chi tiết
+            //Functions_HyHy2.execQuery("UPDATE tb_KYCONGCHITIET SET "+fieldName+"='"+_valueChamCong+"'WHERE MAKYCONG="+_makycong+" AND MANV="+_manv );
+            Functions_HyHy2.execQuery("UPDATE tb_KYCONGCHITIET SET " + fieldName + "='" + _valueChamCong + "' +'-'+ '" + _valueThoiGianNghi + "'WHERE MAKYCONG=" + _makycong + " AND MANV=" + _manv);
+
+
+            tb_BANGCONG_NHANVIEN_CHITIET bcnvct = _bcnvct.getItem(_makycong, _manv, cldNgayCong.SelectionStart.Day);
+            bcnvct.KYHIEU = _valueChamCong+'-'+_valueThoiGianNghi;
+            
+
+            switch (_valueChamCong)
+            {
+                case "P":
+                    if(_valueThoiGianNghi=="NN")//thời gian nghỉ PHÉP nguyên ngày   
+                    {
+                        bcnvct.NGAYPHEP = 1;
+                        bcnvct.NGAYCONG = 0;
+                        bcnvct.NGHIKHONGPHEP = 0;
+                        //kcct.NGAYPHEP = tongngayphep + 1;
+                        //kcct.TONGNGAYCONG = tongngaycong - 1;
+
+                    }
+                    else
+                    {
+                        bcnvct.NGAYPHEP = 0.5;//phép nửa ngày SÁNG hoặc CHIỀU thì như nhau
+                        bcnvct.NGAYCONG = 0.5;
+                        bcnvct.NGHIKHONGPHEP = 0;
+
+                        //kcct.NGAYPHEP = tongngayphep + 0.5;
+                        //kcct.TONGNGAYCONG = tongngaycong - 0.5;
+
+                    }
+                    break;
+
+
+
+                case "CT":
+                    if (_valueThoiGianNghi == "NN")
+                    {
+                        bcnvct.NGAYPHEP = 0;
+                        bcnvct.NGHIKHONGPHEP = 0;
+                        bcnvct.NGAYCONG = 1;//công tác thì vẫn là đi làm nhưng chỗ khác
+                    }
+                    else
+                    {
+                        bcnvct.NGAYPHEP = 0.5;// xác định công tác nửa buổi còn nửa buổi còn lại nghỉ phép nửa ngày
+                        bcnvct.NGAYCONG = 0.5;
+                        bcnvct.NGHIKHONGPHEP = 0;
+
+                    }
+                    break;
+                case "VR":
+                    if (_valueThoiGianNghi == "NN")
+                    {
+                        bcnvct.NGAYCONG = 0;
+                        bcnvct.NGAYPHEP = 1;
+                        bcnvct.NGHIKHONGPHEP = 0;
+
+                    }
+                    else
+                    {
+                        bcnvct.NGAYPHEP = 0.5; 
+                        bcnvct.NGAYCONG = 0.5;
+                        bcnvct.NGHIKHONGPHEP = 0;
+
+                    }
+                    break;
+                case "V":
+                    if (_valueThoiGianNghi == "NN")
+                    {
+                        bcnvct.NGHIKHONGPHEP = 1;
+                        bcnvct.NGAYPHEP = 0;
+                        bcnvct.NGAYCONG = 0;
+                    }
+                    else
+                    {
+                        bcnvct.NGHIKHONGPHEP = 0.5;
+                        //bcnvct.NGAYPHEP = 0.5;
+                        bcnvct.NGAYCONG = 0.5;
+                    }
+                    break;
+
+
+                default:
+                    break;
+            }
+            //Update tb_BANGCONG_NHANVIEN_CHITIET (ky hiệu và ngày công ngày phép)
+            _bcnvct.Update(bcnvct);
+
+            //Tính lại tổng các ngày: phép, công, vắng....
+            double tongngayphep = _bcnvct.tongNgayPhep(_makycong, _manv);
+            double tongngaycong = _bcnvct.tongNgayCong(_makycong, _manv);
+            double tongnghikhongphep = _bcnvct.tongNghiKhongPhep(_makycong, _manv);
+            kcct.NGAYPHEP = tongngayphep;
+            kcct.TONGNGAYCONG = tongngaycong;
+            kcct.NGHIKHONGPHEP = tongnghikhongphep;
+            _kcct.Update(kcct);
+
             frmBCCT.loadBangCong();
 
 

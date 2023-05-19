@@ -468,6 +468,7 @@
             this.gvBangCongChiTiet.OptionsView.ShowIndicator = false;
             this.gvBangCongChiTiet.RowHeight = 23;
             this.gvBangCongChiTiet.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gvBangCongChiTiet.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvBangCongChiTiet_CustomDrawCell);
             // 
             // THONGTIN
             // 
@@ -1044,7 +1045,7 @@
             // 
             this.NGHIKHONGPHEP.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.NGHIKHONGPHEP.AppearanceHeader.Options.UseFont = true;
-            this.NGHIKHONGPHEP.Caption = "KHÔNG PHÉP";
+            this.NGHIKHONGPHEP.Caption = "NGHỈ KHÔNG PHÉP";
             this.NGHIKHONGPHEP.FieldName = "NGHIKHONGPHEP";
             this.NGHIKHONGPHEP.MinWidth = 86;
             this.NGHIKHONGPHEP.Name = "NGHIKHONGPHEP";
