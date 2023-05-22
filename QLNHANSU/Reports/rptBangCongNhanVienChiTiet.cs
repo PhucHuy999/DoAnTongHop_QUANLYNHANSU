@@ -1,27 +1,29 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DataLayer;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using DataLayer;
-using System.Collections.Generic;
 
 namespace QLNHANSU.Reports
 {
-    public partial class rptBangCongChiTiet : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptBangCongNhanVienChiTiet : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptBangCongChiTiet()
+        public rptBangCongNhanVienChiTiet()
         {
             InitializeComponent();
         }
         public List<tb_BANGCONG_NHANVIEN_CHITIET> _bcct;
-        public rptBangCongChiTiet(List<tb_BANGCONG_NHANVIEN_CHITIET> bcct)
+        public rptBangCongNhanVienChiTiet(List<tb_BANGCONG_NHANVIEN_CHITIET> bcct)
         {
             InitializeComponent();
             this._bcct = bcct;
-            this.DataSource=_bcct;
+            this.DataSource = _bcct;
             BindingData();
+            
         }
+        
         void BindingData()
         {
             lblMANV.DataBindings.Add("Text", DataSource, "MANV");
@@ -37,6 +39,9 @@ namespace QLNHANSU.Reports
             lblNGHIKHONGPHEP.DataBindings.Add("Text", DataSource, "NGHIKHONGPHEP");
             lblKYHIEU.DataBindings.Add("Text", DataSource, "KYHIEU");
             lblGHICHU.DataBindings.Add("Text", DataSource, "GHICHU");
+            lblMAKYCONG.DataBindings.Add("Text", DataSource, "MAKYCONG");
+            
+
         }
     }
 }

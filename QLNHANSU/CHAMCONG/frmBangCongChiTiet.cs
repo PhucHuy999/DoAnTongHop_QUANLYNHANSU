@@ -85,6 +85,7 @@ namespace QLNHANSU.CHAMCONG
                     bcct.NGHIKHONGPHEP = 0;
                     bcct.CONGNGAYLE = 0;
                     bcct.CONGCHUNHAT = 0;
+
                     if (bcct.THU == "Chủ nhật")
                     {
                         bcct.KYHIEU = "CN";

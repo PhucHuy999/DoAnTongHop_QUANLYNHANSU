@@ -220,11 +220,11 @@
     <Compile Include="Reports\frmInBangCongChiTiet.Designer.cs">
       <DependentUpon>frmInBangCongChiTiet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\rptBangCongChiTiet.cs">
+    <Compile Include="Reports\rptBangCongNhanVienChiTiet.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\rptBangCongChiTiet.Designer.cs">
-      <DependentUpon>rptBangCongChiTiet.cs</DependentUpon>
+    <Compile Include="Reports\rptBangCongNhanVienChiTiet.Designer.cs">
+      <DependentUpon>rptBangCongNhanVienChiTiet.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBangCongTongHop.cs">
       <SubType>Component</SubType>
@@ -324,8 +324,8 @@
     <EmbeddedResource Include="Reports\frmInBangCongChiTiet.resx">
       <DependentUpon>frmInBangCongChiTiet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rptBangCongChiTiet.resx">
-      <DependentUpon>rptBangCongChiTiet.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\rptBangCongNhanVienChiTiet.resx">
+      <DependentUpon>rptBangCongNhanVienChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBangCongTongHop.resx">
       <DependentUpon>rptBangCongTongHop.cs</DependentUpon>

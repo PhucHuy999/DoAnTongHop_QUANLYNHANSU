@@ -38,7 +38,7 @@ namespace QLNHANSU.Reports
         private void btnIn_Click(object sender, EventArgs e)
         {
             var lst = _bcnvct.getBangCongChiTiet(DateTime.Now.Year * 100 + int.Parse(cboKyCong.Text), int.Parse(cboNhanVienn.SelectedValue.ToString()));
-            rptBangCongChiTiet rpt = new rptBangCongChiTiet(lst);
+            rptBangCongNhanVienChiTiet rpt = new rptBangCongNhanVienChiTiet(lst);
             rpt.ShowPreviewDialog();
         }
 
