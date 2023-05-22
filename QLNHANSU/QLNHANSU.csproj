@@ -214,6 +214,18 @@
     <Compile Include="frmTrinhDo.Designer.cs">
       <DependentUpon>frmTrinhDo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmInBangCongChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmInBangCongChiTiet.Designer.cs">
+      <DependentUpon>frmInBangCongChiTiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptBangCongChiTiet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBangCongChiTiet.Designer.cs">
+      <DependentUpon>rptBangCongChiTiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBangCongTongHop.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -308,6 +320,12 @@
     </Compile>
     <EmbeddedResource Include="frmTrinhDo.resx">
       <DependentUpon>frmTrinhDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmInBangCongChiTiet.resx">
+      <DependentUpon>frmInBangCongChiTiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBangCongChiTiet.resx">
+      <DependentUpon>rptBangCongChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBangCongTongHop.resx">
       <DependentUpon>rptBangCongTongHop.cs</DependentUpon>

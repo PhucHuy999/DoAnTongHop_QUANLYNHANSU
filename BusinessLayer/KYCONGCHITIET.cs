@@ -98,6 +98,10 @@ namespace BusinessLayer
                 kycongchitiet.D31 = listDay[30];
                 kycongchitiet.NGAYCONG = Functions_HyHy2.demSoNgayLamViecTrongThang(thang, nam);
                 kycongchitiet.TONGNGAYCONG = Functions_HyHy2.demSoNgayLamViecTrongThang(thang, nam);
+                kycongchitiet.NGAYPHEP = 0;
+                kycongchitiet.NGHIKHONGPHEP = 0;
+                kycongchitiet.CONGNGAYLE = 0;
+                kycongchitiet.CONGCHUNHAT = 0;
 
                 db.tb_KYCONGCHITIET.Add(kycongchitiet);
                 db.SaveChanges();

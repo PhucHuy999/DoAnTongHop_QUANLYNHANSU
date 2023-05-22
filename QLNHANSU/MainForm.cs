@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using QLNHANSU.CHAMCONG;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -184,6 +185,12 @@ namespace QLNHANSU
         {
             openForm(typeof(frmBangCong));
 
+        }
+
+        private void btnBangCongCT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmInBangCongChiTiet frm = new frmInBangCongChiTiet();
+            frm.ShowDialog();
         }
     }
 }

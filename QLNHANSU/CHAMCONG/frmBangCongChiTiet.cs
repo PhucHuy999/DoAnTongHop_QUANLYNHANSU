@@ -68,7 +68,7 @@ namespace QLNHANSU.CHAMCONG
                 return;
             }
             List<tb_NHANVIEN> lstNhanVien = _nhanvien.getList();
-            _kcct.phatSinhKyCongChiTiet(_macty, int.Parse(cboThang.Text), int.Parse(cboNam.Text));
+            _kcct.phatSinhKyCongChiTiet(_macty, int.Parse(cboThang.Text), int.Parse(cboNam.Text));//phát sinh kỳ công 
             foreach(var item in lstNhanVien)
             {
                 for (int i = 1; i <= GetDayNumber(int.Parse(cboThang.Text), int.Parse(cboNam.Text)); i++)//
@@ -88,12 +88,16 @@ namespace QLNHANSU.CHAMCONG
                     if (bcct.THU == "Chủ nhật")
                     {
                         bcct.KYHIEU = "CN";
-                        bcct.NGAYCONG = 0;
+
+                        bcct.NGAYCONG = 0;//
+
                     }
                     else
                     {
                         bcct.KYHIEU = "X";
-                        bcct.NGAYCONG = 1;
+
+                        bcct.NGAYCONG = 1;//
+
                     }
                     bcct.MAKYCONG = _makycong;
                     bcct.CREATED_DATE = DateTime.Now;
@@ -101,7 +105,7 @@ namespace QLNHANSU.CHAMCONG
                     _bangcongNVCT.Add(bcct);
                 }
             }
-            
+
             var kc = _kycong.getItem(int.Parse(cboNam.Text) * 100 + int.Parse(cboThang.Text));
             kc.TRANGTHAI = true;
             _kycong.Update(kc);

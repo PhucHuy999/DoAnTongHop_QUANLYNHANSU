@@ -14,6 +14,11 @@ namespace BusinessLayer
         {
             return db.tb_BANGCONG_NHANVIEN_CHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGAY.Value.Day == ngay);
         }
+        public List<tb_BANGCONG_NHANVIEN_CHITIET> getBangCongChiTiet(int makycong, int manv)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv).ToList();
+
+        }
         public tb_BANGCONG_NHANVIEN_CHITIET Add(tb_BANGCONG_NHANVIEN_CHITIET bcct)
         {
             try
