@@ -37,10 +37,10 @@
             this.rdgThoiGianNghi = new DevExpress.XtraEditors.RadioGroup();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.lableID = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
             this.lblHoTen = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lableID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdgChamCong.Properties)).BeginInit();
@@ -54,7 +54,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCapNhat.ImageOptions.SvgImage")));
-            this.btnCapNhat.Location = new System.Drawing.Point(192, 217);
+            this.btnCapNhat.Location = new System.Drawing.Point(190, 240);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(86, 38);
             this.btnCapNhat.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.groupControl1.Controls.Add(this.rdgChamCong);
             this.groupControl1.Location = new System.Drawing.Point(190, 6);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(185, 90);
+            this.groupControl1.Size = new System.Drawing.Size(185, 135);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Chấm công";
             // 
@@ -88,11 +88,15 @@
             this.rdgChamCong.Location = new System.Drawing.Point(2, 23);
             this.rdgChamCong.Name = "rdgChamCong";
             this.rdgChamCong.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("P", "Nghỉ phép"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("NP", "Nghỉ phép"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("V", "Vắng"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("VR", "Việc riêng"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("CT", "Công tác")});
-            this.rdgChamCong.Size = new System.Drawing.Size(181, 65);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("CT", "Công tác"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("CLE", "Công Lễ"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("CCN", "Công CN"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("X", "X"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("CN", "CN")});
+            this.rdgChamCong.Size = new System.Drawing.Size(181, 110);
             this.rdgChamCong.TabIndex = 0;
             // 
             // groupControl2
@@ -102,7 +106,7 @@
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl2.Controls.Add(this.rdgThoiGianNghi);
-            this.groupControl2.Location = new System.Drawing.Point(190, 102);
+            this.groupControl2.Location = new System.Drawing.Point(190, 147);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(185, 87);
             this.groupControl2.TabIndex = 3;
@@ -111,20 +115,20 @@
             // rdgThoiGianNghi
             // 
             this.rdgThoiGianNghi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdgThoiGianNghi.EditValue = "NN";
             this.rdgThoiGianNghi.Location = new System.Drawing.Point(2, 23);
             this.rdgThoiGianNghi.Name = "rdgThoiGianNghi";
             this.rdgThoiGianNghi.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("S", "Sáng"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("C", "Chiều"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("NN", "Nguyên ngày")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("s", "Sáng"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("c", "Chiều"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("nn", "Nguyên ngày"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(" ", " ")});
             this.rdgThoiGianNghi.Size = new System.Drawing.Size(181, 62);
             this.rdgThoiGianNghi.TabIndex = 0;
             // 
             // btnThoat
             // 
             this.btnThoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThoat.ImageOptions.SvgImage")));
-            this.btnThoat.Location = new System.Drawing.Point(289, 217);
+            this.btnThoat.Location = new System.Drawing.Point(287, 240);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(86, 38);
             this.btnThoat.TabIndex = 4;
@@ -147,26 +151,6 @@
             this.groupControl3.TabIndex = 5;
             this.groupControl3.Text = "Thông tin";
             // 
-            // lableID
-            // 
-            this.lableID.AutoSize = true;
-            this.lableID.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lableID.Location = new System.Drawing.Point(5, 29);
-            this.lableID.Name = "lableID";
-            this.lableID.Size = new System.Drawing.Size(23, 14);
-            this.lableID.TabIndex = 0;
-            this.lableID.Text = "ID:";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.lblID.Location = new System.Drawing.Point(53, 29);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(35, 14);
-            this.lblID.TabIndex = 1;
-            this.lblID.Text = "IDNV";
-            // 
             // lblHoTen
             // 
             this.lblHoTen.AutoSize = true;
@@ -187,11 +171,31 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Họ tên:";
             // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.lblID.Location = new System.Drawing.Point(53, 29);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(35, 14);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "IDNV";
+            // 
+            // lableID
+            // 
+            this.lableID.AutoSize = true;
+            this.lableID.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.lableID.Location = new System.Drawing.Point(5, 29);
+            this.lableID.Name = "lableID";
+            this.lableID.Size = new System.Drawing.Size(23, 14);
+            this.lableID.TabIndex = 0;
+            this.lableID.Text = "ID:";
+            // 
             // frmCapNhatNgayCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 290);
+            this.ClientSize = new System.Drawing.Size(381, 290);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupControl2);

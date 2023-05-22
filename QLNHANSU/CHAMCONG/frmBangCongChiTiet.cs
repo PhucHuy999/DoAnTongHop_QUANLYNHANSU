@@ -4,7 +4,9 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraSplashScreen;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -119,7 +121,9 @@ namespace QLNHANSU.CHAMCONG
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            List<tb_KYCONGCHITIET> lst = _kcct.getList(_makycong);
+            rptBangCongTongHop rpt = new rptBangCongTongHop(lst,_makycong.ToString());
+            rpt.ShowPreviewDialog();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -225,11 +229,11 @@ namespace QLNHANSU.CHAMCONG
                         column = gvBangCongChiTiet.Columns[fieldName];
                         column.Caption = "T.Bảy " + Environment.NewLine + i;
                         column.OptionsColumn.AllowEdit = true;
-                        column.AppearanceHeader.ForeColor = Color.Red;
-                        column.AppearanceHeader.BackColor = Color.Violet;
-                        column.AppearanceHeader.BackColor2 = Color.Violet;
+                        column.AppearanceHeader.ForeColor = Color.Blue;
+                        column.AppearanceHeader.BackColor = Color.Transparent;
+                        column.AppearanceHeader.BackColor2 = Color.Transparent;
                         column.AppearanceCell.ForeColor = Color.Black;
-                        column.AppearanceCell.BackColor = Color.Khaki;
+                        column.AppearanceCell.BackColor = Color.Transparent;
                         column.OptionsColumn.AllowFocus = true;
                         //column.AppearanceHeader.Font = new Font("Tahoma", 8, FontStyle.Regular);
                         //column.width = 30;
@@ -308,69 +312,101 @@ namespace QLNHANSU.CHAMCONG
             }
            else
             {
-                if(e.CellValue.ToString()== "CT-NN")
+                if(e.CellValue.ToString()== "CT nn")
                 {
                     e.Appearance.BackColor = Color.DeepSkyBlue;           
                     e.Appearance.ForeColor = Color.White;
                 }
-                if (e.CellValue.ToString() == "CT-S")
+                if (e.CellValue.ToString() == "CT s")
                 {
                     e.Appearance.BackColor = Color.DeepSkyBlue;
                     e.Appearance.ForeColor = Color.White;
                 }
-                if (e.CellValue.ToString() == "CT-C")
+                if (e.CellValue.ToString() == "CT c")
                 {
                     e.Appearance.BackColor = Color.DeepSkyBlue;
                     e.Appearance.ForeColor = Color.White;
                 }
 
 
-                if (e.CellValue.ToString() == "VR-NN")
+                if (e.CellValue.ToString() == "VR nn")
                 {
                     e.Appearance.BackColor = Color.DarkGreen;
                     e.Appearance.ForeColor = Color.White;
                 }
-                if (e.CellValue.ToString() == "VR-S")
+                if (e.CellValue.ToString() == "VR s")
                 {
                     e.Appearance.BackColor = Color.DarkGreen;
                     e.Appearance.ForeColor = Color.White;
                 }
-                if (e.CellValue.ToString() == "VR-C")
+                if (e.CellValue.ToString() == "VR c")
                 {
                     e.Appearance.BackColor = Color.DarkGreen;
                     e.Appearance.ForeColor = Color.White;
                 }
 
 
-                if (e.CellValue.ToString() == "P-NN")
+                if (e.CellValue.ToString() == "NP nn")
                 {
                     e.Appearance.BackColor = Color.LightBlue;
                 }
-                if (e.CellValue.ToString() == "P-S")
+                if (e.CellValue.ToString() == "NP s")
                 {
                     e.Appearance.BackColor = Color.LightBlue;
                 }
-                if (e.CellValue.ToString() == "P-C")
+                if (e.CellValue.ToString() == "NP c")
                 {
                     e.Appearance.BackColor = Color.LightBlue;
                 }
 
 
-                if (e.CellValue.ToString() == "V-NN")
+                if (e.CellValue.ToString() == "V nn")
                 {
                     e.Appearance.BackColor = Color.IndianRed;
                     e.Appearance.ForeColor = Color.White;
                 }
-                if (e.CellValue.ToString() == "V-S")
+                if (e.CellValue.ToString() == "V s")
                 {
                     e.Appearance.BackColor = Color.IndianRed;
                     e.Appearance.ForeColor = Color.White;
                 }
-                if (e.CellValue.ToString() == "V-C")
+                if (e.CellValue.ToString() == "V c")
                 {
                     e.Appearance.BackColor = Color.IndianRed;
                     e.Appearance.ForeColor = Color.White;
                 }
+
+                if (e.CellValue.ToString() == "CLE nn")
+                {
+                    e.Appearance.BackColor = Color.DeepPink;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "CLE s")
+                {
+                    e.Appearance.BackColor = Color.DeepPink;
+                    e.Appearance.ForeColor = Color.White;
+                }
+                if (e.CellValue.ToString() == "CLE c")
+                {
+                    e.Appearance.BackColor = Color.DeepPink;
+                    e.Appearance.ForeColor = Color.White;
+                }
+
+                //if (e.CellValue.ToString() == "CCN nn")
+                //{
+                //    e.Appearance.BackColor = Color.IndianRed;
+                //    e.Appearance.ForeColor = Color.White;
+                //}
+                //if (e.CellValue.ToString() == "CCN s")
+                //{
+                //    e.Appearance.BackColor = Color.IndianRed;
+                //    e.Appearance.ForeColor = Color.White;
+                //}
+                //if (e.CellValue.ToString() == "CCN c")
+                //{
+                //    e.Appearance.BackColor = Color.IndianRed;
+                //    e.Appearance.ForeColor = Color.White;
+                //}
             }
         }
     }

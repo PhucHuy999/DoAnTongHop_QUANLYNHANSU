@@ -1056,7 +1056,7 @@
             // 
             this.NGAYPHEP.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
             this.NGAYPHEP.AppearanceHeader.Options.UseFont = true;
-            this.NGAYPHEP.Caption = "NGÀY PHÉP";
+            this.NGAYPHEP.Caption = "NGHỈ PHÉP";
             this.NGAYPHEP.FieldName = "NGAYPHEP";
             this.NGAYPHEP.MinWidth = 86;
             this.NGAYPHEP.Name = "NGAYPHEP";

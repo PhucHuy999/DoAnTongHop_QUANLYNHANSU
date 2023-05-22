@@ -214,6 +214,12 @@
     <Compile Include="frmTrinhDo.Designer.cs">
       <DependentUpon>frmTrinhDo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptBangCongTongHop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBangCongTongHop.Designer.cs">
+      <DependentUpon>rptBangCongTongHop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptHopDongLaoDong.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </Compile>
     <EmbeddedResource Include="frmTrinhDo.resx">
       <DependentUpon>frmTrinhDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBangCongTongHop.resx">
+      <DependentUpon>rptBangCongTongHop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptHopDongLaoDong.resx">
       <DependentUpon>rptHopDongLaoDong.cs</DependentUpon>

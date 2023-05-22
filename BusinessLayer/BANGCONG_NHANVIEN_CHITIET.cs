@@ -57,11 +57,19 @@ namespace BusinessLayer
         }
         public double tongNgayCong(int makycong, int manv)
         {
-            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGAYCONG != null).ToList().Sum(p => p.NGAYCONG.Value);
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGAYCONG != null).ToList().Sum(p => p.NGAYCONG.Value + ((p.CONGNGAYLE.Value)*3) + p.CONGCHUNHAT.Value );//lương lễ 300%
         }
         public double tongNghiKhongPhep(int makycong, int manv)
         {
             return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGHIKHONGPHEP != null).ToList().Sum(p => p.NGHIKHONGPHEP.Value);
+        }
+        public double tongCongChuNhat(int makycong, int manv)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.CONGCHUNHAT != null).ToList().Sum(p => p.CONGCHUNHAT.Value);
+        }
+        public double tongCongNgayLe(int makycong, int manv)
+        {
+            return db.tb_BANGCONG_NHANVIEN_CHITIET.Where(x => x.MAKYCONG == makycong && x.MANV == manv && x.CONGNGAYLE != null).ToList().Sum(p => p.CONGNGAYLE.Value);
         }
     }
 }

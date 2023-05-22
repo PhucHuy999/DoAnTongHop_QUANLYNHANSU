@@ -33,13 +33,13 @@ namespace BusinessLayer
                     switch (newDate.DayOfWeek.ToString())
                     {
                         case "Sunday":
-                            listDay.Add("CN");
+                            listDay.Add("CN ");
                             break;
                         //case "Saturday":
                         //    listDay.Add("T7");
                         //    break;
                         default:
-                            listDay.Add("X"); // ngày thường thì add X vào lưới
+                            listDay.Add("X "); // ngày thường thì add X vào lưới
                             break;
 
                     }
