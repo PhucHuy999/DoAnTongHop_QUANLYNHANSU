@@ -89,12 +89,19 @@ namespace BusinessLayer
         }
         public void Delete(int id, int iduser)
         {
-            var _lc = db.tb_NHANVIEN_PHUCAP.FirstOrDefault(x => x.ID == id);
+            try
+            {
+                var _lc = db.tb_NHANVIEN_PHUCAP.FirstOrDefault(x => x.ID == id);
 
-            _lc.DELETED_BY = iduser;
-            _lc.DELETED_DATE = DateTime.Now;
-            db.SaveChanges();
-
+                _lc.DELETED_BY = iduser;
+                _lc.DELETED_DATE = DateTime.Now;
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi: "+ ex.Message); 
+            }
         }
+
     }
 }

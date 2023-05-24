@@ -199,5 +199,16 @@ namespace QLNHANSU
             openForm(typeof(frmPhuCap));
 
         }
+
+        private void btnConfig_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //sẽ làm 1 form để người dùng cài đặt 1 số cái thông số hệ thống
+        }
+
+        private void btnTangCa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmTangCa));
+
+        }
     }
 }
