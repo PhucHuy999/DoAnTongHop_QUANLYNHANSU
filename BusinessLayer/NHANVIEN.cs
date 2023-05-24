@@ -23,6 +23,47 @@ namespace BusinessLayer
         {
             return db.tb_NHANVIEN.ToList();
         }
+        public NHANVIEN_DTO getItemFull(int id)
+        {
+            var item = db.tb_NHANVIEN.FirstOrDefault(x=>x.MANV==id);
+            NHANVIEN_DTO nvDTO = new NHANVIEN_DTO();
+                nvDTO.MANV = item.MANV;
+                nvDTO.HOTEN = item.HOTEN;
+                nvDTO.GIOITINH = item.GIOITINH;
+                nvDTO.NGAYSINH = item.NGAYSINH;
+                nvDTO.CCCD = item.CCCD;
+                nvDTO.DIENTHOAI = item.DIENTHOAI;
+                nvDTO.DIACHI = item.DIACHI;
+                nvDTO.HINHANH = item.HINHANH;
+                nvDTO.DATHOIVIEC = item.DATHOIVIEC;
+                nvDTO.IDPB = item.IDPB;
+                var pb = db.tb_PHONGBAN.FirstOrDefault(b => b.IDPB == item.IDPB);
+                nvDTO.TENPB = pb.TENPB;
+
+                nvDTO.IDBP = item.IDBP;
+                var bp = db.tb_BOPHAN.FirstOrDefault(p => p.IDBP == item.IDBP);
+                nvDTO.TENBP = bp.TENBP;
+
+                nvDTO.IDCV = item.IDCV;
+                var cv = db.tb_CHUCVU.FirstOrDefault(c => c.IDCV == item.IDCV);
+                nvDTO.TENCV = cv.TENCV;
+
+                nvDTO.IDTD = item.IDTD;
+                var td = db.tb_TRINHDO.FirstOrDefault(t => t.IDTD == item.IDTD);
+                nvDTO.TENTD = td.TENTD;
+
+                nvDTO.IDDT = item.IDDT;
+                var dt = db.tb_DANTOC.FirstOrDefault(d => d.ID == item.IDDT);
+                nvDTO.TENDT = dt.TENDT;
+
+                nvDTO.IDTG = item.IDTG;
+                var tg = db.tb_TONGIAO.FirstOrDefault(g => g.ID == item.IDTG);
+                nvDTO.TENTG = tg.TENTG;
+
+
+
+            return nvDTO;
+        }
         public List<NHANVIEN_DTO> getListFull()
         {
             var lstNV = db.tb_NHANVIEN.ToList();

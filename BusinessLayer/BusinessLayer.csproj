@@ -69,6 +69,7 @@
     <Compile Include="DTO\NHANVIEN_DIEUCHUYEN_DTO.cs" />
     <Compile Include="DTO\NHANVIEN_DTO.cs" />
     <Compile Include="DTO\NHANVIEN_NANGLUONG_DTO.cs" />
+    <Compile Include="DTO\NHANVIEN_PHUCAP_DTO.cs" />
     <Compile Include="DTO\NHANVIEN_THOIVIEC_DTO.cs" />
     <Compile Include="Functions_HyHy2.cs" />
     <Compile Include="HOPDONGLAODONG.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="NHANVIEN_NANGLUONG.cs" />
     <Compile Include="NHANVIEN_THOIVIEC.cs" />
     <Compile Include="PHONGBAN.cs" />
+    <Compile Include="PHUCAP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TONGIAO.cs" />
     <Compile Include="TRINHDO.cs" />
