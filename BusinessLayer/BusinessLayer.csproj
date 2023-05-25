@@ -72,6 +72,7 @@
     <Compile Include="DTO\NHANVIEN_PHUCAP_DTO.cs" />
     <Compile Include="DTO\NHANVIEN_THOIVIEC_DTO.cs" />
     <Compile Include="DTO\TANGCA_DTO.cs" />
+    <Compile Include="DTO\UNGLUONG_DTO.cs" />
     <Compile Include="Functions_HyHy2.cs" />
     <Compile Include="HOPDONGLAODONG.cs" />
     <Compile Include="KHENTHUONG_KYLUAT.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="TANGCA.cs" />
     <Compile Include="TONGIAO.cs" />
     <Compile Include="TRINHDO.cs" />
+    <Compile Include="UNGLUONG.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
