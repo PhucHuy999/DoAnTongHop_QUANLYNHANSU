@@ -82,6 +82,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGHIKHONGPHEP = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                         //kcct.NGAYPHEP = tongngayphep + 1;
                         //kcct.TONGNGAYCONG = tongngaycong - 1;
 
@@ -93,7 +94,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGHIKHONGPHEP = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
-
+                        bcnvct.XINNGHIVIECRIENG = 0;
                         //kcct.NGAYPHEP = tongngayphep + 0.5;
                         //kcct.TONGNGAYCONG = tongngaycong - 0.5;
 
@@ -110,6 +111,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGAYCONG = 1;//công tác thì vẫn là đi làm nhưng chỗ khác
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     else
                     {
@@ -118,24 +120,27 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGHIKHONGPHEP = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     break;
                 case "VR":
                     if (_valueThoiGianNghi == "nn")
                     {
                         bcnvct.NGAYCONG = 0;
-                        bcnvct.NGAYPHEP = 1;
+                        bcnvct.NGAYPHEP = 0;
                         bcnvct.NGHIKHONGPHEP = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 1;
                     }
                     else
                     {
-                        bcnvct.NGAYPHEP = 0.5; 
+                        bcnvct.NGAYPHEP = 0; 
                         bcnvct.NGAYCONG = 0.5;
                         bcnvct.NGHIKHONGPHEP = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0.5;
                     }
                     break;
                 case "V":
@@ -146,6 +151,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGAYCONG = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     else
                     {
@@ -154,6 +160,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGAYCONG = 0.5;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     break;
                 case "CLE":
@@ -164,6 +171,7 @@ namespace QLNHANSU.CHAMCONG
                         //bcnvct.NGAYCONG = 0;
                         bcnvct.CONGNGAYLE = 1;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     else
                     {
@@ -172,6 +180,7 @@ namespace QLNHANSU.CHAMCONG
                         //bcnvct.NGAYCONG = 0;
                         bcnvct.CONGNGAYLE = 0.5;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     break;
 
@@ -183,6 +192,7 @@ namespace QLNHANSU.CHAMCONG
                         //bcnvct.NGAYCONG = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 1;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     else
                     {
@@ -191,6 +201,7 @@ namespace QLNHANSU.CHAMCONG
                         //bcnvct.NGAYCONG = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0.5;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     break;
 
@@ -202,6 +213,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGAYCONG = 1;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                   
                     break;
@@ -213,6 +225,7 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.NGAYCONG = 0;
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
+                        bcnvct.XINNGHIVIECRIENG = 0;
                     }
                     break;
                 default:
@@ -227,12 +240,14 @@ namespace QLNHANSU.CHAMCONG
             double tongnghikhongphep = _bcnvct.tongNghiKhongPhep(_makycong, _manv);
             double tongcongngayle = _bcnvct.tongCongNgayLe(_makycong, _manv);
             double tongcongchunhat = _bcnvct.tongCongChuNhat(_makycong, _manv);
+            double tongxinnghiviecrieng = _bcnvct.tongXinNghiViecRieng(_makycong, _manv);
 
             kcct.NGAYPHEP = tongngayphep;
             kcct.TONGNGAYCONG = tongngaycong;
             kcct.NGHIKHONGPHEP = tongnghikhongphep;
             kcct.CONGNGAYLE = tongcongngayle;
             kcct.CONGCHUNHAT = tongcongchunhat;
+            kcct.XINNGHIVIECRIENG = tongxinnghiviecrieng;
             _kcct.Update(kcct);
 
             frmBCCT.loadBangCong();

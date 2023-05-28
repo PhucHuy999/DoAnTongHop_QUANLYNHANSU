@@ -38,12 +38,39 @@
           <Property Name="CONGCHUNHAT" Type="float" />
           <Property Name="NGAYCONG" Type="float" />
           <Property Name="NGHIKHONGPHEP" Type="float" />
+          <Property Name="XINNGHIVIECRIENG" Type="float" />
           <Property Name="KYHIEU" Type="nvarchar" MaxLength="50" />
           <Property Name="GHICHU" Type="nvarchar" MaxLength="500" />
           <Property Name="CREATED_BY" Type="int" />
           <Property Name="CREATED_DATE" Type="datetime" />
           <Property Name="UPDATED_BY" Type="int" />
           <Property Name="UPDATED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_BANGLUONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAKYCONG" Type="int" />
+          <Property Name="MANV" Type="int" />
+          <Property Name="HOTEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="NGAYCONGTRONGTHANG" Type="int" />
+          <Property Name="SONGAYTHUCLAM" Type="int" />
+          <Property Name="NGAYPHEP" Type="float" />
+          <Property Name="NGHIKHONGPHEP" Type="float" />
+          <Property Name="NGAYLE" Type="float" />
+          <Property Name="NGAYCHUNHAT" Type="float" />
+          <Property Name="NGAYTHUONG" Type="float" />
+          <Property Name="TANGCA" Type="float" />
+          <Property Name="PHUCAP" Type="float" />
+          <Property Name="UNGLUONG" Type="float" />
+          <Property Name="THUCLANH" Type="float" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="UPDATED_BY" Type="int" />
+          <Property Name="UPDATED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
         </EntityType>
         <EntityType Name="tb_BAOHIEM">
           <Key>
@@ -107,6 +134,7 @@
           <Property Name="LANKY" Type="int" />
           <Property Name="THOIHAN" Type="nvarchar" MaxLength="50" />
           <Property Name="HESOLUONG" Type="float" />
+          <Property Name="LUONGCOBAN" Type="int" />
           <Property Name="MANV" Type="int" />
           <Property Name="MACTY" Type="int" />
           <Property Name="DELETED_BY" Type="int" />
@@ -178,6 +206,7 @@
           <Property Name="NGAYCONG" Type="float" />
           <Property Name="NGAYPHEP" Type="float" />
           <Property Name="NGHIKHONGPHEP" Type="float" />
+          <Property Name="XINNGHIVIECRIENG" Type="float" />
           <Property Name="CONGNGAYLE" Type="float" />
           <Property Name="CONGCHUNHAT" Type="float" />
           <Property Name="TONGNGAYCONG" Type="float" />
@@ -638,6 +667,7 @@
         <EntityContainer Name="QLNHANSUModelStoreContainer">
           <EntitySet Name="tb_BANGCONG" EntityType="Self.tb_BANGCONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_BANGCONG_NHANVIEN_CHITIET" EntityType="Self.tb_BANGCONG_NHANVIEN_CHITIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_BANGLUONG" EntityType="Self.tb_BANGLUONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_BAOHIEM" EntityType="Self.tb_BAOHIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_BOPHAN" EntityType="Self.tb_BOPHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Config" EntityType="Self.tb_Config" Schema="dbo" store:Type="Tables" />
@@ -852,6 +882,7 @@
             <End Role="tb_PHUCAP" EntitySet="tb_PHUCAP" />
             <End Role="tb_NHANVIEN_PHUCAP" EntitySet="tb_NHANVIEN_PHUCAP" />
           </AssociationSet>
+          <EntitySet Name="tb_BANGLUONG" EntityType="QLNHANSUModel.tb_BANGLUONG" />
         </EntityContainer>
         <EntityType Name="tb_BANGCONG">
           <Key>
@@ -888,6 +919,7 @@
           <Property Name="CONGCHUNHAT" Type="Double" />
           <Property Name="NGAYCONG" Type="Double" />
           <Property Name="NGHIKHONGPHEP" Type="Double" />
+          <Property Name="XINNGHIVIECRIENG" Type="Double" />
           <Property Name="KYHIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CREATED_BY" Type="Int32" />
@@ -962,6 +994,7 @@
           <Property Name="LANKY" Type="Int32" />
           <Property Name="THOIHAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HESOLUONG" Type="Double" />
+          <Property Name="LUONGCOBAN" Type="Int32" />
           <Property Name="MANV" Type="Int32" />
           <Property Name="MACTY" Type="Int32" />
           <Property Name="DELETED_BY" Type="Int32" />
@@ -1034,6 +1067,7 @@
           <Property Name="NGAYCONG" Type="Double" />
           <Property Name="NGAYPHEP" Type="Double" />
           <Property Name="NGHIKHONGPHEP" Type="Double" />
+          <Property Name="XINNGHIVIECRIENG" Type="Double" />
           <Property Name="CONGNGAYLE" Type="Double" />
           <Property Name="CONGCHUNHAT" Type="Double" />
           <Property Name="TONGNGAYCONG" Type="Double" />
@@ -1523,6 +1557,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tb_BANGLUONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAKYCONG" Type="Int32" />
+          <Property Name="MANV" Type="Int32" />
+          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYCONGTRONGTHANG" Type="Int32" />
+          <Property Name="SONGAYTHUCLAM" Type="Int32" />
+          <Property Name="NGAYPHEP" Type="Double" />
+          <Property Name="NGHIKHONGPHEP" Type="Double" />
+          <Property Name="NGAYLE" Type="Double" />
+          <Property Name="NGAYCHUNHAT" Type="Double" />
+          <Property Name="NGAYTHUONG" Type="Double" />
+          <Property Name="TANGCA" Type="Double" />
+          <Property Name="PHUCAP" Type="Double" />
+          <Property Name="UNGLUONG" Type="Double" />
+          <Property Name="THUCLANH" Type="Double" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_BY" Type="Int32" />
+          <Property Name="UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1554,6 +1614,7 @@
                 <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
                 <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
                 <ScalarProperty Name="KYHIEU" ColumnName="KYHIEU" />
+                <ScalarProperty Name="XINNGHIVIECRIENG" ColumnName="XINNGHIVIECRIENG" />
                 <ScalarProperty Name="NGHIKHONGPHEP" ColumnName="NGHIKHONGPHEP" />
                 <ScalarProperty Name="NGAYCONG" ColumnName="NGAYCONG" />
                 <ScalarProperty Name="CONGCHUNHAT" ColumnName="CONGCHUNHAT" />
@@ -1638,6 +1699,7 @@
                 <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
                 <ScalarProperty Name="MACTY" ColumnName="MACTY" />
                 <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="LUONGCOBAN" ColumnName="LUONGCOBAN" />
                 <ScalarProperty Name="HESOLUONG" ColumnName="HESOLUONG" />
                 <ScalarProperty Name="THOIHAN" ColumnName="THOIHAN" />
                 <ScalarProperty Name="LANKY" ColumnName="LANKY" />
@@ -1679,6 +1741,7 @@
                 <ScalarProperty Name="TONGNGAYCONG" ColumnName="TONGNGAYCONG" />
                 <ScalarProperty Name="CONGCHUNHAT" ColumnName="CONGCHUNHAT" />
                 <ScalarProperty Name="CONGNGAYLE" ColumnName="CONGNGAYLE" />
+                <ScalarProperty Name="XINNGHIVIECRIENG" ColumnName="XINNGHIVIECRIENG" />
                 <ScalarProperty Name="NGHIKHONGPHEP" ColumnName="NGHIKHONGPHEP" />
                 <ScalarProperty Name="NGAYPHEP" ColumnName="NGAYPHEP" />
                 <ScalarProperty Name="NGAYCONG" ColumnName="NGAYCONG" />
@@ -1939,6 +2002,33 @@
                 <ScalarProperty Name="NGAY" ColumnName="NGAY" />
                 <ScalarProperty Name="THANG" ColumnName="THANG" />
                 <ScalarProperty Name="NAM" ColumnName="NAM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_BANGLUONG">
+            <EntityTypeMapping TypeName="QLNHANSUModel.tb_BANGLUONG">
+              <MappingFragment StoreEntitySet="tb_BANGLUONG">
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+                <ScalarProperty Name="UPDATED_DATE" ColumnName="UPDATED_DATE" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="THUCLANH" ColumnName="THUCLANH" />
+                <ScalarProperty Name="UNGLUONG" ColumnName="UNGLUONG" />
+                <ScalarProperty Name="PHUCAP" ColumnName="PHUCAP" />
+                <ScalarProperty Name="TANGCA" ColumnName="TANGCA" />
+                <ScalarProperty Name="NGAYTHUONG" ColumnName="NGAYTHUONG" />
+                <ScalarProperty Name="NGAYCHUNHAT" ColumnName="NGAYCHUNHAT" />
+                <ScalarProperty Name="NGAYLE" ColumnName="NGAYLE" />
+                <ScalarProperty Name="NGHIKHONGPHEP" ColumnName="NGHIKHONGPHEP" />
+                <ScalarProperty Name="NGAYPHEP" ColumnName="NGAYPHEP" />
+                <ScalarProperty Name="SONGAYTHUCLAM" ColumnName="SONGAYTHUCLAM" />
+                <ScalarProperty Name="NGAYCONGTRONGTHANG" ColumnName="NGAYCONGTRONGTHANG" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="MAKYCONG" ColumnName="MAKYCONG" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -37,10 +37,11 @@ namespace QLNHANSU.Reports
             lblCHUNHAT.DataBindings.Add("Text", DataSource, "CONGCHUNHAT");
             lblNGAYCONG.DataBindings.Add("Text", DataSource, "NGAYCONG");
             lblNGHIKHONGPHEP.DataBindings.Add("Text", DataSource, "NGHIKHONGPHEP");
+            lblXINNGHIVIECRIENG.DataBindings.Add("Text", DataSource, "XINNGHIVIECRIENG");
             lblKYHIEU.DataBindings.Add("Text", DataSource, "KYHIEU");
             lblGHICHU.DataBindings.Add("Text", DataSource, "GHICHU");
             lblMAKYCONG.DataBindings.Add("Text", DataSource, "MAKYCONG");
-            
+
 
         }
     }

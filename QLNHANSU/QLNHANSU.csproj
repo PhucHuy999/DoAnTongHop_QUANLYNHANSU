@@ -244,6 +244,12 @@
     <Compile Include="Reports\rptDanhSachNhanVien.Designer.cs">
       <DependentUpon>rptDanhSachNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="TINHLUONG\frmBangLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TINHLUONG\frmBangLuong.Designer.cs">
+      <DependentUpon>frmBangLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="TINHLUONG\frmPhuCap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDanhSachNhanVien.resx">
       <DependentUpon>rptDanhSachNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TINHLUONG\frmBangLuong.resx">
+      <DependentUpon>frmBangLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TINHLUONG\frmPhuCap.resx">
       <DependentUpon>frmPhuCap.cs</DependentUpon>

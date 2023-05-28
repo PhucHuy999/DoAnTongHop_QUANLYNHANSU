@@ -52,6 +52,7 @@ namespace DataLayer
         public Nullable<double> NGAYCONG { get; set; }
         public Nullable<double> NGAYPHEP { get; set; }
         public Nullable<double> NGHIKHONGPHEP { get; set; }
+        public Nullable<double> XINNGHIVIECRIENG { get; set; }
         public Nullable<double> CONGNGAYLE { get; set; }
         public Nullable<double> CONGCHUNHAT { get; set; }
         public Nullable<double> TONGNGAYCONG { get; set; }

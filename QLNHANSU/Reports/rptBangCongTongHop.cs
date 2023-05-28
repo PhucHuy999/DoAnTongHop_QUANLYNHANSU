@@ -66,6 +66,7 @@ namespace QLNHANSU.Reports
             D31.DataBindings.Add("Text", DataSource, "D31");
             NGAYCONG.DataBindings.Add("Text", DataSource, "NGAYCONG");
             VANG.DataBindings.Add("Text", DataSource, "NGHIKHONGPHEP");
+            VIECRIENG.DataBindings.Add("Text", DataSource, "XINNGHIVIECRIENG");
             PHEP.DataBindings.Add("Text", DataSource, "NGAYPHEP");
             LE.DataBindings.Add("Text", DataSource, "CONGNGAYLE");
             CN.DataBindings.Add("Text", DataSource, "CONGCHUNHAT");

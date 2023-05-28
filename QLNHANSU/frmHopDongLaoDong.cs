@@ -151,12 +151,13 @@ namespace QLNHANSU
                 int so = int.Parse(maxSoHD.Substring(0, 5)) + 1;
 
                 tb_HOPDONG hd = new tb_HOPDONG();
-                hd.SOHD = so.ToString("00000") + @"/2023/HĐLĐ";
+                hd.SOHD = so.ToString("00000") + @"/"+DateTime.Now.Year.ToString()+@"/HĐLĐ";
                 hd.NGAYBATDAU = dtNgayBatDau.Value;
                 hd.NGAYKETTHUC = dtNgayKetThuc.Value;
                 hd.NGAYKY = dtNgayKy.Value;
                 hd.THOIHAN = cboThoiHan.Text;
                 hd.HESOLUONG = double.Parse(spHeSoLuong.EditValue.ToString());
+                hd.LUONGCOBAN = int.Parse(spLuongCoBan.EditValue.ToString());
                 hd.LANKY = int.Parse(spLanKy.EditValue.ToString());
                 hd.MANV = int.Parse(slkNhanVien.EditValue.ToString());
                 hd.NOIDUNG = txtNoiDung.RtfText;
@@ -174,6 +175,7 @@ namespace QLNHANSU
                 hd.NGAYKY = dtNgayKy.Value;
                 hd.THOIHAN = cboThoiHan.Text;
                 hd.HESOLUONG = double.Parse(spHeSoLuong.EditValue.ToString());
+                hd.LUONGCOBAN = int.Parse(spLuongCoBan.EditValue.ToString());
                 hd.LANKY = int.Parse(spLanKy.EditValue.ToString());
                 hd.MANV = int.Parse(slkNhanVien.EditValue.ToString());
                 hd.NOIDUNG = txtNoiDung.RtfText;
@@ -196,7 +198,8 @@ namespace QLNHANSU
                 dtNgayKetThuc.Value = hd.NGAYKETTHUC.Value;
                 dtNgayKy.Value = hd.NGAYKY.Value;
                 cboThoiHan.Text = hd.THOIHAN;
-                spHeSoLuong.Text = hd.HESOLUONG.ToString();
+                spHeSoLuong.EditValue = hd.HESOLUONG;
+                spLuongCoBan.EditValue = hd.LUONGCOBAN;
                 spLanKy.Text = hd.LANKY.ToString();
                 slkNhanVien.EditValue = hd.MANV;
                 txtNoiDung.RtfText = hd.NOIDUNG;
@@ -205,6 +208,24 @@ namespace QLNHANSU
 
                 //splitContainer1.Panel1Collapsed = false;
             }
+        }
+
+        private void gvDanhSach_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.Name == "DELETED_BY" && e.CellValue != null)
+            {
+                Image img = Properties.Resources.del_Icon;
+                e.Graphics.DrawImage(img, e.Bounds.X, e.Bounds.Y);
+                e.Handled = true;
+            }
+        }
+
+        private void dtNgayBatDau_ValueChanged(object sender, EventArgs e)
+        {
+          
+                   
+                dtNgayKetThuc.Value = dtNgayBatDau.Value.AddDays(365);
+            
         }
     }
 }

@@ -76,6 +76,9 @@
     <Compile Include="tb_BANGCONG_NHANVIEN_CHITIET.cs">
       <DependentUpon>QLNS.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_BANGLUONG.cs">
+      <DependentUpon>QLNS.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_BAOHIEM.cs">
       <DependentUpon>QLNS.tt</DependentUpon>
     </Compile>

@@ -12,28 +12,28 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_BANGCONG_NHANVIEN_CHITIET
+    public partial class tb_BANGLUONG
     {
         public int ID { get; set; }
         public Nullable<int> MAKYCONG { get; set; }
-        public Nullable<int> MACTY { get; set; }
         public Nullable<int> MANV { get; set; }
         public string HOTEN { get; set; }
-        public Nullable<System.DateTime> NGAY { get; set; }
-        public string THU { get; set; }
-        public string GIOVAO { get; set; }
-        public string GIORA { get; set; }
+        public Nullable<int> NGAYCONGTRONGTHANG { get; set; }
+        public Nullable<int> SONGAYTHUCLAM { get; set; }
         public Nullable<double> NGAYPHEP { get; set; }
-        public Nullable<double> CONGNGAYLE { get; set; }
-        public Nullable<double> CONGCHUNHAT { get; set; }
-        public Nullable<double> NGAYCONG { get; set; }
         public Nullable<double> NGHIKHONGPHEP { get; set; }
-        public Nullable<double> XINNGHIVIECRIENG { get; set; }
-        public string KYHIEU { get; set; }
-        public string GHICHU { get; set; }
+        public Nullable<double> NGAYLE { get; set; }
+        public Nullable<double> NGAYCHUNHAT { get; set; }
+        public Nullable<double> NGAYTHUONG { get; set; }
+        public Nullable<double> TANGCA { get; set; }
+        public Nullable<double> PHUCAP { get; set; }
+        public Nullable<double> UNGLUONG { get; set; }
+        public Nullable<double> THUCLANH { get; set; }
         public Nullable<int> CREATED_BY { get; set; }
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public Nullable<int> UPDATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
+        public Nullable<int> DELETED_BY { get; set; }
+        public Nullable<System.DateTime> DELETED_DATE { get; set; }
     }
 }

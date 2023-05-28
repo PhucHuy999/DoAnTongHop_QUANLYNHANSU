@@ -83,6 +83,7 @@ namespace QLNHANSU.CHAMCONG
                     bcct.THU = Functions_HyHy2.layThuTrongTuan(int.Parse(cboNam.Text), int.Parse(cboThang.Text), i);
                     bcct.NGAYPHEP = 0;
                     bcct.NGHIKHONGPHEP = 0;
+                    bcct.XINNGHIVIECRIENG = 0;
                     bcct.CONGNGAYLE = 0;
                     bcct.CONGCHUNHAT = 0;
 

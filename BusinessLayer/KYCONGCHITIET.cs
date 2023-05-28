@@ -100,6 +100,7 @@ namespace BusinessLayer
                 kycongchitiet.TONGNGAYCONG = Functions_HyHy2.demSoNgayLamViecTrongThang(thang, nam);
                 kycongchitiet.NGAYPHEP = 0;
                 kycongchitiet.NGHIKHONGPHEP = 0;
+                kycongchitiet.XINNGHIVIECRIENG = 0;
                 kycongchitiet.CONGNGAYLE = 0;
                 kycongchitiet.CONGCHUNHAT = 0;
 
@@ -149,6 +150,7 @@ namespace BusinessLayer
             kycongchitiet.CONGNGAYLE = kcct.CONGNGAYLE;
             kycongchitiet.CONGCHUNHAT = kcct.CONGCHUNHAT;
             kycongchitiet.NGHIKHONGPHEP = kcct.NGHIKHONGPHEP;
+            kycongchitiet.XINNGHIVIECRIENG = kcct.XINNGHIVIECRIENG;
             kycongchitiet.TONGNGAYCONG = kcct.TONGNGAYCONG;
             kycongchitiet.UPDATED_BY = kcct.UPDATED_BY;
             kycongchitiet.UPDATED_DATE = kcct.UPDATED_DATE;

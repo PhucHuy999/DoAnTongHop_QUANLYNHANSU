@@ -31,6 +31,7 @@ namespace BusinessLayer
                 hd.NGAYKY = "ngày " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(3, 2) + " năm " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(6);
                 hd.LANKY = item.LANKY;
                 hd.HESOLUONG = item.HESOLUONG;
+                hd.LUONGCOBAN = item.LUONGCOBAN;
                 hd.NOIDUNG = item.NOIDUNG;
                 hd.MANV = item.MANV;
                 hd.THOIHAN = item.THOIHAN;
@@ -73,6 +74,7 @@ namespace BusinessLayer
                 hd.NGAYKY = "ngày " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(3, 2) + " năm " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(6);
                 hd.LANKY = item.LANKY;
                 hd.HESOLUONG = item.HESOLUONG;
+                hd.LUONGCOBAN = item.LUONGCOBAN;
                 hd.NOIDUNG = item.NOIDUNG;
                 hd.MANV = item.MANV;    
                 hd.THOIHAN = item.THOIHAN;
@@ -118,6 +120,7 @@ namespace BusinessLayer
                 _hd.NGAYKY = hd.NGAYKY; 
                 _hd.LANKY = hd.LANKY;
                 _hd.HESOLUONG = hd.HESOLUONG;
+                _hd.LUONGCOBAN = hd.LUONGCOBAN;
                 _hd.NOIDUNG = hd.NOIDUNG;   
                 _hd.THOIHAN = hd.THOIHAN;
                 _hd.SOHD = hd.SOHD; 
@@ -168,6 +171,7 @@ namespace BusinessLayer
                 hd.NGAYKY = "ngày " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(0, 2) + " tháng " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(3, 2) + " năm " + item.NGAYKY.Value.ToString("dd/MM/yyyy").Substring(6);
                 hd.LANKY = item.LANKY;
                 hd.HESOLUONG = item.HESOLUONG;
+                hd.LUONGCOBAN = item.LUONGCOBAN;
                 hd.NOIDUNG = item.NOIDUNG;
                 hd.MANV = item.MANV;
                 hd.THOIHAN = item.THOIHAN;
