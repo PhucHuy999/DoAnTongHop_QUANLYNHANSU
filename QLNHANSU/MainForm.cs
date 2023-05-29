@@ -200,10 +200,6 @@ namespace QLNHANSU
 
         }
 
-        private void btnConfig_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //sẽ làm 1 form để người dùng cài đặt 1 số cái thông số hệ thống
-        }
 
         private void btnTangCa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -221,6 +217,25 @@ namespace QLNHANSU
         {
             openForm(typeof(frmBangLuong));
 
+        }
+
+        private void btnBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmSaoLuuDuLieu frm = new frmSaoLuuDuLieu();
+            frm.ShowDialog();
+        }
+
+        private void btnPhucHoiDuLieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmKhoiPhucDuLieu frm = new frmKhoiPhucDuLieu();
+            frm.ShowDialog();
+        }
+
+        private void btnThoattt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult h = MessageBox.Show("Bạn có chắc muốn thoát không?", "Error", MessageBoxButtons.OKCancel);
+            if (h == DialogResult.OK)
+                Application.Exit();
         }
     }
 }
