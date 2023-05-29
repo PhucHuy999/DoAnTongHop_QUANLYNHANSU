@@ -232,6 +232,12 @@
     <Compile Include="Reports\rptBangCongTongHop.Designer.cs">
       <DependentUpon>rptBangCongTongHop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptBangLuong.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBangLuong.Designer.cs">
+      <DependentUpon>rptBangLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptHopDongLaoDong.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBangCongTongHop.resx">
       <DependentUpon>rptBangCongTongHop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBangLuong.resx">
+      <DependentUpon>rptBangLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptHopDongLaoDong.resx">
       <DependentUpon>rptHopDongLaoDong.cs</DependentUpon>
