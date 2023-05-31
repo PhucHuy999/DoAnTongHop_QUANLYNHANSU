@@ -60,5 +60,9 @@ namespace DataLayer
         public Nullable<System.DateTime> CREATED_DATE { get; set; }
         public Nullable<int> UPDATED_BY { get; set; }
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
+    
+        public virtual tb_CONGTY tb_CONGTY { get; set; }
+        public virtual tb_KYCONG tb_KYCONG { get; set; }
+        public virtual tb_NHANVIEN tb_NHANVIEN { get; set; }
     }
 }

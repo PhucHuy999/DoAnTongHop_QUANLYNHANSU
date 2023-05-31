@@ -17,7 +17,11 @@ namespace DataLayer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tb_CONGTY()
         {
+            this.tb_BANGCONG_NHANVIEN_CHITIET = new HashSet<tb_BANGCONG_NHANVIEN_CHITIET>();
+            this.tb_KYCONG = new HashSet<tb_KYCONG>();
+            this.tb_KYCONGCHITIET = new HashSet<tb_KYCONGCHITIET>();
             this.tb_NHANVIEN = new HashSet<tb_NHANVIEN>();
+            this.tb_User = new HashSet<tb_User>();
         }
     
         public int MACTY { get; set; }
@@ -27,6 +31,14 @@ namespace DataLayer
         public string DIACHI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_BANGCONG_NHANVIEN_CHITIET> tb_BANGCONG_NHANVIEN_CHITIET { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_KYCONG> tb_KYCONG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_KYCONGCHITIET> tb_KYCONGCHITIET { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_NHANVIEN> tb_NHANVIEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_User> tb_User { get; set; }
     }
 }

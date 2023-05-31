@@ -68,6 +68,7 @@
             this.btnThoatt = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnBangCongCT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThoattt = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -75,6 +76,8 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
@@ -84,8 +87,13 @@
             this.lstLenLuong = new DevExpress.XtraEditors.ListBoxControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.lstSinhNhat = new DevExpress.XtraEditors.ListBoxControl();
-            this.btnThoattt = new DevExpress.XtraBars.BarButtonItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTenNguoiDung = new System.Windows.Forms.Label();
+            this.txtIDNguoiDung = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -134,13 +142,16 @@
             this.btnBangCongCT,
             this.btnThoattt});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 30;
+            this.ribbonControl1.MaxItemId = 35;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3});
-            this.ribbonControl1.Size = new System.Drawing.Size(1224, 158);
+            this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1,
+            this.repositoryItemTextEdit2});
+            this.ribbonControl1.Size = new System.Drawing.Size(1908, 158);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnDanToc
@@ -293,6 +304,7 @@
             this.btnDoiMatKhau.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDoiMatKhau.ImageOptions.SvgImage")));
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDoiMatKhau.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoiMatKhau_ItemClick);
             // 
             // btnBackup
             // 
@@ -383,6 +395,14 @@
             this.btnBangCongCT.Name = "btnBangCongCT";
             this.btnBangCongCT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangCongCT_ItemClick);
             // 
+            // btnThoattt
+            // 
+            this.btnThoattt.Caption = "Thoát";
+            this.btnThoattt.Id = 29;
+            this.btnThoattt.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThoattt.ImageOptions.SvgImage")));
+            this.btnThoattt.Name = "btnThoattt";
+            this.btnThoattt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoattt_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -453,6 +473,16 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
             // documentManager1
             // 
             this.documentManager1.MdiParent = this;
@@ -485,10 +515,10 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel1.ID = new System.Guid("7fb4ba39-b38e-45e0-8461-48ef4e3ddd34");
-            this.dockPanel1.Location = new System.Drawing.Point(984, 158);
+            this.dockPanel1.Location = new System.Drawing.Point(1668, 158);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(240, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(240, 568);
+            this.dockPanel1.Size = new System.Drawing.Size(240, 832);
             this.dockPanel1.Text = "Thông báo";
             // 
             // dockPanel1_Container
@@ -497,7 +527,7 @@
             this.dockPanel1_Container.Controls.Add(this.groupControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 26);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(233, 539);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(233, 803);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // groupControl2
@@ -576,19 +606,55 @@
             this.lstSinhNhat.Templates.Add(itemTemplateBase1);
             this.lstSinhNhat.CustomizeItem += new DevExpress.XtraEditors.CustomizeTemplatedItemEventHandler(this.lstSinhNhat_CustomizeItem);
             // 
-            // btnThoattt
+            // label1
             // 
-            this.btnThoattt.Caption = "Thoát";
-            this.btnThoattt.Id = 29;
-            this.btnThoattt.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThoattt.ImageOptions.SvgImage")));
-            this.btnThoattt.Name = "btnThoattt";
-            this.btnThoattt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoattt_ItemClick);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.label1.Location = new System.Drawing.Point(1493, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 14);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Người dùng";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.label2.Location = new System.Drawing.Point(1545, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 14);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "ID";
+            // 
+            // txtTenNguoiDung
+            // 
+            this.txtTenNguoiDung.AutoSize = true;
+            this.txtTenNguoiDung.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.txtTenNguoiDung.Location = new System.Drawing.Point(1568, 35);
+            this.txtTenNguoiDung.Name = "txtTenNguoiDung";
+            this.txtTenNguoiDung.Size = new System.Drawing.Size(142, 14);
+            this.txtTenNguoiDung.TabIndex = 9;
+            this.txtTenNguoiDung.Text = "AAAAAAAAAAAAAAA";
+            // 
+            // txtIDNguoiDung
+            // 
+            this.txtIDNguoiDung.AutoSize = true;
+            this.txtIDNguoiDung.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.txtIDNguoiDung.Location = new System.Drawing.Point(1568, 15);
+            this.txtIDNguoiDung.Name = "txtIDNguoiDung";
+            this.txtIDNguoiDung.Size = new System.Drawing.Size(43, 14);
+            this.txtIDNguoiDung.TabIndex = 10;
+            this.txtIDNguoiDung.Text = "label3";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 726);
+            this.ClientSize = new System.Drawing.Size(1908, 990);
+            this.Controls.Add(this.txtIDNguoiDung);
+            this.Controls.Add(this.txtTenNguoiDung);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
@@ -598,6 +664,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -661,6 +729,12 @@
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.BarButtonItem btnBangCongCT;
         private DevExpress.XtraBars.BarButtonItem btnThoattt;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtTenNguoiDung;
+        private System.Windows.Forms.Label txtIDNguoiDung;
     }
 }
 

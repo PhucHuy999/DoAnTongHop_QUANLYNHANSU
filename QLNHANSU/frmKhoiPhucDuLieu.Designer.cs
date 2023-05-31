@@ -89,6 +89,7 @@
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.labelControl1);
             this.Name = "frmKhoiPhucDuLieu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khôi phục dữ liệu";
             this.Load += new System.EventHandler(this.frmKhoiPhucDuLieu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtUrl.Properties)).EndInit();

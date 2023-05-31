@@ -1,4 +1,6 @@
 ﻿using BusinessLayer;
+using DataLayer;
+using DevExpress.XtraSplashScreen;
 using QLNHANSU.CHAMCONG;
 using QLNHANSU.Reports;
 using QLNHANSU.TINHLUONG;
@@ -15,11 +17,21 @@ namespace QLNHANSU
 {
     public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        string IDUSER ="" , USERNAME = "", FULLNAME = "", PASS = "", QUYEN = "";
+
         public MainForm()
         {
             InitializeComponent();
         }
-
+        public MainForm(string IDUSER,string USERNAME, string FULLNAME, string PASS, string QUYEN)
+        {
+            InitializeComponent();
+            this.IDUSER = IDUSER;
+            this.USERNAME = USERNAME;
+            this.FULLNAME = FULLNAME;
+            this.PASS = PASS;
+            this.QUYEN = QUYEN;
+        }
         void openForm(Type typeForm) ///// Đoạn này thiết lập openform cho nó không bị mở thêm form mới khi click vào button mà khi form đã mở 
         {
             foreach (var frm in MdiChildren)
@@ -37,13 +49,36 @@ namespace QLNHANSU
         }
         NHANVIEN _nhanvien;
         HOPDONGLAODONG _hopdong;
+
+
+        //Tham số Overlay Form DevExpress lấy ở bài hướng dẫn trên trang chủ
+
+       //OverlayWindowOptions options = new OverlayWindowOptions(
+       //backColor: Color.Black,
+       //opacity: 0.5,
+       //fadeIn: false,
+       //fadeOut: false
+       // );
+       // IOverlaySplashScreenHandle ShowProgressPanel(Control control, OverlayWindowOptions option)
+       // {
+       //     return SplashScreenManager.ShowOverlayForm(control, option);
+       // }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            
+            ribbonControl1.SelectedPage = ribbonPage2; //set khi load hiển thị lên ribbonPage2(Nhân sự) trước.
+
+            //Functions_HyHy2.Commons.handle = ShowProgressPanel(this, options); // control là this, còn option là ở trên
+            
+                //frmLogin frm = new frmLogin();
+                //frm.ShowDialog();
+            
             _nhanvien = new NHANVIEN();
             _hopdong = new HOPDONGLAODONG();
-            ribbonControl1.SelectedPage = ribbonPage2; //set khi load hiển thị lên ribbonPage2(Nhân sự) trước.
             loadSinhNhat();
             loadLenLuong();
+            txtTenNguoiDung.Text = FULLNAME;
+            txtIDNguoiDung.Text = IDUSER;
         }
         void loadSinhNhat()
         {
@@ -57,6 +92,12 @@ namespace QLNHANSU
             lstLenLuong.DisplayMember = "HOTEN";
             lstLenLuong.ValueMember = "MANV";
         }
+        //void loadNguoiDung()
+        //{
+        //    lstLenLuong.DataSource = _nguoidung.getList();
+        //    lstLenLuong.DisplayMember = "IDUSER";
+        //    lstLenLuong.ValueMember = "_user";
+        //}
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
@@ -215,20 +256,39 @@ namespace QLNHANSU
 
         private void btnBangLuong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            openForm(typeof(frmBangLuong));
-
+            //openForm(typeof(frmBangLuong));
+            frmBangLuong frm = new frmBangLuong();
+            frm.ShowDialog();
         }
+
+        
 
         private void btnBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmSaoLuuDuLieu frm = new frmSaoLuuDuLieu();
-            frm.ShowDialog();
+            if (QUYEN == "Admin")
+            {
+                frmSaoLuuDuLieu frm = new frmSaoLuuDuLieu();
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không được quyền sử dụng tính năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
         private void btnPhucHoiDuLieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmKhoiPhucDuLieu frm = new frmKhoiPhucDuLieu();
-            frm.ShowDialog();
+            if (QUYEN == "Admin")
+            {
+                frmKhoiPhucDuLieu frm = new frmKhoiPhucDuLieu();
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không được quyền sử dụng tính năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
         private void btnThoattt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -236,6 +296,13 @@ namespace QLNHANSU
             DialogResult h = MessageBox.Show("Bạn có chắc muốn thoát không?", "Error", MessageBoxButtons.OKCancel);
             if (h == DialogResult.OK)
                 Application.Exit();
+        }
+        private void btnDoiMatKhau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+                frmDoiMatKhau frm = new frmDoiMatKhau();
+                frm.ShowDialog();
+            
         }
     }
 }

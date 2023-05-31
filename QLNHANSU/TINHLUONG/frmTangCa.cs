@@ -22,7 +22,7 @@ namespace QLNHANSU.TINHLUONG
         TANGCA _tangca;
         NHANVIEN _nhanvien;
         LOAICA _loaica;
-        SYS_CONFIG _config;
+        SYS_CONFIG _config;// Lấy tên giá trị $ của tăng ca
         bool _them;
         int _id;
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)

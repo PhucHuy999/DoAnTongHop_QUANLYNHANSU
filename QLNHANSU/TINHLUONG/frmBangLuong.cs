@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
 using DataLayer;
+using DevExpress.Accessibility;
 
 namespace QLNHANSU.TINHLUONG
 {
@@ -21,6 +22,13 @@ namespace QLNHANSU.TINHLUONG
         {
             InitializeComponent();
         }
+        //public frmBangLuong(tb_User user)
+        //{
+        //    InitializeComponent();
+        //    this._user = user;
+        //}
+        //tb_User _user;
+
         BANGLUONG _bangluong;
         List<tb_BANGLUONG> _lstBangLuong;
         int _namky;
@@ -41,7 +49,7 @@ namespace QLNHANSU.TINHLUONG
         {
             _bangluong.TinhLuongNhanVien(int.Parse(cboNam.Text) *100+ int.Parse(cboThang.Text));
             loadData();
-
+            
         }
         void loadData()
         {

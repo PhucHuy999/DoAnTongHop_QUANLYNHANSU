@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraSplashScreen;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -110,6 +111,10 @@ namespace BusinessLayer
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
             dongKetNoi();
-        }    
+        }   
+        public class Commons
+        {
+            public static IOverlaySplashScreenHandle handle = null;// trả về cái handle
+        }
     }
 }

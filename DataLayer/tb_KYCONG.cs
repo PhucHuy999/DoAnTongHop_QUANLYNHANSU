@@ -14,6 +14,14 @@ namespace DataLayer
     
     public partial class tb_KYCONG
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tb_KYCONG()
+        {
+            this.tb_BANGCONG_NHANVIEN_CHITIET = new HashSet<tb_BANGCONG_NHANVIEN_CHITIET>();
+            this.tb_BANGLUONG = new HashSet<tb_BANGLUONG>();
+            this.tb_KYCONGCHITIET = new HashSet<tb_KYCONGCHITIET>();
+        }
+    
         public int MAKYCONG { get; set; }
         public Nullable<int> THANG { get; set; }
         public Nullable<int> NAM { get; set; }
@@ -28,5 +36,13 @@ namespace DataLayer
         public Nullable<System.DateTime> UPDATED_DATE { get; set; }
         public Nullable<int> DELETED_BY { get; set; }
         public Nullable<System.DateTime> DELETED_DATE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_BANGCONG_NHANVIEN_CHITIET> tb_BANGCONG_NHANVIEN_CHITIET { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_BANGLUONG> tb_BANGLUONG { get; set; }
+        public virtual tb_CONGTY tb_CONGTY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_KYCONGCHITIET> tb_KYCONGCHITIET { get; set; }
     }
 }

@@ -93,6 +93,7 @@
     <Compile Include="TONGIAO.cs" />
     <Compile Include="TRINHDO.cs" />
     <Compile Include="UNGLUONG.cs" />
+    <Compile Include="USERS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
