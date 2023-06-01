@@ -18,16 +18,16 @@ namespace QLNHANSU.TINHLUONG
 {
     public partial class frmBangLuong : DevExpress.XtraEditors.XtraForm
     {
+        string IDUSER;
         public frmBangLuong()
         {
             InitializeComponent();
         }
-        //public frmBangLuong(tb_User user)
-        //{
-        //    InitializeComponent();
-        //    this._user = user;
-        //}
-        //tb_User _user;
+        public frmBangLuong(string IDUSER)
+        {
+            InitializeComponent();
+            this.IDUSER = IDUSER;
+        }
 
         BANGLUONG _bangluong;
         List<tb_BANGLUONG> _lstBangLuong;

@@ -4,14 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using BusinessLayer;
 
 namespace QLNHANSU
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+
+
         [STAThread]
         static void Main()
         {
@@ -20,5 +20,14 @@ namespace QLNHANSU
             //Application.Run(new MainForm());
             Application.Run(new frmLogin());
         }
+
+        //[STAThread]
+        //static void Main(string[] args)
+        //{
+        //    string pass = "123";
+        //    Clipboard.SetText(Encryption.Encrypt(pass));
+        //    Console.WriteLine("Copied to clipboard");
+
+        //}
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="DTO\NHANVIEN_THOIVIEC_DTO.cs" />
     <Compile Include="DTO\TANGCA_DTO.cs" />
     <Compile Include="DTO\UNGLUONG_DTO.cs" />
+    <Compile Include="Encryption.cs" />
     <Compile Include="Functions_HyHy2.cs" />
     <Compile Include="HOPDONGLAODONG.cs" />
     <Compile Include="KHENTHUONG_KYLUAT.cs" />

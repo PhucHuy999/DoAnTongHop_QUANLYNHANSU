@@ -22,9 +22,9 @@ namespace QLNHANSU
             InitializeComponent();
         }
         //USERS _user;
-        USERS con = new USERS();
+        USERS user = new USERS();
 
-        
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
         }
@@ -39,19 +39,25 @@ namespace QLNHANSU
         private void btnLogin_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = con.GetData("select * from tb_User where USERNAME = '" + txtUserName.Text + "' and PASS = '" + txtPass.Text + "'");
-            if(dt.Rows.Count==1)
+
+            string taikhoan = txtUserName.Text;
+            string matkhau = txtPass.Text;
+            matkhau = Encryption.Encrypt(matkhau);
+
+
+            dt = user.GetData("select * from tb_User where USERNAME = '" + taikhoan + "' and PASS ='" + matkhau + "'");
+            if (dt.Rows.Count == 1)
             {
-
-                //if (Functions_HyHy2.Commons.handle != null)
-
-                //    SplashScreenManager.CloseOverlayForm(Functions_HyHy2.Commons.handle);
-                //this.Close();
 
                 MainForm f = new MainForm(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString());
                 //this.Hide();
                 f.ShowDialog();
 
+
+                //if (Functions_HyHy2.Commons.handle != null)
+
+                //    SplashScreenManager.CloseOverlayForm(Functions_HyHy2.Commons.handle);
+                //this.Close();
 
             }
 
@@ -88,5 +94,7 @@ namespace QLNHANSU
                 txtPass.PasswordChar = '*';
             }
         }
+
+
     }
 }

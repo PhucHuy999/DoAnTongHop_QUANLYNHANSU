@@ -34,9 +34,9 @@
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.chkHienMatKhau = new System.Windows.Forms.RadioButton();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.chkHienMatKhau = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -59,7 +59,7 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExit.ImageOptions.SvgImage")));
-            this.btnExit.Location = new System.Drawing.Point(955, 541);
+            this.btnExit.Location = new System.Drawing.Point(955, 554);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(99, 36);
             this.btnExit.TabIndex = 4;
@@ -69,7 +69,7 @@
             // btnLogin
             // 
             this.btnLogin.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLogin.ImageOptions.SvgImage")));
-            this.btnLogin.Location = new System.Drawing.Point(850, 541);
+            this.btnLogin.Location = new System.Drawing.Point(850, 554);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(99, 36);
             this.btnLogin.TabIndex = 3;
@@ -88,18 +88,6 @@
             this.labelControl3.TabIndex = 6;
             this.labelControl3.Text = "ĐĂNG NHẬP HỆ THỐNG";
             // 
-            // chkHienMatKhau
-            // 
-            this.chkHienMatKhau.AutoSize = true;
-            this.chkHienMatKhau.Location = new System.Drawing.Point(869, 512);
-            this.chkHienMatKhau.Name = "chkHienMatKhau";
-            this.chkHienMatKhau.Size = new System.Drawing.Size(93, 17);
-            this.chkHienMatKhau.TabIndex = 6;
-            this.chkHienMatKhau.TabStop = true;
-            this.chkHienMatKhau.Text = "Hiện mật khẩu";
-            this.chkHienMatKhau.UseVisualStyleBackColor = true;
-            this.chkHienMatKhau.CheckedChanged += new System.EventHandler(this.chkHienMatKhau_CheckedChanged);
-            // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(869, 486);
@@ -115,6 +103,17 @@
             this.txtUserName.Size = new System.Drawing.Size(179, 21);
             this.txtUserName.TabIndex = 0;
             // 
+            // chkHienMatKhau
+            // 
+            this.chkHienMatKhau.AutoSize = true;
+            this.chkHienMatKhau.Location = new System.Drawing.Point(908, 516);
+            this.chkHienMatKhau.Name = "chkHienMatKhau";
+            this.chkHienMatKhau.Size = new System.Drawing.Size(94, 17);
+            this.chkHienMatKhau.TabIndex = 7;
+            this.chkHienMatKhau.Text = "Hiện mật khẩu";
+            this.chkHienMatKhau.UseVisualStyleBackColor = true;
+            this.chkHienMatKhau.CheckedChanged += new System.EventHandler(this.chkHienMatKhau_CheckedChanged);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -124,9 +123,9 @@
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1277, 641);
+            this.Controls.Add(this.chkHienMatKhau);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.chkHienMatKhau);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnExit);
@@ -148,8 +147,8 @@
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.RadioButton chkHienMatKhau;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.CheckBox chkHienMatKhau;
     }
 }

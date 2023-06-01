@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase3 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement5 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement6 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase1 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement1 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
             DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement2 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase2 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement3 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement4 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnDanToc = new DevExpress.XtraBars.BarButtonItem();
             this.btnTonGiao = new DevExpress.XtraBars.BarButtonItem();
@@ -548,23 +548,23 @@
             this.lstLenLuong.Name = "lstLenLuong";
             this.lstLenLuong.Size = new System.Drawing.Size(229, 144);
             this.lstLenLuong.TabIndex = 0;
-            itemTemplateBase3.Columns.Add(tableColumnDefinition3);
-            templatedItemElement5.FieldName = "HOTEN";
-            templatedItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement5.Text = "HOTEN";
-            templatedItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            templatedItemElement6.AnchorElementIndex = 0;
-            templatedItemElement6.FieldName = "NGAYBATDAU";
-            templatedItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement6.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement6.Text = "NGAYBATDAU";
-            templatedItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase3.Elements.Add(templatedItemElement5);
-            itemTemplateBase3.Elements.Add(templatedItemElement6);
-            itemTemplateBase3.Name = "lenluong_nv";
-            itemTemplateBase3.Rows.Add(tableRowDefinition3);
-            this.lstLenLuong.Templates.Add(itemTemplateBase3);
+            itemTemplateBase1.Columns.Add(tableColumnDefinition1);
+            templatedItemElement1.FieldName = "HOTEN";
+            templatedItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement1.Text = "HOTEN";
+            templatedItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            templatedItemElement2.AnchorElementIndex = 0;
+            templatedItemElement2.FieldName = "NGAYBATDAU";
+            templatedItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement2.Text = "NGAYBATDAU";
+            templatedItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase1.Elements.Add(templatedItemElement1);
+            itemTemplateBase1.Elements.Add(templatedItemElement2);
+            itemTemplateBase1.Name = "lenluong_nv";
+            itemTemplateBase1.Rows.Add(tableRowDefinition1);
+            this.lstLenLuong.Templates.Add(itemTemplateBase1);
             this.lstLenLuong.CustomizeItem += new DevExpress.XtraEditors.CustomizeTemplatedItemEventHandler(this.lstLenLuong_CustomizeItem);
             // 
             // groupControl1
@@ -585,25 +585,25 @@
             this.lstSinhNhat.Name = "lstSinhNhat";
             this.lstSinhNhat.Size = new System.Drawing.Size(229, 130);
             this.lstSinhNhat.TabIndex = 0;
-            itemTemplateBase1.Columns.Add(tableColumnDefinition1);
-            templatedItemElement1.FieldName = "HOTEN";
-            templatedItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement1.Text = "HOTEN";
-            templatedItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            templatedItemElement2.AnchorElementIndex = 0;
-            templatedItemElement2.FieldName = "NGAYSINH";
-            templatedItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement2.Text = "NGAYSINH";
-            templatedItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            itemTemplateBase1.Elements.Add(templatedItemElement1);
-            itemTemplateBase1.Elements.Add(templatedItemElement2);
-            itemTemplateBase1.Name = "sinhnhat_nv";
-            tableRowDefinition1.AutoHeight = true;
-            tableRowDefinition1.Length.Value = 50D;
-            itemTemplateBase1.Rows.Add(tableRowDefinition1);
-            this.lstSinhNhat.Templates.Add(itemTemplateBase1);
+            itemTemplateBase2.Columns.Add(tableColumnDefinition2);
+            templatedItemElement3.FieldName = "HOTEN";
+            templatedItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement3.Text = "HOTEN";
+            templatedItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            templatedItemElement4.AnchorElementIndex = 0;
+            templatedItemElement4.FieldName = "NGAYSINH";
+            templatedItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement4.Text = "NGAYSINH";
+            templatedItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            itemTemplateBase2.Elements.Add(templatedItemElement3);
+            itemTemplateBase2.Elements.Add(templatedItemElement4);
+            itemTemplateBase2.Name = "sinhnhat_nv";
+            tableRowDefinition2.AutoHeight = true;
+            tableRowDefinition2.Length.Value = 50D;
+            itemTemplateBase2.Rows.Add(tableRowDefinition2);
+            this.lstSinhNhat.Templates.Add(itemTemplateBase2);
             this.lstSinhNhat.CustomizeItem += new DevExpress.XtraEditors.CustomizeTemplatedItemEventHandler(this.lstSinhNhat_CustomizeItem);
             // 
             // label1
@@ -632,9 +632,9 @@
             this.txtTenNguoiDung.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.txtTenNguoiDung.Location = new System.Drawing.Point(1568, 35);
             this.txtTenNguoiDung.Name = "txtTenNguoiDung";
-            this.txtTenNguoiDung.Size = new System.Drawing.Size(142, 14);
+            this.txtTenNguoiDung.Size = new System.Drawing.Size(163, 14);
             this.txtTenNguoiDung.TabIndex = 9;
-            this.txtTenNguoiDung.Text = "AAAAAAAAAAAAAAA";
+            this.txtTenNguoiDung.Text = "                                       ";
             // 
             // txtIDNguoiDung
             // 
@@ -642,9 +642,9 @@
             this.txtIDNguoiDung.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.txtIDNguoiDung.Location = new System.Drawing.Point(1568, 15);
             this.txtIDNguoiDung.Name = "txtIDNguoiDung";
-            this.txtIDNguoiDung.Size = new System.Drawing.Size(43, 14);
+            this.txtIDNguoiDung.Size = new System.Drawing.Size(55, 14);
             this.txtIDNguoiDung.TabIndex = 10;
-            this.txtIDNguoiDung.Text = "label3";
+            this.txtIDNguoiDung.Text = "            ";
             // 
             // MainForm
             // 

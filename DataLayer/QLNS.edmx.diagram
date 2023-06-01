@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e5773919287e4f1ea725dbd189b130a2" Name="Diagram1" ZoomLevel="29">
+      <Diagram DiagramId="e5773919287e4f1ea725dbd189b130a2" Name="Diagram1" ZoomLevel="124">
         <EntityTypeShape EntityType="QLNHANSUModel.tb_BANGCONG" Width="1.5" PointX="8.25" PointY="38.625" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_BANGCONG_NHANVIEN_CHITIET" Width="1.5" PointX="5.25" PointY="56.375" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_BANGLUONG" Width="1.5" PointX="8.25" PointY="62.5" />
@@ -31,7 +31,6 @@
         <EntityTypeShape EntityType="QLNHANSUModel.tb_TONGIAO" Width="1.5" PointX="0.75" PointY="50.375" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_TRINHDO" Width="1.5" PointX="0.75" PointY="48" />
         <EntityTypeShape EntityType="QLNHANSUModel.tb_UNGLUONG" Width="1.5" PointX="5.25" PointY="32.25" />
-        <EntityTypeShape EntityType="QLNHANSUModel.tb_User" Width="1.5" PointX="3" PointY="67.625" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_BANGCONG_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_BANGCONG_NHANVIEN_CHITIET_tb_CONGTY" />
@@ -44,7 +43,6 @@
         <AssociationConnector Association="QLNHANSUModel.FK_tb_KYCONG_tb_CONGTY" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_KYCONGCHITIET_tb_CONGTY" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_CONGTY" />
-        <AssociationConnector Association="QLNHANSUModel.FK_tb_User_tb_CONGTY" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_CHUCVU" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_DANTOC" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_HOPDONG_tb_NHANVIEN" />
@@ -62,6 +60,8 @@
         <AssociationConnector Association="QLNHANSUModel.FK_tb_TANGCA_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_UNGLUONG_tb_NHANVIEN" />
         <AssociationConnector Association="QLNHANSUModel.FK_tb_NHANVIEN_PHUCAP_tb_PHUCAP" />
+        <EntityTypeShape EntityType="QLNHANSUModel.tb_User" Width="1.5" PointX="3" PointY="48.75" />
+        <AssociationConnector Association="QLNHANSUModel.FK_tb_User_tb_CONGTY" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

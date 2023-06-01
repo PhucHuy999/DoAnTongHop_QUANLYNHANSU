@@ -431,7 +431,7 @@
           <Property Name="IDUSER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
           <Property Name="FULLNAME" Type="nvarchar" MaxLength="50" />
-          <Property Name="PASS" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASS" Type="nvarchar" MaxLength="100" />
           <Property Name="QUYEN" Type="nvarchar" MaxLength="50" />
           <Property Name="MACTY" Type="int" />
           <Property Name="DIENTHOAI" Type="nvarchar" MaxLength="50" />
@@ -978,7 +978,6 @@
           <EntitySet Name="tb_TONGIAO" EntityType="QLNHANSUModel.tb_TONGIAO" />
           <EntitySet Name="tb_TRINHDO" EntityType="QLNHANSUModel.tb_TRINHDO" />
           <EntitySet Name="tb_UNGLUONG" EntityType="QLNHANSUModel.tb_UNGLUONG" />
-          <EntitySet Name="tb_User" EntityType="QLNHANSUModel.tb_User" />
           <AssociationSet Name="FK_tb_BANGCONG_tb_LOAICONG1" Association="QLNHANSUModel.FK_tb_BANGCONG_tb_LOAICONG1">
             <End Role="tb_LOAICONG" EntitySet="tb_LOAICONG" />
             <End Role="tb_BANGCONG" EntitySet="tb_BANGCONG" />
@@ -1026,10 +1025,6 @@
           <AssociationSet Name="FK_tb_NHANVIEN_tb_CONGTY" Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_CONGTY">
             <End Role="tb_CONGTY" EntitySet="tb_CONGTY" />
             <End Role="tb_NHANVIEN" EntitySet="tb_NHANVIEN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_User_tb_CONGTY" Association="QLNHANSUModel.FK_tb_User_tb_CONGTY">
-            <End Role="tb_CONGTY" EntitySet="tb_CONGTY" />
-            <End Role="tb_User" EntitySet="tb_User" />
           </AssociationSet>
           <AssociationSet Name="FK_tb_NHANVIEN_tb_CHUCVU" Association="QLNHANSUModel.FK_tb_NHANVIEN_tb_CHUCVU">
             <End Role="tb_CHUCVU" EntitySet="tb_CHUCVU" />
@@ -1098,6 +1093,11 @@
           <AssociationSet Name="FK_tb_NHANVIEN_PHUCAP_tb_PHUCAP" Association="QLNHANSUModel.FK_tb_NHANVIEN_PHUCAP_tb_PHUCAP">
             <End Role="tb_PHUCAP" EntitySet="tb_PHUCAP" />
             <End Role="tb_NHANVIEN_PHUCAP" EntitySet="tb_NHANVIEN_PHUCAP" />
+          </AssociationSet>
+          <EntitySet Name="tb_User" EntityType="QLNHANSUModel.tb_User" />
+          <AssociationSet Name="FK_tb_User_tb_CONGTY" Association="QLNHANSUModel.FK_tb_User_tb_CONGTY">
+            <End Role="tb_CONGTY" EntitySet="tb_CONGTY" />
+            <End Role="tb_User" EntitySet="tb_User" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="tb_BANGCONG">
@@ -1578,21 +1578,6 @@
           <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tb_NHANVIEN" Relationship="QLNHANSUModel.FK_tb_UNGLUONG_tb_NHANVIEN" FromRole="tb_UNGLUONG" ToRole="tb_NHANVIEN" />
         </EntityType>
-        <EntityType Name="tb_User">
-          <Key>
-            <PropertyRef Name="IDUSER" />
-          </Key>
-          <Property Name="IDUSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PASS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MACTY" Type="Int32" />
-          <Property Name="DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tb_CONGTY" Relationship="QLNHANSUModel.FK_tb_User_tb_CONGTY" FromRole="tb_User" ToRole="tb_CONGTY" />
-        </EntityType>
         <Association Name="FK_tb_BANGCONG_tb_LOAICONG1">
           <End Type="QLNHANSUModel.tb_LOAICONG" Role="tb_LOAICONG" Multiplicity="0..1" />
           <End Type="QLNHANSUModel.tb_BANGCONG" Role="tb_BANGCONG" Multiplicity="*" />
@@ -1733,18 +1718,6 @@
               <PropertyRef Name="MACTY" />
             </Principal>
             <Dependent Role="tb_NHANVIEN">
-              <PropertyRef Name="MACTY" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_User_tb_CONGTY">
-          <End Type="QLNHANSUModel.tb_CONGTY" Role="tb_CONGTY" Multiplicity="0..1" />
-          <End Type="QLNHANSUModel.tb_User" Role="tb_User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_CONGTY">
-              <PropertyRef Name="MACTY" />
-            </Principal>
-            <Dependent Role="tb_User">
               <PropertyRef Name="MACTY" />
             </Dependent>
           </ReferentialConstraint>
@@ -1950,6 +1923,33 @@
             </Principal>
             <Dependent Role="tb_NHANVIEN_PHUCAP">
               <PropertyRef Name="IDPC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="IDUSER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PASS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="QUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MACTY" Type="Int32" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_CONGTY" Relationship="QLNHANSUModel.FK_tb_User_tb_CONGTY" FromRole="tb_User" ToRole="tb_CONGTY" />
+        </EntityType>
+        <Association Name="FK_tb_User_tb_CONGTY">
+          <End Type="QLNHANSUModel.tb_CONGTY" Role="tb_CONGTY" Multiplicity="0..1" />
+          <End Type="QLNHANSUModel.tb_User" Role="tb_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_CONGTY">
+              <PropertyRef Name="MACTY" />
+            </Principal>
+            <Dependent Role="tb_User">
+              <PropertyRef Name="MACTY" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
