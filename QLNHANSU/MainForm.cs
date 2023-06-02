@@ -256,9 +256,8 @@ namespace QLNHANSU
 
         private void btnBangLuong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //openForm(typeof(frmBangLuong));
-            frmBangLuong frm = new frmBangLuong(IDUSER);
-            frm.ShowDialog();
+            openForm(typeof(frmBangLuong));
+
         }
 
         

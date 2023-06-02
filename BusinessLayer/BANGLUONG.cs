@@ -62,7 +62,7 @@ namespace BusinessLayer
                     bl.TANGCA = luongtangca;
                     bl.UNGLUONG = ungluong;
                     bl.THUCLANH = thuclanh;
-                    bl.CREATED_BY = 1;
+                    bl.CREATED_BY = 2;
                     bl.CREATED_DATE = DateTime.Now;
                     Add(bl);
                 }

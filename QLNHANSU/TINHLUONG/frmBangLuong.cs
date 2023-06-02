@@ -18,16 +18,11 @@ namespace QLNHANSU.TINHLUONG
 {
     public partial class frmBangLuong : DevExpress.XtraEditors.XtraForm
     {
-        string IDUSER;
         public frmBangLuong()
         {
             InitializeComponent();
         }
-        public frmBangLuong(string IDUSER)
-        {
-            InitializeComponent();
-            this.IDUSER = IDUSER;
-        }
+        
 
         BANGLUONG _bangluong;
         List<tb_BANGLUONG> _lstBangLuong;
@@ -49,7 +44,6 @@ namespace QLNHANSU.TINHLUONG
         {
             _bangluong.TinhLuongNhanVien(int.Parse(cboNam.Text) *100+ int.Parse(cboThang.Text));
             loadData();
-            
         }
         void loadData()
         {

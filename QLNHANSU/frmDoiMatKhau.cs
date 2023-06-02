@@ -30,6 +30,30 @@ namespace QLNHANSU
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+            if (txtTenDangNhap.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập Tên Đăng Nhập.", "Thông báo");
+                txtTenDangNhap.Focus();
+                return;
+            }
+            if (txtMKcu.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập Mật Khẩu Cũ.", "Thông báo");
+                txtMKcu.Focus();
+                return;
+            }
+            if (txtMKmoi.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập Mật Khẩu Mới.", "Thông báo");
+                txtMKmoi.Focus();
+                return;
+            }
+            if (txtXacNhanMKmoi.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập xác nhận Mật Khẩu Mới.", "Thông báo");
+                txtXacNhanMKmoi.Focus();
+                return;
+            }
             DataTable dmk = new DataTable();
             string tendangnhap = txtTenDangNhap.Text;
             string matkhaucu = txtMKcu.Text;

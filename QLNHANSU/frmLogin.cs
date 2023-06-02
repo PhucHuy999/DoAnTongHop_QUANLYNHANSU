@@ -38,6 +38,19 @@ namespace QLNHANSU
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            if(txtUserName.Text == "")
+            {
+                MessageBox.Show("Hãy nhập Tên Đăng nhập.", "Thông báo");
+                txtUserName.Focus();
+                return;
+            }    
+            if(txtPass.Text == "")
+            {
+                MessageBox.Show("Hãy nhập Mật Khẩu.", "Thông báo");
+                txtPass.Focus();
+                return;
+            }    
             DataTable dt = new DataTable();
 
             string taikhoan = txtUserName.Text;
