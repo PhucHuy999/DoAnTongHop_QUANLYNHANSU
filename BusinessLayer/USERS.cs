@@ -11,15 +11,14 @@ namespace BusinessLayer
 {
     public class USERS
     {
+
         QLNHANSUEntities db = new QLNHANSUEntities();
-        public tb_User getItem(int idUser)
+
+        public tb_User getItem(int id)
         {
-            return db.tb_User.FirstOrDefault(x => x.IDUSER == idUser);
+            return db.tb_User.FirstOrDefault(x => x.IDUSER == id);
         }
-        public tb_User getItem(string username, int macty)
-        {
-            return db.tb_User.FirstOrDefault(x => x.USERNAME == username && x.MACTY == macty);
-        }
+
         public List<tb_User> getList()
         {
             return db.tb_User.ToList();
@@ -39,15 +38,17 @@ namespace BusinessLayer
         }
         public tb_User Update(tb_User us)
         {
-
-            var _us = db.tb_User.FirstOrDefault(x => x.IDUSER == us.IDUSER);
-            _us.FULLNAME = us.FULLNAME;
-            _us.PASS = us.PASS;
-            _us.DIENTHOAI = us.DIENTHOAI;
-            _us.EMAIL = us.EMAIL;
-            _us.DIACHI = us.DIACHI;
             try
             {
+                var _us = db.tb_User.FirstOrDefault(x => x.IDUSER == us.IDUSER);
+                _us.USERNAME = us.USERNAME;
+                _us.FULLNAME = us.FULLNAME;
+                _us.EMAIL = us.EMAIL;
+                _us.PASS = us.PASS;
+                _us.QUYEN = us.QUYEN;
+                _us.MACTY = us.MACTY;
+                _us.DIENTHOAI = us.DIENTHOAI;
+                _us.DIACHI = us.DIACHI;
                 db.SaveChanges();
                 return us;
             }
@@ -55,10 +56,57 @@ namespace BusinessLayer
             {
                 throw new Exception("lỗi: " + ex.Message);
             }
-
-
-
         }
+        
+
+        //QLNHANSUEntities db = new QLNHANSUEntities();
+        //public tb_User getItem(int idUser)
+        //{
+        //    return db.tb_User.FirstOrDefault(x => x.IDUSER == idUser);
+        //}
+        //public tb_User getItem(string username, int macty)
+        //{
+        //    return db.tb_User.FirstOrDefault(x => x.USERNAME == username && x.MACTY == macty);
+        //}
+        //public List<tb_User> getList()
+        //{
+        //    return db.tb_User.ToList();
+        //}
+        //public tb_User Add(tb_User us)
+        //{
+        //    try
+        //    {
+        //        db.tb_User.Add(us);
+        //        db.SaveChanges();
+        //        return us;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("lỗi: " + ex.Message);
+        //    }
+        //}
+        //public tb_User Update(tb_User us)
+        //{
+
+        //    var _us = db.tb_User.FirstOrDefault(x => x.IDUSER == us.IDUSER);
+        //    _us.FULLNAME = us.FULLNAME;
+        //    _us.PASS = us.PASS;
+        //    _us.DIENTHOAI = us.DIENTHOAI;
+        //    _us.EMAIL = us.EMAIL;
+        //    _us.DIACHI = us.DIACHI;
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //        return us;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("lỗi: " + ex.Message);
+        //    }
+
+
+
+        //}
 
         //public int Login(string username, string pass )
         //{

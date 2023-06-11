@@ -260,7 +260,19 @@ namespace QLNHANSU
 
         }
 
-        
+        private void btnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (QUYEN == "Admin")
+            {
+                frmTaoTaiKhoan frm = new frmTaoTaiKhoan();
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không được quyền sử dụng tính năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
 
         private void btnBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

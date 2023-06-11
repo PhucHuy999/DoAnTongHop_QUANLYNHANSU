@@ -69,6 +69,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnBangCongCT = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoattt = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -140,9 +141,10 @@
             this.btnThoatt,
             this.barButtonItem1,
             this.btnBangCongCT,
-            this.btnThoattt});
+            this.btnThoattt,
+            this.btnTaoTaiKhoan});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 35;
+            this.ribbonControl1.MaxItemId = 36;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -403,6 +405,14 @@
             this.btnThoattt.Name = "btnThoattt";
             this.btnThoattt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoattt_ItemClick);
             // 
+            // btnTaoTaiKhoan
+            // 
+            this.btnTaoTaiKhoan.Caption = "Tạo tài khoản";
+            this.btnTaoTaiKhoan.Id = 35;
+            this.btnTaoTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.SvgImage")));
+            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -413,6 +423,7 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDoiMatKhau, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnTaoTaiKhoan, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBackup, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPhucHoiDuLieu, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnThoat, true);
@@ -735,6 +746,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtTenNguoiDung;
         private System.Windows.Forms.Label txtIDNguoiDung;
+        private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
     }
 }
 

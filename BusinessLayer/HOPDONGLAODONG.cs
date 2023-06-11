@@ -157,7 +157,7 @@ namespace BusinessLayer
         
         public List<HOPDONG_DTO> getLenLuong()
         {
-            List<tb_HOPDONG> lstHD = db.tb_HOPDONG.Where(x => /*(x.NGAYBATDAU.Value.Day - DateTime.Now.Day) == 0 && */(x.NGAYBATDAU.Value.Month - DateTime.Now.Month) == 0 && (DateTime.Now.Year - x.NGAYBATDAU.Value.Year) == 2).ToList();
+            List<tb_HOPDONG> lstHD = db.tb_HOPDONG.Where(x => /*(x.NGAYBATDAU.Value.Day - DateTime.Now.Day) == 0 && */(x.NGAYBATDAU.Value.Month - DateTime.Now.Month) == 0 && (DateTime.Now.Year - x.NGAYBATDAU.Value.Year) == 1).ToList(); // 1 năm lên lương 1 lần
             List<HOPDONG_DTO> lstDTO = new List<HOPDONG_DTO>();
             HOPDONG_DTO hd;
             foreach (var item in lstHD)

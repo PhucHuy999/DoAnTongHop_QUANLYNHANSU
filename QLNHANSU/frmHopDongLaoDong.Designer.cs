@@ -320,7 +320,8 @@
             this.cboThoiHan.Items.AddRange(new object[] {
             "3 tháng",
             "6 tháng",
-            "12 tháng"});
+            "12 tháng",
+            "24 tháng"});
             this.cboThoiHan.Location = new System.Drawing.Point(595, 24);
             this.cboThoiHan.Name = "cboThoiHan";
             this.cboThoiHan.Size = new System.Drawing.Size(127, 21);
