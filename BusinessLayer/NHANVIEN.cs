@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,7 +76,7 @@ namespace BusinessLayer
                 nvDTO.MANV = item.MANV;
                 nvDTO.HOTEN = item.HOTEN;
                 nvDTO.GIOITINH = item.GIOITINH;
-                nvDTO.NGAYSINH = item.NGAYSINH;
+                nvDTO.NGAYSINH = item.NGAYSINH/*.Value.ToShortDateString("dd/MM/yyyy")*/;
                 nvDTO.CCCD = item.CCCD;
                 nvDTO.DIENTHOAI = item.DIENTHOAI;   
                 nvDTO.DIACHI = item.DIACHI;

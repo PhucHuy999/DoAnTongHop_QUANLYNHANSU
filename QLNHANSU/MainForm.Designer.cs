@@ -79,6 +79,8 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
@@ -92,9 +94,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenNguoiDung = new System.Windows.Forms.Label();
             this.txtIDNguoiDung = new System.Windows.Forms.Label();
+            this.btnDangXuat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -144,7 +149,7 @@
             this.btnThoattt,
             this.btnTaoTaiKhoan});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 36;
+            this.ribbonControl1.MaxItemId = 41;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -152,7 +157,9 @@
             this.ribbonPage3});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
-            this.repositoryItemTextEdit2});
+            this.repositoryItemTextEdit2,
+            this.repositoryItemTextEdit3,
+            this.repositoryItemColorEdit1});
             this.ribbonControl1.Size = new System.Drawing.Size(1908, 158);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
@@ -449,7 +456,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNhanVien, true);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnChucVu, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Danh mục dùng chung";
+            this.ribbonPageGroup2.Text = "Danh mục thông tin nhân viên";
             // 
             // ribbonPageGroup3
             // 
@@ -482,7 +489,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnBangLuong, true);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnThoattt, true);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Danh mục chấm công";
             // 
             // repositoryItemTextEdit1
             // 
@@ -493,6 +500,18 @@
             // 
             this.repositoryItemTextEdit2.AutoHeight = false;
             this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // repositoryItemTextEdit3
+            // 
+            this.repositoryItemTextEdit3.AutoHeight = false;
+            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+            // 
+            // repositoryItemColorEdit1
+            // 
+            this.repositoryItemColorEdit1.AutoHeight = false;
+            this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
             // 
             // documentManager1
             // 
@@ -621,7 +640,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label1.Location = new System.Drawing.Point(1493, 35);
+            this.label1.Location = new System.Drawing.Point(1403, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 14);
             this.label1.TabIndex = 7;
@@ -631,7 +650,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.label2.Location = new System.Drawing.Point(1545, 15);
+            this.label2.Location = new System.Drawing.Point(1455, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 14);
             this.label2.TabIndex = 8;
@@ -641,27 +660,40 @@
             // 
             this.txtTenNguoiDung.AutoSize = true;
             this.txtTenNguoiDung.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.txtTenNguoiDung.Location = new System.Drawing.Point(1568, 35);
+            this.txtTenNguoiDung.Location = new System.Drawing.Point(1477, 41);
             this.txtTenNguoiDung.Name = "txtTenNguoiDung";
-            this.txtTenNguoiDung.Size = new System.Drawing.Size(163, 14);
+            this.txtTenNguoiDung.Size = new System.Drawing.Size(139, 14);
             this.txtTenNguoiDung.TabIndex = 9;
-            this.txtTenNguoiDung.Text = "                                       ";
+            this.txtTenNguoiDung.Text = "                                 ";
             // 
             // txtIDNguoiDung
             // 
             this.txtIDNguoiDung.AutoSize = true;
             this.txtIDNguoiDung.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.txtIDNguoiDung.Location = new System.Drawing.Point(1568, 15);
+            this.txtIDNguoiDung.Location = new System.Drawing.Point(1477, 23);
             this.txtIDNguoiDung.Name = "txtIDNguoiDung";
             this.txtIDNguoiDung.Size = new System.Drawing.Size(55, 14);
             this.txtIDNguoiDung.TabIndex = 10;
             this.txtIDNguoiDung.Text = "            ";
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.Appearance.Options.UseFont = true;
+            this.btnDangXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.ImageOptions.Image")));
+            this.btnDangXuat.Location = new System.Drawing.Point(1621, 36);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(75, 23);
+            this.btnDangXuat.TabIndex = 13;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1908, 990);
+            this.Controls.Add(this.btnDangXuat);
             this.Controls.Add(this.txtIDNguoiDung);
             this.Controls.Add(this.txtTenNguoiDung);
             this.Controls.Add(this.label2);
@@ -677,6 +709,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -747,6 +781,9 @@
         private System.Windows.Forms.Label txtTenNguoiDung;
         private System.Windows.Forms.Label txtIDNguoiDung;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
+        private DevExpress.XtraEditors.SimpleButton btnDangXuat;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit repositoryItemColorEdit1;
     }
 }
 

@@ -47,7 +47,7 @@ namespace QLNHANSU
             txtUserName.Enabled = !kt;
             txtHoTen.Enabled = !kt;
             txtPass.Enabled = !kt;
-            txtQuyen.Enabled = !kt;
+            cboQuyen.Enabled = !kt;
             txtMaCty.Enabled = !kt;
             txtDienThoai.Enabled = !kt;
             txtDiaChi.Enabled = !kt;
@@ -67,7 +67,7 @@ namespace QLNHANSU
             txtUserName.Text = string.Empty;
             txtHoTen.Text = string.Empty;
             txtPass.Text = string.Empty;
-            txtQuyen.Text = string.Empty;
+            cboQuyen.Text = string.Empty;
             txtMaCty.Text = string.Empty;
             txtDienThoai.Text = string.Empty;
             txtDiaChi.Text = string.Empty;
@@ -111,7 +111,7 @@ namespace QLNHANSU
                 us.USERNAME = txtUserName.Text;
                 us.FULLNAME = txtHoTen.Text; 
                 us.PASS = Encryption.Encrypt(txtPass.Text);
-                us.QUYEN = txtQuyen.Text;
+                us.QUYEN = cboQuyen.Text;
                 us.MACTY = int.Parse(txtMaCty.Text);
                 us.DIENTHOAI = txtDienThoai.Text;
                 us.DIACHI = txtDiaChi.Text;
@@ -126,7 +126,7 @@ namespace QLNHANSU
                 us.USERNAME = txtUserName.Text;
                 us.FULLNAME = txtHoTen.Text;
                 us.PASS = Encryption.Encrypt(txtPass.Text);
-                us.QUYEN = txtQuyen.Text;
+                us.QUYEN = cboQuyen.Text;
                 us.MACTY = int.Parse(txtMaCty.Text);
                 us.DIENTHOAI = txtDienThoai.Text;
                 us.DIACHI = txtDiaChi.Text;
@@ -155,7 +155,7 @@ namespace QLNHANSU
                 txtUserName.Text = us.USERNAME;
                 txtHoTen.Text = us.FULLNAME;
                 txtPass.Text = us.PASS;
-                txtQuyen.Text = us.QUYEN;
+                cboQuyen.Text = us.QUYEN;
                 txtMaCty.Text = us.MACTY.ToString();
                 txtDienThoai.Text = us.DIENTHOAI;
                 txtDiaChi.Text = us.DIACHI;

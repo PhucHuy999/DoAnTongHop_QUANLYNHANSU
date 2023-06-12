@@ -122,7 +122,7 @@
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(1277, 641);
+            this.ClientSize = new System.Drawing.Size(1277, 719);
             this.Controls.Add(this.chkHienMatKhau);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtPass);

@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QLNHANSU
 {
@@ -61,16 +62,11 @@ namespace QLNHANSU
             dt = user.GetData("select * from tb_User where USERNAME = '" + taikhoan + "' and PASS ='" + matkhau + "'");
             if (dt.Rows.Count == 1)
             {
-
+                
                 MainForm f = new MainForm(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString());
-                //this.Hide();
                 f.ShowDialog();
-
-
-                //if (Functions_HyHy2.Commons.handle != null)
-
-                //    SplashScreenManager.CloseOverlayForm(Functions_HyHy2.Commons.handle);
-                //this.Close();
+                this.Hide();
+                this.Close();
 
             }
 
@@ -80,20 +76,8 @@ namespace QLNHANSU
                 return;
             }
 
-            //int lg = _user.Login(txtUserName.Text, txtPass.Text);
-            //if (lg == 1)
-            //{
-            //    if (Functions_HyHy2.Commons.handle != null)
 
-            //        SplashScreenManager.CloseOverlayForm(Functions_HyHy2.Commons.handle);
-            //    this.Close();
-            //    //MainForm f = new MainForm();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
+
         }
 
         private void chkHienMatKhau_CheckedChanged(object sender, EventArgs e)

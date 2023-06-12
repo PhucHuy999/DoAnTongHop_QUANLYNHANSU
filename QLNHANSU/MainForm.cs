@@ -274,6 +274,17 @@ namespace QLNHANSU
             }
         }
 
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information)==DialogResult.Yes)
+            {
+                
+                frmLogin lg = new frmLogin();
+                this.Hide();
+                lg.ShowDialog();
+            }    
+        }
+
         private void btnBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (QUYEN == "Admin")
