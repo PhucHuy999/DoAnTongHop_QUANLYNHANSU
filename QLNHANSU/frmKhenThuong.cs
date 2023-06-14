@@ -10,6 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
+using BusinessLayer.DTO;
+using QLNHANSU.Reports;
+using DevExpress.XtraReports.UI;
+
 
 
 namespace QLNHANSU
@@ -24,6 +28,8 @@ namespace QLNHANSU
         string _soQD; //để sửa
         KHENTHUONG_KYLUAT _ktkl;
         NHANVIEN _nhanvien;
+        List<KHENTHUONG_KYLUAT_DTO> _lstKT;
+
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -84,7 +90,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _ktkl.getListFull(1);
             gvDanhSach.OptionsBehavior.Editable = false;
-
+            _lstKT = _ktkl.getListFull(1);
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -132,7 +138,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachKhenThuongg rpt = new rptDanhSachKhenThuongg(_lstKT);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

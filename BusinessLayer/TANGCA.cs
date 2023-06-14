@@ -11,6 +11,17 @@ namespace BusinessLayer
     public class TANGCA
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public TANGCA()
+        {
+            this.UserId = 2;
+        }
+
+        public TANGCA(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_TANGCA getItem(int id)
         {
             return db.tb_TANGCA.FirstOrDefault(x => x.ID == id);
@@ -88,11 +99,11 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int id, int iduser)
+        public void Delete(int id)
         {
             var _tc = db.tb_TANGCA.FirstOrDefault(x => x.ID == id);
 
-            _tc.DELETED_BY = iduser;
+            _tc.DELETED_BY = UserId;
             _tc.DELETED_DATE = DateTime.Now;
             db.SaveChanges();
 

@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +30,8 @@ namespace QLNHANSU.TINHLUONG
         }
         PHUCAP _phucap;
         NHANVIEN _nhanvien;
+        List<NHANVIEN_PHUCAP_DTO> _lstNVPCDTO;
+
         bool _them;
         int _id;
         private void frmPhuCap_Load(object sender, EventArgs e)
@@ -81,6 +86,7 @@ namespace QLNHANSU.TINHLUONG
         {
             gcDanhSach.DataSource = _phucap.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstNVPCDTO = _phucap.getListFull();
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -123,7 +129,8 @@ namespace QLNHANSU.TINHLUONG
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachPhuCap rpt = new rptDanhSachPhuCap(_lstNVPCDTO);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

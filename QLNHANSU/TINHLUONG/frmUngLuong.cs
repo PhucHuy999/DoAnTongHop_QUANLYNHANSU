@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +26,8 @@ namespace QLNHANSU.TINHLUONG
         
         NHANVIEN _nhanvien;
         UNGLUONG _ungluong;
+        List<UNGLUONG_DTO> _lstULDTO;
+
         bool _them;
         int _id;
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -71,6 +76,7 @@ namespace QLNHANSU.TINHLUONG
         {
             gcDanhSach.DataSource = _ungluong.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstULDTO = _ungluong.getListFull();
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -115,7 +121,8 @@ namespace QLNHANSU.TINHLUONG
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachUngLuong rpt = new rptDanhSachUngLuong(_lstULDTO);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

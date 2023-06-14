@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +26,8 @@ namespace QLNHANSU.TINHLUONG
         NHANVIEN _nhanvien;
         LOAICA _loaica;
         SYS_CONFIG _config;// Lấy tên giá trị $ của tăng ca
+        List<TANGCA_DTO> _lstTCDTO;
+
         bool _them;
         int _id;
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -33,7 +38,7 @@ namespace QLNHANSU.TINHLUONG
         private void frmTangCa_Load(object sender, EventArgs e)
         {
             _them = false;
-            _tangca = new TANGCA();
+            _tangca = new TANGCA(Program.UserId);
             _loaica = new LOAICA();
             _nhanvien = new NHANVIEN();
             _config = new SYS_CONFIG();
@@ -82,6 +87,7 @@ namespace QLNHANSU.TINHLUONG
         {
             gcDanhSach.DataSource = _tangca.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstTCDTO = _tangca.getListFull();
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -106,7 +112,7 @@ namespace QLNHANSU.TINHLUONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _tangca.Delete(_id, 1);
+                _tangca.Delete(_id);
                 loadData();
             }
         }
@@ -127,7 +133,8 @@ namespace QLNHANSU.TINHLUONG
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachTangCa rpt = new rptDanhSachTangCa(_lstTCDTO);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -152,7 +159,7 @@ namespace QLNHANSU.TINHLUONG
                 var cg = _config.getItem("TANGCA");
                 tc.SOTIEN = tc.SOGIO * lc.HESO * int.Parse(cg.Value);
                 tc.CREATED_DATE = DateTime.Now;
-                tc.CREATED_BY = 1;
+                tc.CREATED_BY = Program.UserId;
                 _tangca.Add(tc);
 
             }
@@ -170,7 +177,7 @@ namespace QLNHANSU.TINHLUONG
                 var lc = _loaica.getItem(int.Parse(cboLoaiCa.SelectedValue.ToString()));
                 var cg = _config.getItem("TANGCA");
                 tc.SOTIEN = tc.SOGIO * lc.HESO * int.Parse(cg.Value);
-                tc.UPDATED_BY = 1;
+                tc.UPDATED_BY = Program.UserId;
                 tc.UPDATED_DATE = DateTime.Now;
                 _tangca.Update(tc);
             }
