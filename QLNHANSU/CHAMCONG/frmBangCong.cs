@@ -30,7 +30,7 @@ namespace QLNHANSU.CHAMCONG
         private void frmBangCong_Load(object sender, EventArgs e)
         {
             _them = false;
-            _kycong = new KYCONG();
+            _kycong = new KYCONG(Program.UserId);
             _showHide(true);
             loadData();
             cboNam.Text = DateTime.Now.Year.ToString();
@@ -74,7 +74,7 @@ namespace QLNHANSU.CHAMCONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _kycong.Delete(_makycong, 1);
+                _kycong.Delete(_makycong);
                 loadData();
             }
         }
@@ -115,7 +115,7 @@ namespace QLNHANSU.CHAMCONG
                 kc.MACTY = 1;
                 kc.NGAYCONGTRONGTHANG = Functions_HyHy2.demSoNgayLamViecTrongThang(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
                 kc.NGAYTINHCONG = DateTime.Now;
-                kc.CREATED_BY = 1;
+                kc.CREATED_BY = Program.UserId;
                 kc.CREATED_DATE = DateTime.Now;
                 _kycong.Add(kc);
 
@@ -130,7 +130,7 @@ namespace QLNHANSU.CHAMCONG
                 kc.TRANGTHAI = chkTrangThai.Checked;
                 kc.NGAYCONGTRONGTHANG = Functions_HyHy2.demSoNgayLamViecTrongThang(int.Parse(cboThang.Text), int.Parse(cboNam.Text));
                 kc.NGAYTINHCONG = DateTime.Now;
-                kc.UPDATED_BY = 1;
+                kc.UPDATED_BY = Program.UserId;
                 kc.UPDATED_DATE = DateTime.Now;
                 _kycong.Update(kc);
             }

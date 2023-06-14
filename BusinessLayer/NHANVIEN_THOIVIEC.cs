@@ -5,12 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.DTO;
 using DataLayer;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace BusinessLayer
 {
     public class NHANVIEN_THOIVIEC
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public NHANVIEN_THOIVIEC()
+        {
+            this.UserId = 2;
+        }
+
+        public NHANVIEN_THOIVIEC(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_NHANVIEN_THOIVIEC getItem(string soqd)
         {
             return db.tb_NHANVIEN_THOIVIEC.FirstOrDefault(x => x.SOQD == soqd);
@@ -81,13 +93,13 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(string soqd, int iduser)
+        public void Delete(string soqd)
         {
             try
             {
                 var _tv = db.tb_NHANVIEN_THOIVIEC.FirstOrDefault(x => x.SOQD == soqd);
                
-                _tv.DELETED_BY = iduser;
+                _tv.DELETED_BY = UserId;
                 _tv.DELETED_DATE = DateTime.Now;
                 db.SaveChanges();
                

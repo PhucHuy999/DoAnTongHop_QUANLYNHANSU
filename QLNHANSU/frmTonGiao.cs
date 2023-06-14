@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using DataLayer;
+using QLNHANSU.Reports;
+using DevExpress.XtraReports.UI;
 
 namespace QLNHANSU
 {
@@ -22,6 +24,8 @@ namespace QLNHANSU
 
 
         TONGIAO _tongiao;
+        List<tb_TONGIAO> _lstTonGiao;
+
         bool _them;
         int _id;
 
@@ -45,6 +49,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _tongiao.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstTonGiao = _tongiao.getList();
         }
 
         void _showHide(bool kt)
@@ -104,7 +109,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachTonGiao rpt = new rptDanhSachTonGiao(_lstTonGiao);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

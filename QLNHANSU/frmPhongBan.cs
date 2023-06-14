@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +23,7 @@ namespace QLNHANSU
         }
 
         PHONGBAN _phongban;
+        List<tb_PHONGBAN> _lstPhongBan;
         bool _them;
         int _id;
         private void frmPhongBan_Load(object sender, EventArgs e)
@@ -47,6 +50,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _phongban.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstPhongBan = _phongban.getList();
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -92,7 +96,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachPhongBan rpt = new rptDanhSachPhongBan(_lstPhongBan);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

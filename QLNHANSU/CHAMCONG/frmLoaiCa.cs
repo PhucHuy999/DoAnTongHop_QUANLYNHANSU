@@ -30,7 +30,7 @@ namespace QLNHANSU.CHAMCONG
         private void frmLoaiCa_Load(object sender, EventArgs e)
         {
             _them = false;
-            _loaica = new LOAICA();
+            _loaica = new LOAICA(Program.UserId);
             _showHide(true);
             loadData();
         }
@@ -72,7 +72,7 @@ namespace QLNHANSU.CHAMCONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _loaica.Delete(_id,1);
+                _loaica.Delete(_id);
                 loadData();
             }
         }
@@ -107,7 +107,7 @@ namespace QLNHANSU.CHAMCONG
                 tb_LOAICA lc = new tb_LOAICA();
                 lc.TENLOAICA = txtTen.Text;
                 lc.HESO = double.Parse(spHeSo.EditValue.ToString());
-                lc.CREATED_BY = 1;
+                lc.CREATED_BY = Program.UserId;
                 lc.CREATED_DATE = DateTime.Now; 
                 _loaica.Add(lc);
 
@@ -117,7 +117,7 @@ namespace QLNHANSU.CHAMCONG
                 var lc = _loaica.getItem(_id);
                 lc.TENLOAICA = txtTen.Text;
                 lc.HESO = double.Parse(spHeSo.EditValue.ToString());
-                lc.UPDATED_BY = 1;
+                lc.UPDATED_BY = Program.UserId;
                 lc.UPDATED_DATE = DateTime.Now;
                 _loaica.Update(lc);
             }

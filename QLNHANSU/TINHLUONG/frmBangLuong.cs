@@ -34,10 +34,10 @@ namespace QLNHANSU.TINHLUONG
 
         private void frmBangLuong_Load(object sender, EventArgs e)
         {
-            _bangluong = new BANGLUONG();
+            _bangluong = new BANGLUONG(Program.UserId);
             cboNam.Text = DateTime.Now.Year.ToString();
             cboThang.Text = DateTime.Now.Month.ToString();
-
+            
         }
 
         private void btnTinhLuong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

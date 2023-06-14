@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,7 @@ namespace QLNHANSU
             InitializeComponent();
         }
         CHUCVU _chucvu;
+        List<tb_CHUCVU> _lstChucVu;
         bool _them;
         int _id;
 
@@ -47,6 +50,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _chucvu.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstChucVu = _chucvu.getList();
         }
 
 
@@ -95,7 +99,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachChucVu rpt = new rptDanhSachChucVu(_lstChucVu);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

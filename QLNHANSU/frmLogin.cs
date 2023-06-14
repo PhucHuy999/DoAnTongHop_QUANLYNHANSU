@@ -62,7 +62,7 @@ namespace QLNHANSU
             dt = user.GetData("select * from tb_User where USERNAME = '" + taikhoan + "' and PASS ='" + matkhau + "'");
             if (dt.Rows.Count == 1)
             {
-                
+                Program.UserId = Convert.ToInt32(dt.Rows[0][0]);
                 MainForm f = new MainForm(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString());
                 f.ShowDialog();
                 this.Hide();

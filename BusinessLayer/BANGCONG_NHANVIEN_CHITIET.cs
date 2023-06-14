@@ -10,6 +10,17 @@ namespace BusinessLayer
     public class BANGCONG_NHANVIEN_CHITIET
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public BANGCONG_NHANVIEN_CHITIET()
+        {
+            this.UserId = 2;
+        }
+
+        public BANGCONG_NHANVIEN_CHITIET(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_BANGCONG_NHANVIEN_CHITIET getItem(int makycong, int manv, int ngay)
         {
             return db.tb_BANGCONG_NHANVIEN_CHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv && x.NGAY.Value.Day == ngay);

@@ -76,7 +76,7 @@ namespace BusinessLayer
                 nvDTO.MANV = item.MANV;
                 nvDTO.HOTEN = item.HOTEN;
                 nvDTO.GIOITINH = item.GIOITINH;
-                nvDTO.NGAYSINH = item.NGAYSINH/*.Value.ToShortDateString("dd/MM/yyyy")*/;
+                nvDTO.NGAYSINH = item.NGAYSINH;
                 nvDTO.CCCD = item.CCCD;
                 nvDTO.DIENTHOAI = item.DIENTHOAI;   
                 nvDTO.DIACHI = item.DIACHI;
@@ -170,8 +170,9 @@ namespace BusinessLayer
         }
         public List<tb_NHANVIEN>getSinhNhat()
         {
-            return db.tb_NHANVIEN.Where(x=>x.NGAYSINH.Value.Month == DateTime.Now.Month).ToList();
-
+            var result = db.tb_NHANVIEN.Where(x=>x.NGAYSINH.Value.Month == DateTime.Now.Month).ToList();
+            result.ForEach(e => e.Birthday = e.NGAYSINH.Value.ToString("dd/MM/yyyy"));
+            return result;
         }
     }
 }

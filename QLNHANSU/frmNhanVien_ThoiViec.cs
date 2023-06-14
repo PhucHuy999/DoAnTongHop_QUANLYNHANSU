@@ -26,7 +26,7 @@ namespace QLNHANSU
         
         private void frmNhanVien_ThoiViec_Load(object sender, EventArgs e)
         {
-            _nvtv = new NHANVIEN_THOIVIEC();
+            _nvtv = new NHANVIEN_THOIVIEC(Program.UserId);
             _nhanvien = new NHANVIEN();
             
             _them = false;
@@ -101,7 +101,7 @@ namespace QLNHANSU
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _nvtv.Delete(_soQD, 1);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
+                _nvtv.Delete(_soQD);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
                 loadData();
             }
         }
@@ -148,7 +148,7 @@ namespace QLNHANSU
                 tv.GHICHU = txtGhiChu.Text;
                 tv.MANV = int.Parse(slkNhanVien.EditValue.ToString());
 
-                tv.CREATED_BY = 1;
+                tv.CREATED_BY = Program.UserId;
                 tv.CREATED_DATE = DateTime.Now;
 
 
@@ -162,7 +162,7 @@ namespace QLNHANSU
                 tv.LYDO = txtLyDo.Text;
                 tv.GHICHU = txtGhiChu.Text;
                 tv.MANV = int.Parse(slkNhanVien.EditValue.ToString());               
-                tv.UPDATED_BY = 1;
+                tv.UPDATED_BY = Program.UserId;
                 tv.UPDATED_DATE = DateTime.Now;
 
                 _nvtv.Update(tv);

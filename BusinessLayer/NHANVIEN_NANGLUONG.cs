@@ -11,7 +11,17 @@ namespace BusinessLayer
     public class NHANVIEN_NANGLUONG
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
-         
+        private readonly int UserId;
+
+        public NHANVIEN_NANGLUONG()
+        {
+            this.UserId = 2;
+        }
+
+        public NHANVIEN_NANGLUONG(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_NHANVIEN_NANGLUONG getItem(string soqd)
         {
             return db.tb_NHANVIEN_NANGLUONG.FirstOrDefault(x => x.SOQD == soqd);
@@ -85,12 +95,12 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(string soqd, int uid)
+        public void Delete(string soqd)
         {
             try
             {
                 var _nl = db.tb_NHANVIEN_NANGLUONG.FirstOrDefault(x => x.SOQD == soqd);
-                _nl.DELETED_BY = uid;
+                _nl.DELETED_BY = UserId;
                 _nl.DELETED_DATE = DateTime.Now;
                 db.SaveChanges();
                

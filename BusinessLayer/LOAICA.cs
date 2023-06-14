@@ -10,6 +10,18 @@ namespace BusinessLayer
     public class LOAICA
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public LOAICA()
+        {
+            this.UserId = 2;
+        }
+
+        public LOAICA(int userId)
+        {
+            this.UserId = userId;
+        }
+
         public tb_LOAICA getItem(int idloaica)
         {
             return db.tb_LOAICA.FirstOrDefault(x => x.IDLOAICA == idloaica);
@@ -49,11 +61,11 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int idloaica, int iduser)
+        public void Delete(int idloaica)
         {
             var _lc = db.tb_LOAICA.FirstOrDefault(x => x.IDLOAICA == idloaica);
            
-            _lc.DELETED_BY = iduser;
+            _lc.DELETED_BY = UserId;
             _lc.DELETED_DATE = DateTime.Now;
             db.SaveChanges();
 

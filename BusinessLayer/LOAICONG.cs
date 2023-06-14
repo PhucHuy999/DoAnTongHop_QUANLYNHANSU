@@ -10,6 +10,18 @@ namespace BusinessLayer
     public class LOAICONG
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public LOAICONG()
+        {
+            this.UserId = 2;
+        }
+
+        public LOAICONG(int userId)
+        {
+            this.UserId = userId;
+        }
+
         public tb_LOAICONG getItem(int id)
         {
             return db.tb_LOAICONG.FirstOrDefault(x => x.IDLC == id);
@@ -49,11 +61,11 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int id, int iduser)
+        public void Delete(int id)
         {
             var _lc = db.tb_LOAICONG.FirstOrDefault(x => x.IDLC == id);
 
-            _lc.DELETED_BY = iduser;
+            _lc.DELETED_BY = UserId;
             _lc.DELETED_DATE = DateTime.Now;
             db.SaveChanges();
 

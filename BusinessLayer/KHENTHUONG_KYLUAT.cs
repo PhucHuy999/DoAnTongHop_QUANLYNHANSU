@@ -12,6 +12,17 @@ namespace BusinessLayer
     public class KHENTHUONG_KYLUAT
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public KHENTHUONG_KYLUAT()
+        {
+            this.UserId = 2;
+        }
+
+        public KHENTHUONG_KYLUAT(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_KHENTHUONG_KYLUAT getItem(string soQD)
         {
             return db.tb_KHENTHUONG_KYLUAT.FirstOrDefault(x => x.SOQUYETDINH == soQD);
@@ -96,12 +107,12 @@ namespace BusinessLayer
             }
         }
 
-        public void Delete (string soQD, int maNV)
+        public void Delete (string soQD)
         {
             try
             {
                 tb_KHENTHUONG_KYLUAT _kt = db.tb_KHENTHUONG_KYLUAT.FirstOrDefault(x => x.SOQUYETDINH == soQD);
-                _kt.DELETED_BY = maNV;    
+                _kt.DELETED_BY = UserId;    
                 _kt.DELETED_DATE = DateTime.Now;
                 _kt.DISABLED = true;
                 db.SaveChanges();

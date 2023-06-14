@@ -30,7 +30,7 @@ namespace QLNHANSU
 
         private void frmKyLuat_Load(object sender, EventArgs e)
         {
-            _ktkl = new KHENTHUONG_KYLUAT();
+            _ktkl = new KHENTHUONG_KYLUAT(Program.UserId);
             _nhanvien = new NHANVIEN();
             _them = false;
             _showHide(true);
@@ -107,7 +107,7 @@ namespace QLNHANSU
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _ktkl.Delete(_soQD, 1);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
+                _ktkl.Delete(_soQD);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
                 loadData();
             }
         }
@@ -157,7 +157,7 @@ namespace QLNHANSU
                 kl.NOIDUNG = txtNoiDung.Text;
                 kl.MANV = int.Parse(slkNhanVien.EditValue.ToString());
                 kl.LOAI = 2; // loại 2 là KỶ LUẬT
-                kl.CREATED_BY = 1;
+                kl.CREATED_BY = Program.UserId;
                 kl.CREATED_DATE = DateTime.Now;
                 kl.DISABLED = chkDisabled.Checked;
                 _ktkl.Add(kl);
@@ -174,7 +174,7 @@ namespace QLNHANSU
                 kl.MANV = int.Parse(slkNhanVien.EditValue.ToString());
                 kl.LYDO = txtLyDo.Text;
                 kl.NOIDUNG = txtNoiDung.Text;
-                kl.UPDATED_BY = 1;
+                kl.UPDATED_BY = Program.UserId;
                 kl.UPDATED_DATE = DateTime.Now;
                 kl.DISABLED = chkDisabled.Checked;
                 _ktkl.Update(kl);

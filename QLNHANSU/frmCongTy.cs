@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,7 @@ namespace QLNHANSU
             InitializeComponent();
         }
         CONGTY _congty;
+        List<tb_CONGTY> _lstCongTy;
         bool _them;
         int _id;
 
@@ -50,6 +53,8 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _congty.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstCongTy = _congty.getList();
+
         }
 
 
@@ -109,7 +114,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptCongTy rpt = new rptCongTy(_lstCongTy);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

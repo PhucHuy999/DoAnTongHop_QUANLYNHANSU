@@ -8,14 +8,26 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class BANGLUONG
+    public class BANGLUONG 
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public BANGLUONG()
+        {
+            this.UserId = 2;
+        }
+        
+        public BANGLUONG(int userId)
+        {
+            this.UserId = userId;
+        }
+
         public tb_BANGLUONG getItem(int makycong, int manv)
         {
             return db.tb_BANGLUONG.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv );
         }
-
+        
         public List<tb_BANGLUONG> getList(int makycong)
         {
             return db.tb_BANGLUONG.Where(x => x.MAKYCONG == makycong).ToList();
@@ -62,7 +74,7 @@ namespace BusinessLayer
                     bl.TANGCA = luongtangca;
                     bl.UNGLUONG = ungluong;
                     bl.THUCLANH = thuclanh;
-                    bl.CREATED_BY = 2;
+                    bl.CREATED_BY = UserId;
                     bl.CREATED_DATE = DateTime.Now;
                     Add(bl);
                 }

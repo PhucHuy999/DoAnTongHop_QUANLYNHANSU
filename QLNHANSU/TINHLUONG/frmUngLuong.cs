@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace QLNHANSU.TINHLUONG
 {
@@ -33,7 +34,7 @@ namespace QLNHANSU.TINHLUONG
         {
             _them = false;
             _nhanvien = new NHANVIEN();
-            _ungluong = new UNGLUONG();
+            _ungluong = new UNGLUONG(Program.UserId);
             _showHide(true);
             loadData();
             loadNhanVien();
@@ -93,7 +94,7 @@ namespace QLNHANSU.TINHLUONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _ungluong.Delete(_id, 1);
+                _ungluong.Delete(_id);
                 loadData();
             }
         }
@@ -135,7 +136,7 @@ namespace QLNHANSU.TINHLUONG
                 ul.NAM = int.Parse(cboNam.Text);
                 
                 ul.CREATED_DATE = DateTime.Now;
-                ul.CREATED_BY = 1;
+                ul.CREATED_BY = Program.UserId;
                 _ungluong.Add(ul);
 
             }
@@ -150,7 +151,7 @@ namespace QLNHANSU.TINHLUONG
                 ul.THANG = int.Parse(cboThang.Text);
                 ul.NAM = int.Parse(cboNam.Text);
                
-                ul.UPDATED_BY = 1;
+                ul.UPDATED_BY = Program.UserId;
                 ul.UPDATED_DATE = DateTime.Now;
                 _ungluong.Update(ul);
             }

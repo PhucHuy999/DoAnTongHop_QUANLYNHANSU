@@ -10,7 +10,7 @@ namespace QLNHANSU
 {
     internal static class Program
     {
-
+        public static int UserId { get; set; }
 
         [STAThread]
         static void Main()

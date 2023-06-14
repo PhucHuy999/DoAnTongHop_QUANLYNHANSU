@@ -6,12 +6,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace BusinessLayer
 {
     public class UNGLUONG
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public UNGLUONG()
+        {
+            this.UserId = 2;
+        }
+
+        public UNGLUONG(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_UNGLUONG getItem(int id)
         {
             return db.tb_UNGLUONG.FirstOrDefault(x => x.ID == id);
@@ -79,12 +91,12 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int id, int UserID)
+        public void Delete(int id)
         {
             try
             {
                 var _ul = db.tb_UNGLUONG.FirstOrDefault(x => x.ID == id);
-                _ul.DELETED_BY = UserID;
+                _ul.DELETED_BY = UserId;
                 _ul.DELETED_DATE = DateTime.Now;
                 db.SaveChanges();
             }

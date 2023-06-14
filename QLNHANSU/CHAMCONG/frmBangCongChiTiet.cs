@@ -41,7 +41,7 @@ namespace QLNHANSU.CHAMCONG
         private void frmBangCongChiTiet_Load(object sender, EventArgs e)
         {
             _kycong = new KYCONG();
-            _kcct = new KYCONGCHITIET();
+            _kcct = new KYCONGCHITIET(Program.UserId);
             _nhanvien = new NHANVIEN();
             _bangcongNVCT = new BANGCONG_NHANVIEN_CHITIET();
             gcBangCongChiTiet.DataSource = _kcct.getList(_makycong);
@@ -103,7 +103,7 @@ namespace QLNHANSU.CHAMCONG
                     }
                     bcct.MAKYCONG = _makycong;
                     bcct.CREATED_DATE = DateTime.Now;
-                    bcct.CREATED_BY = 1;
+                    bcct.CREATED_BY = Program.UserId;
                     _bangcongNVCT.Add(bcct);
                 }
             }

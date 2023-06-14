@@ -30,7 +30,7 @@ namespace QLNHANSU.CHAMCONG
         private void frmLoaiCong_Load(object sender, EventArgs e)
         {
             _them = false;
-            _loaicong = new LOAICONG();
+            _loaicong = new LOAICONG(Program.UserId);
             _showHide(true);
             loadData();
         }
@@ -70,7 +70,7 @@ namespace QLNHANSU.CHAMCONG
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _loaicong.Delete(_id, 1);
+                _loaicong.Delete(_id);
                 loadData();
             }
         }
@@ -105,7 +105,7 @@ namespace QLNHANSU.CHAMCONG
                 tb_LOAICONG lc = new tb_LOAICONG();
                 lc.TENLC = txtTen.Text;
                 lc.HESO = double.Parse(spHeSo.EditValue.ToString());
-                lc.CREATED_BY = 1;
+                lc.CREATED_BY = Program.UserId;
                 lc.CREATED_DATE = DateTime.Now;
                 _loaicong.Add(lc);
 
@@ -115,7 +115,7 @@ namespace QLNHANSU.CHAMCONG
                 var lc = _loaicong.getItem(_id);
                 lc.TENLC = txtTen.Text;
                 lc.HESO = double.Parse(spHeSo.EditValue.ToString());
-                lc.UPDATED_BY = 1;
+                lc.UPDATED_BY = Program.UserId;
                 lc.UPDATED_DATE = DateTime.Now;
                 _loaicong.Update(lc);
             }

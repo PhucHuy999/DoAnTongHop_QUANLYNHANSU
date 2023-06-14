@@ -11,6 +11,17 @@ namespace BusinessLayer
     public class PHUCAP
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public PHUCAP()
+        {
+            this.UserId = 2;
+        }
+
+        public PHUCAP(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_NHANVIEN_PHUCAP getItem(int id)
         {
             return db.tb_NHANVIEN_PHUCAP.FirstOrDefault(x => x.ID == id);
@@ -87,13 +98,13 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int id, int iduser)
+        public void Delete(int id)
         {
             try
             {
                 var _lc = db.tb_NHANVIEN_PHUCAP.FirstOrDefault(x => x.ID == id);
 
-                _lc.DELETED_BY = iduser;
+                _lc.DELETED_BY = UserId;
                 _lc.DELETED_DATE = DateTime.Now;
                 db.SaveChanges();
             }

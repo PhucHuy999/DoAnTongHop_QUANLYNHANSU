@@ -10,6 +10,18 @@ namespace BusinessLayer
     public class KYCONG
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public KYCONG()
+        {
+            this.UserId = 2;
+        }
+
+        public KYCONG(int userId)
+        {
+            this.UserId = userId;
+        }
+
         public tb_KYCONG getItem(int makycong)
         {
             return db.tb_KYCONG.FirstOrDefault(x => x.MAKYCONG == makycong);
@@ -53,13 +65,13 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
-        public void Delete(int makycong, int iduser)
+        public void Delete(int makycong)
         {
             try
             {
                 var _kc = db.tb_KYCONG.FirstOrDefault(x => x.MAKYCONG == makycong);
                
-                _kc.DELETED_BY = iduser;
+                _kc.DELETED_BY = UserId;
                 _kc.DELETED_DATE = DateTime.Now;
                 db.SaveChanges();
                 

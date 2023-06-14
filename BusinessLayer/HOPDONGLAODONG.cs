@@ -11,6 +11,17 @@ namespace BusinessLayer
     public class HOPDONGLAODONG
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public HOPDONGLAODONG()
+        {
+            this.UserId = 2;
+        }
+
+        public HOPDONGLAODONG(int userId)
+        {
+            this.UserId = userId;
+        }
         public tb_HOPDONG getItem(string sohd)
         {
             return db.tb_HOPDONG.FirstOrDefault(x => x.SOHD == sohd);
@@ -137,11 +148,11 @@ namespace BusinessLayer
                 throw new Exception(ex.Message);
             }
         }
-        public void Delete(string sohd, int manv)
+        public void Delete(string sohd)
         {
             var _hd = db.tb_HOPDONG.FirstOrDefault(x => x.SOHD == sohd);
 
-            _hd.DELETED_BY = manv;
+            _hd.DELETED_BY = UserId;
             _hd.DELETED_DATE = DateTime.Now;
         }
         public string MaxSoHopDong()

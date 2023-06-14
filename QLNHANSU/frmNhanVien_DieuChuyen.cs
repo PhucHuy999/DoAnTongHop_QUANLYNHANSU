@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.Utils.Drawing.Helpers.NativeMethods;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace QLNHANSU
 {
@@ -29,7 +30,7 @@ namespace QLNHANSU
         CHUCVU _chucvu;
         private void frmNhanVien_DieuChuyen_Load(object sender, EventArgs e)
         {
-             _nvdc = new NHANVIEN_DIEUCHUYEN();
+             _nvdc = new NHANVIEN_DIEUCHUYEN(Program.UserId);
             _nhanvien = new NHANVIEN();
             _phongban = new PHONGBAN();
             _bophan = new BOPHAN();
@@ -183,7 +184,7 @@ namespace QLNHANSU
                 dc.MACV2 = int.Parse(cboChucVuDen.SelectedValue.ToString());
 
 
-                dc.CREATED_BY = 1;
+                dc.CREATED_BY = Program.UserId;
                 dc.CREATED_DATE = DateTime.Now;
                
 
@@ -199,7 +200,7 @@ namespace QLNHANSU
                 dc.MAPB2 = int.Parse(cboPhongBanDen.SelectedValue.ToString());
                 dc.MABP2 = int.Parse(cboBoPhanDen.SelectedValue.ToString());
                 dc.MACV2 = int.Parse(cboChucVuDen.SelectedValue.ToString());
-                dc.UPDATED_BY = 1;
+                dc.UPDATED_BY = Program.UserId;
                 dc.UPDATED_DATE = DateTime.Now;
 
                 _nvdc.Update(dc);

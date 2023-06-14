@@ -622,10 +622,10 @@
             templatedItemElement3.Text = "HOTEN";
             templatedItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
             templatedItemElement4.AnchorElementIndex = 0;
-            templatedItemElement4.FieldName = "NGAYSINH";
+            templatedItemElement4.FieldName = "Birthday";
             templatedItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             templatedItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement4.Text = "NGAYSINH";
+            templatedItemElement4.Text = "Birthday";
             templatedItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
             itemTemplateBase2.Elements.Add(templatedItemElement3);
             itemTemplateBase2.Elements.Add(templatedItemElement4);

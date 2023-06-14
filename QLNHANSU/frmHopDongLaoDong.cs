@@ -13,6 +13,7 @@ using BusinessLayer;
 using QLNHANSU.Reports;
 using DevExpress.XtraReports.UI;
 using BusinessLayer.DTO;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace QLNHANSU
 {
@@ -31,7 +32,7 @@ namespace QLNHANSU
         }
         private void frmHopDongLaoDong_Load(object sender, EventArgs e)
         {
-            _hdld = new HOPDONGLAODONG();
+            _hdld = new HOPDONGLAODONG(Program.UserId);
             _nhanvien = new NHANVIEN();
             _them = false;
             _showHide(true);
@@ -110,7 +111,7 @@ namespace QLNHANSU
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _hdld.Delete(_soHD,1);
+            _hdld.Delete(_soHD);
             loadData();
         }
 
@@ -162,7 +163,7 @@ namespace QLNHANSU
                 hd.MANV = int.Parse(slkNhanVien.EditValue.ToString());
                 hd.NOIDUNG = txtNoiDung.RtfText;
                 hd.MACTY = 1;
-                hd.CREATED_BY = 1;
+                hd.CREATED_BY = Program.UserId;
                 hd.CREATED_DATE = DateTime.Now;
                 _hdld.Add(hd);  
             }
@@ -180,8 +181,8 @@ namespace QLNHANSU
                 hd.MANV = int.Parse(slkNhanVien.EditValue.ToString());
                 hd.NOIDUNG = txtNoiDung.RtfText;
                 hd.MACTY = 1;
-                hd.CREATED_BY = 1;
-                hd.CREATED_DATE = DateTime.Now;
+                hd.UPDATED_BY = Program.UserId;
+                hd.UPDATED_DATE = DateTime.Now;
                 _hdld.Update(hd);
             }
         }

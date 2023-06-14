@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer;
 using BusinessLayer;
+using QLNHANSU.Reports;
+using DevExpress.XtraReports.UI;
 
 namespace QLNHANSU
 {
@@ -20,11 +22,13 @@ namespace QLNHANSU
             InitializeComponent();
         }
         DANTOC _dantoc;
+        List<tb_DANTOC> _lstDanToc;
         bool _them;
         int _id;
 
         private void frmDanToc_Load(object sender, EventArgs e)
         {
+            var id = Program.UserId;
             _them = false;   
             _dantoc = new DANTOC();
             _showHide(true);
@@ -49,6 +53,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _dantoc.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstDanToc = _dantoc.getList(); 
         }
         
 
@@ -111,7 +116,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            rptDanhSachDanToc rpt = new rptDanhSachDanToc(_lstDanToc);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -11,6 +11,17 @@ namespace BusinessLayer
     public class NHANVIEN_DIEUCHUYEN
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public NHANVIEN_DIEUCHUYEN()
+        {
+            this.UserId = 2;
+        }
+
+        public NHANVIEN_DIEUCHUYEN(int userId)
+        {
+            this.UserId = userId;
+        }
 
         public tb_NHANVIEN_DIEUCHUYEN getItem(string soqd)
         {

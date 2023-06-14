@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace QLNHANSU
 {
@@ -24,9 +28,10 @@ namespace QLNHANSU
         NHANVIEN_NANGLUONG _nvnl;
         HOPDONGLAODONG _hopdong;
         NHANVIEN _nv;
+        List<NHANVIEN_NANGLUONG_DTO> _lstNVNLDTO;
         private void frmQuanLyLuong_Load(object sender, EventArgs e)
         {
-            _nvnl = new NHANVIEN_NANGLUONG();
+            _nvnl = new NHANVIEN_NANGLUONG(Program.UserId);
             _hopdong = new HOPDONGLAODONG();
             _nv = new NHANVIEN();
 
@@ -72,14 +77,13 @@ namespace QLNHANSU
             dtNgayKy.Enabled = !kt;
             slkHopDong.Enabled = !kt;
 
-
         }
 
         private void loadData()
         {
             gcDanhSach.DataSource = _nvnl.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
-
+            _lstNVNLDTO = _nvnl.getListFull();
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -102,7 +106,7 @@ namespace QLNHANSU
         {
             if (MessageBox.Show("Bạn có chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _nvnl.Delete(_soQD, 1);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
+                _nvnl.Delete(_soQD);// chưa xây dựng chức năng đăng nhập nên truyền thẳng manv==1 vào tạm
                 var hd = _hopdong.getItem(slkHopDong.EditValue.ToString()); // xóa thì phải cập nhật lại hsl cũ vào lại hđ
                 hd.HESOLUONG = double.Parse(spHSLCu.EditValue.ToString());
                 _hopdong.Update(hd);
@@ -128,7 +132,10 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            
+                rptDanhSachNangLuong rpt = new rptDanhSachNangLuong(_lstNVNLDTO);
+                rpt.ShowRibbonPreview();
+            
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -153,7 +160,7 @@ namespace QLNHANSU
                 nl.HESOLUONGMOI = double.Parse (spHSLMoi.EditValue.ToString());
                 nl.GHICHU = txtGhiChu.Text;
                 nl.MANV = _hopdong.getItem(slkHopDong.EditValue.ToString()).MANV;               
-                nl.CREATED_BY = 1;
+                nl.CREATED_BY = Program.UserId;
                 nl.CREATED_DATE = DateTime.Now;
 
 
@@ -170,7 +177,7 @@ namespace QLNHANSU
                 nl.GHICHU = txtGhiChu.Text;
                 nl.MANV = _hopdong.getItem(slkHopDong.EditValue.ToString()).MANV;
 
-                nl.UPDATED_BY = 1;
+                nl.UPDATED_BY = Program.UserId;
                 nl.UPDATED_DATE = DateTime.Now;
 
                 _nvnl.Update(nl);

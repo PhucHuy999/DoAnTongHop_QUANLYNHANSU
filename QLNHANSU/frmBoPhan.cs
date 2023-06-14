@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +23,7 @@ namespace QLNHANSU
         }
 
         BOPHAN _bophan;
+        List<tb_BOPHAN> _lstBoPhan;
         bool _them;
         int _id;
 
@@ -50,6 +53,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _bophan.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstBoPhan = _bophan.getList();
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -95,7 +99,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachBoPhan rpt = new rptDanhSachBoPhan(_lstBoPhan);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +24,8 @@ namespace QLNHANSU
 
 
         TRINHDO _trinhdo;
+        List<tb_TRINHDO> _lstTrinhDo;
+
         bool _them;
         int _id;
 
@@ -51,6 +55,8 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _trinhdo.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstTrinhDo = _trinhdo.getList();
+
         }
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -95,7 +101,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachTrinhDo rpt = new rptDanhSachTrinhDo(_lstTrinhDo);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

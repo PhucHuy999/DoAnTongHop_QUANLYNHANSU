@@ -10,6 +10,18 @@ namespace BusinessLayer
     public class KYCONGCHITIET
     {
         QLNHANSUEntities db = new QLNHANSUEntities();
+        private readonly int UserId;
+
+        public KYCONGCHITIET()
+        {
+            this.UserId = 2;
+        }
+
+        public KYCONGCHITIET(int userId)
+        {
+            this.UserId = userId;
+        }
+
         public tb_KYCONGCHITIET getItem(int makycong, int manv)
         {
             return db.tb_KYCONGCHITIET.FirstOrDefault(x => x.MAKYCONG == makycong && x.MANV == manv );
