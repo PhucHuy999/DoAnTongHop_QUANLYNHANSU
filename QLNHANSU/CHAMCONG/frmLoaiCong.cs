@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,7 @@ namespace QLNHANSU.CHAMCONG
             InitializeComponent();
         }
         LOAICONG _loaicong;
+        List<tb_LOAICONG> _sltLoaiCong;
         bool _them;
         int _id;
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -51,6 +54,8 @@ namespace QLNHANSU.CHAMCONG
         {
             gcDanhSach.DataSource = _loaicong.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _sltLoaiCong = _loaicong.getList();
+
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -91,7 +96,8 @@ namespace QLNHANSU.CHAMCONG
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachLoaiCong rpt = new rptDanhSachLoaiCong(_sltLoaiCong);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

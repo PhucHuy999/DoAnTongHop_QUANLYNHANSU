@@ -292,6 +292,12 @@
     <Compile Include="Reports\rptDanhSachDanToc.Designer.cs">
       <DependentUpon>rptDanhSachDanToc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptDanhSachDieuChuyen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachDieuChuyen.Designer.cs">
+      <DependentUpon>rptDanhSachDieuChuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptDanhSachKhenThuongg.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -303,6 +309,18 @@
     </Compile>
     <Compile Include="Reports\rptDanhSachKyLuat.Designer.cs">
       <DependentUpon>rptDanhSachKyLuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachLoaiCa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachLoaiCa.Designer.cs">
+      <DependentUpon>rptDanhSachLoaiCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachLoaiCong.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachLoaiCong.Designer.cs">
+      <DependentUpon>rptDanhSachLoaiCong.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptDanhSachNangLuong.cs">
       <SubType>Component</SubType>
@@ -327,6 +345,12 @@
     </Compile>
     <Compile Include="Reports\rptDanhSachTangCa.Designer.cs">
       <DependentUpon>rptDanhSachTangCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachThoiViec.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDanhSachThoiViec.Designer.cs">
+      <DependentUpon>rptDanhSachThoiViec.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptDanhSachTonGiao.cs">
       <SubType>Component</SubType>
@@ -498,11 +522,20 @@
     <EmbeddedResource Include="Reports\rptDanhSachDanToc.resx">
       <DependentUpon>rptDanhSachDanToc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDanhSachDieuChuyen.resx">
+      <DependentUpon>rptDanhSachDieuChuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDanhSachKhenThuongg.resx">
       <DependentUpon>rptDanhSachKhenThuongg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDanhSachKyLuat.resx">
       <DependentUpon>rptDanhSachKyLuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDanhSachLoaiCa.resx">
+      <DependentUpon>rptDanhSachLoaiCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDanhSachLoaiCong.resx">
+      <DependentUpon>rptDanhSachLoaiCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDanhSachNangLuong.resx">
       <DependentUpon>rptDanhSachNangLuong.cs</DependentUpon>
@@ -515,6 +548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDanhSachTangCa.resx">
       <DependentUpon>rptDanhSachTangCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDanhSachThoiViec.resx">
+      <DependentUpon>rptDanhSachThoiViec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDanhSachTonGiao.resx">
       <DependentUpon>rptDanhSachTonGiao.cs</DependentUpon>

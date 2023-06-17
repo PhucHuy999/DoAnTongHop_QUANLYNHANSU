@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,8 @@ namespace QLNHANSU.CHAMCONG
             InitializeComponent();
         }
         LOAICA _loaica;
+        List<tb_LOAICA> _lstLoaiCa;
+
         bool _them;
         int _id;
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -51,6 +55,7 @@ namespace QLNHANSU.CHAMCONG
         {
             gcDanhSach.DataSource = _loaica.getList();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstLoaiCa = _loaica.getList(); 
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -93,7 +98,8 @@ namespace QLNHANSU.CHAMCONG
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachLoaiCa rpt = new rptDanhSachLoaiCa(_lstLoaiCa);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

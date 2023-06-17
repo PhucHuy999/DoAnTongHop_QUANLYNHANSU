@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +26,8 @@ namespace QLNHANSU
         string _soQD; //để sửa
         NHANVIEN_THOIVIEC _nvtv;
         NHANVIEN _nhanvien;
-        
+        List<NHANVIEN_THOIVIEC_DTO> _lstNVTVDTO;
+
         private void frmNhanVien_ThoiViec_Load(object sender, EventArgs e)
         {
             _nvtv = new NHANVIEN_THOIVIEC(Program.UserId);
@@ -78,7 +82,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _nvtv.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
-
+            _lstNVTVDTO = _nvtv.getListFull();
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -124,7 +128,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachThoiViec rpt = new rptDanhSachThoiViec(_lstNVTVDTO);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

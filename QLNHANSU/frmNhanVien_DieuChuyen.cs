@@ -1,6 +1,9 @@
 ﻿using BusinessLayer;
+using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using QLNHANSU.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +31,8 @@ namespace QLNHANSU
         PHONGBAN _phongban;
         BOPHAN _bophan;
         CHUCVU _chucvu;
+        List<NHANVIEN_DIEUCHUYEN_DTO> _lstNVDCDTO;
+
         private void frmNhanVien_DieuChuyen_Load(object sender, EventArgs e)
         {
              _nvdc = new NHANVIEN_DIEUCHUYEN(Program.UserId);
@@ -104,6 +109,7 @@ namespace QLNHANSU
         {
             gcDanhSach.DataSource = _nvdc.getListFull();
             gvDanhSach.OptionsBehavior.Editable = false;
+            _lstNVDCDTO = _nvdc.getListFull();
 
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -150,7 +156,8 @@ namespace QLNHANSU
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            rptDanhSachDieuChuyen rpt = new rptDanhSachDieuChuyen(_lstNVDCDTO);
+            rpt.ShowRibbonPreview();
         }
 
         private void btnDong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
