@@ -24,7 +24,7 @@ namespace QLNHANSU.Reports
         private void frmInBangCongChiTiet_Load(object sender, EventArgs e)
         {
             _nhanvienn = new NHANVIEN();
-            _bcnvct = new BANGCONG_NHANVIEN_CHITIET(Program.UserId);
+            _bcnvct = new BANGCONG_NHANVIEN_CHITIET(/*Program.UserId*/);
             loadNhanVien();
             cboKyCong.SelectedIndex = DateTime.Now.Month - 1; //SelectedIndex lấy từ 0 nên muốn lấy tháng hiện tại thì -1
 

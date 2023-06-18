@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace BusinessLayer
 {
@@ -115,7 +116,8 @@ namespace BusinessLayer
                 kycongchitiet.XINNGHIVIECRIENG = 0;
                 kycongchitiet.CONGNGAYLE = 0;
                 kycongchitiet.CONGCHUNHAT = 0;
-
+                kycongchitiet.CREATED_BY = UserId;
+                kycongchitiet.CREATED_DATE = DateTime.Now;
                 db.tb_KYCONGCHITIET.Add(kycongchitiet);
                 db.SaveChanges();
 

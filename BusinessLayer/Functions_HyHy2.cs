@@ -11,6 +11,7 @@ namespace BusinessLayer
 {
     public class Functions_HyHy2
     {
+
         public static int demSoNgayLamViecTrongThang(int thang, int nam)
         {
             int dem = 0;

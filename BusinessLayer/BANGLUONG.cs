@@ -17,7 +17,7 @@ namespace BusinessLayer
         {
             this.UserId = 2;
         }
-        
+
         public BANGLUONG(int userId)
         {
             this.UserId = userId;

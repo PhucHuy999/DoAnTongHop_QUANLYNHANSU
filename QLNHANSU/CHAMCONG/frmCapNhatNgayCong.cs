@@ -30,8 +30,8 @@ namespace QLNHANSU.CHAMCONG
         frmBangCongChiTiet frmBCCT = (frmBangCongChiTiet) Application.OpenForms["frmBangCongChiTiet"];
         private void frmCapNhatNgayCong_Load(object sender, EventArgs e)
         {
-            _kcct = new KYCONGCHITIET();
-            _bcnvct = new BANGCONG_NHANVIEN_CHITIET();
+            _kcct = new KYCONGCHITIET(Program.UserId);
+            _bcnvct = new BANGCONG_NHANVIEN_CHITIET(Program.UserId);
             lblID.Text = _manv.ToString();
             lblHoTen.Text = _hoten;
             //bắt được ngày tháng năm khi click trên lưới
@@ -83,9 +83,8 @@ namespace QLNHANSU.CHAMCONG
                         bcnvct.CONGNGAYLE = 0;
                         bcnvct.CONGCHUNHAT = 0;
                         bcnvct.XINNGHIVIECRIENG = 0;
-                        //kcct.NGAYPHEP = tongngayphep + 1;
-                        //kcct.TONGNGAYCONG = tongngaycong - 1;
-
+                        //kcct.NGAYPHEP = tongngayphep + 0.5;
+                        //kcct.TONGNGAYCONG = tongngaycong - 0.5;
                     }
                     else
                     {
@@ -231,7 +230,7 @@ namespace QLNHANSU.CHAMCONG
                 default:
                     break;
             }
-            //Update tb_BANGCONG_NHANVIEN_CHITIET (ky hiệu và ngày công ngày phép)
+            //CẬP NHẬT tb_BANGCONG_NHANVIEN_CHITIET (ky hiệu và ngày công ngày phép)
             _bcnvct.Update(bcnvct);
 
             //Tính lại tổng các ngày: phép, công, vắng....

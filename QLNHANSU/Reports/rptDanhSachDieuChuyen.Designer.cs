@@ -116,14 +116,14 @@
             this.lblsoqd.Multiline = true;
             this.lblsoqd.Name = "lblsoqd";
             this.lblsoqd.Text = "SOQĐ";
-            this.lblsoqd.Weight = 0.506578907213713D;
+            this.lblsoqd.Weight = 0.4842104058516653D;
             // 
             // lblnhanvien
             // 
             this.lblnhanvien.Multiline = true;
             this.lblnhanvien.Name = "lblnhanvien";
             this.lblnhanvien.Text = "NHÂN VIÊN";
-            this.lblnhanvien.Weight = 1.4824564482036391D;
+            this.lblnhanvien.Weight = 1.5048249495656867D;
             // 
             // lblngay
             // 
@@ -234,14 +234,14 @@
             this.xrTableCell1.Multiline = true;
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Text = "SOQĐ";
-            this.xrTableCell1.Weight = 0.506578907213713D;
+            this.xrTableCell1.Weight = 0.48421052631578954D;
             // 
             // xrTableCell2
             // 
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Text = "NHÂN VIÊN";
-            this.xrTableCell2.Weight = 1.4824561269659746D;
+            this.xrTableCell2.Weight = 1.5048245078638982D;
             // 
             // xrTableCell3
             // 
